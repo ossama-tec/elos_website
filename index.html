@@ -3,263 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ELOS Accounting System — نظام محاسبي متكامل لمحلات الموبايلات. مبيعات، مخزون، صيانة، تقارير، وتطبيق موبايل.">
-  <meta name="keywords" content="نظام محاسبي, محلات موبايلات, نقطة بيع, مخزون, صيانة, ELOS">
-  <title>ELOS Accounting System — نظام محاسبي متكامل لمحلات الموبايلات</title>
+  <meta name="description" content="نظام ELOS V3 المحاسبي المتكامل لمحلات الموبايلات — بيع، مخزون، صيانة، تقارير، وتطبيق موبايل. جرب مجاناً 14 يوم.">
+  <meta name="keywords" content="نظام محاسبي, محلات موبايلات, نقطة بيع, POS, مخزون, صيانة, ELOS, برنامج محاسبة, إدارة محل موبايلات">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ELOS V3 — نظام محاسبي متكامل لمحلات الموبايلات">
+  <meta property="og:description" content="بيع أجهزة وإكسسوارات وقطع غيار + صيانة + مخازن + تقارير + تطبيق موبايل — كل ده في نظام واحد.">
+  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:type" content="website">
+
+  <title>ELOS V3 — نظام محاسبي متكامل لمحلات الموبايلات</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Mobile Overlay -->
   <div class="mobile-overlay"></div>
+
+  <!-- ══════════════════════════════════════
+       FLOATING WHATSAPP
+       ══════════════════════════════════════ -->
+  <a href="https://wa.me/201031372078?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%86%D8%B8%D8%A7%D9%85%20ELOS" target="_blank" class="whatsapp-float" aria-label="تواصل واتساب">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <!-- ══════════════════════════════════════
        NAVIGATION
        ══════════════════════════════════════ -->
   <nav class="navbar">
     <div class="container">
-      <a href="#" class="nav-logo">ELOS <span>V2.1</span></a>
+      <a href="#" class="nav-logo">
+        <img src="assets/favicon.png" alt="ELOS" class="nav-logo-icon">
+        ELOS <span>V3</span>
+      </a>
       <ul class="nav-links">
+        <li><a href="#problems">لماذا ELOS</a></li>
         <li><a href="#features">المميزات</a></li>
         <li><a href="#pricing">الباقات</a></li>
-        <li><a href="#how-it-works">طريقة الاستخدام</a></li>
         <li><a href="#download">التحميل</a></li>
+        <li><a href="#faq">أسئلة شائعة</a></li>
       </ul>
+      <a href="#download" class="btn btn-primary btn-sm nav-cta">جرب مجاناً</a>
       <button class="menu-toggle" aria-label="القائمة">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- ══════════════════════════════════════
-       HERO SECTION
+       HERO
        ══════════════════════════════════════ -->
   <section class="hero">
     <div class="container">
-      <span class="hero-version fade-up">الإصدار V2.1 — نظام محاسبي متكامل لمحلات الموبايلات</span>
-      <h1 class="fade-up">نظام ELOS المحاسبي</h1>
-      <p class="subtitle fade-up">الحل المتكامل لإدارة محلات الموبايلات — مبيعات، مخزون، صيانة، تقارير</p>
+      <span class="hero-version fade-up">الإصدار V3 — جديد بالكامل</span>
+      <h1 class="fade-up">محلّك في إيدك<br>من البيع للصيانة للتقارير</h1>
+      <p class="subtitle fade-up">نظام ELOS V3 المحاسبي المتكامل لمحلات الموبايلات. بيع أجهزة، إكسسوارات، قطع غيار، صيانة، مخازن، وتطبيق موبايل — كل ده في نظام واحد.</p>
       <div class="hero-buttons fade-up">
-        <a href="#download" class="btn btn-primary btn-lg">📥 تحميل البرنامج مجاناً</a>
-        <a href="#mobile-app" class="btn btn-secondary btn-lg">📱 تحميل تطبيق الموبايل</a>
+        <a href="#download" class="btn btn-primary btn-lg">جرب مجاناً 14 يوم</a>
+        <a href="https://wa.me/201031372078" target="_blank" class="btn btn-secondary btn-lg">تواصل معنا</a>
       </div>
       <div class="stats-bar fade-up">
-        <div class="stat-item">
-          <span class="stat-value">40+</span>
-          <span class="stat-label">جدول بيانات</span>
+        <div class="stat-item"><span class="stat-value">50+</span><span class="stat-label">جدول بيانات</span></div>
+        <div class="stat-item"><span class="stat-value">20+</span><span class="stat-label">شاشة موبايل</span></div>
+        <div class="stat-item"><span class="stat-value">12</span><span class="stat-label">قسم متكامل</span></div>
+        <div class="stat-item"><span class="stat-value">100%</span><span class="stat-label">عربي بالكامل</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PAIN POINTS
+       ══════════════════════════════════════ -->
+  <section class="problems" id="problems">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">المشكلة</span>
+        <h2>لو ده حالك... ELOS هيغيّر كل حاجة</h2>
+      </div>
+      <div class="problems-grid stagger-children">
+        <div class="problem-card fade-up">
+          <span class="problem-icon">💸</span>
+          <h3>فلوسك ضايعة</h3>
+          <p>مش عارف ربحك الحقيقي من كل جهاز. والحسابات بتاعتك في ورق أو في دماغك.</p>
         </div>
-        <div class="stat-item">
-          <span class="stat-value">20+</span>
-          <span class="stat-label">شاشة موبايل</span>
+        <div class="problem-card fade-up">
+          <span class="problem-icon">📦</span>
+          <h3>المخزون مش واضح</h3>
+          <p>أجهزة ضايعة، كميات إكسسوارات غلط، ومش عارف عندك إيه بالظبط.</p>
         </div>
-        <div class="stat-item">
-          <span class="stat-value">3</span>
-          <span class="stat-label">باقات</span>
+        <div class="problem-card fade-up">
+          <span class="problem-icon">🔧</span>
+          <h3>الصيانة بتتوه</h3>
+          <p>تذاكر صيانة ضايعة، عملاء بيتصلوا يسألوا عن أجهزتهم، وإنت مش فاكر.</p>
         </div>
-        <div class="stat-item">
-          <span class="stat-value">100%</span>
-          <span class="stat-label">دعم عربي كامل</span>
+        <div class="problem-card fade-up">
+          <span class="problem-icon">😰</span>
+          <h3>بتفقد السيطرة</h3>
+          <p>لما مش موجود في المحل مش عارف إيه بيحصل. مبيعات، مصاريف، كاشير — كله في الضلمة.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════
-       FEATURES SECTION
+       FEATURES
        ══════════════════════════════════════ -->
   <section class="features" id="features">
     <div class="container">
       <div class="section-header fade-up">
         <span class="section-badge">المميزات</span>
         <h2>كل ما تحتاجه في مكان واحد</h2>
-        <p>نظام متكامل يغطي جميع احتياجات محل الموبايلات من البيع للصيانة للتقارير</p>
+        <p>12 قسم متكامل يغطي كل احتياجات محل الموبايلات</p>
       </div>
+
+      <!-- Feature Detail Blocks -->
+      <div class="feature-detail fade-up">
+        <div class="feature-detail-text">
+          <span class="feature-tag">نقطة البيع</span>
+          <h3>بيع كل حاجة من شاشة واحدة</h3>
+          <ul class="feature-list">
+            <li>بيع أجهزة بـ IMEI + إكسسوارات + قطع غيار</li>
+            <li>دفع كاش، محفظة، تحويل بنكي، تقسيط، آجل، أو تقسيم</li>
+            <li>باركود سكانر للبيع السريع</li>
+            <li>درج كاش مستقل لكل موظف</li>
+            <li>مرتجعات وإلغاء فوري</li>
+          </ul>
+        </div>
+        <div class="feature-detail-icon">💰</div>
+      </div>
+
+      <div class="feature-detail reverse fade-up">
+        <div class="feature-detail-text">
+          <span class="feature-tag">إدارة الصيانة</span>
+          <h3>من الاستلام للتسليم — كل خطوة متتبعة</h3>
+          <ul class="feature-list">
+            <li>7 مراحل: مستلم ← فحص ← موافقة ← إصلاح ← جاهز ← تسليم</li>
+            <li>قطع غيار محجوزة لكل تذكرة مع تكلفة دقيقة</li>
+            <li>تسجيل خسائر القطع التالفة + استرداد للعميل</li>
+            <li>تقفيل يومية صيانة مستقل بتفاصيل كاملة</li>
+            <li>إشعار العميل بالحالة عبر واتساب</li>
+          </ul>
+        </div>
+        <div class="feature-detail-icon">🔧</div>
+      </div>
+
+      <div class="feature-detail fade-up">
+        <div class="feature-detail-text">
+          <span class="feature-tag">المخازن والمخزون</span>
+          <h3>اعرف عندك إيه بالظبط — في أي مخزن</h3>
+          <ul class="feature-list">
+            <li>مخازن متعددة (رئيسي + فرعي + تخزين)</li>
+            <li>3 أقسام: أجهزة + إكسسوارات + قطع غيار</li>
+            <li>كل جهاز بـ IMEI فريد وتتبع من الشراء للبيع</li>
+            <li>تنبيهات نقص المخزون تلقائية</li>
+            <li>نقل بين المخازن</li>
+          </ul>
+        </div>
+        <div class="feature-detail-icon">📦</div>
+      </div>
+
+      <div class="feature-detail reverse fade-up">
+        <div class="feature-detail-text">
+          <span class="feature-tag">الحسابات والخزينة</span>
+          <h3>كل جنيه متتبع — مفيش حاجة بتضيع</h3>
+          <ul class="feature-list">
+            <li>درج كاش + محافظ إلكترونية + حسابات بنكية</li>
+            <li>تقفيل يومي تلقائي من الدرج للخزينة</li>
+            <li>كشف حساب تفصيلي لكل عميل ومورد</li>
+            <li>بيع آجل وتقسيط مع تتبع المديونيات</li>
+            <li>تقارير أرباح وخسائر يومي/شهري/سنوي</li>
+          </ul>
+        </div>
+        <div class="feature-detail-icon">💼</div>
+      </div>
+
+      <!-- Quick Features Grid -->
       <div class="features-grid stagger-children">
-
-        <div class="feature-card fade-up">
-          <span class="feature-icon">💰</span>
-          <h3>نقطة البيع (POS)</h3>
-          <p>واجهة بيع سريعة مع دعم الباركود والدفع المتعدد</p>
-        </div>
-
-        <div class="feature-card fade-up">
-          <span class="feature-icon">📱</span>
-          <h3>إدارة الأجهزة</h3>
-          <p>تتبع كل جهاز بـ IMEI والحالة والسعر والمخزن</p>
-        </div>
-
-        <div class="feature-card fade-up">
-          <span class="feature-icon">🎧</span>
-          <h3>إدارة الإكسسوارات</h3>
-          <p>مخزون إكسسوارات مع تتبع الكميات والحد الأدنى</p>
-        </div>
-
-        <div class="feature-card fade-up">
-          <span class="feature-icon">🔧</span>
-          <h3>إدارة الصيانة</h3>
-          <p>تذاكر إصلاح متكاملة مع تتبع الحالة والفني والقطع</p>
-        </div>
-
         <div class="feature-card fade-up">
           <span class="feature-icon">👥</span>
           <h3>العملاء والموردين</h3>
-          <p>إدارة حسابات العملاء والموردين مع كشف الحساب</p>
+          <p>كشف حساب تفصيلي مع تحصيلات وسداد ديون</p>
         </div>
-
-        <div class="feature-card fade-up">
-          <span class="feature-icon">💼</span>
-          <h3>الحسابات والخزينة</h3>
-          <p>خزينة ودرج كاش مع تتبع كل حركة مالية</p>
-        </div>
-
         <div class="feature-card fade-up">
           <span class="feature-icon">📊</span>
           <h3>التقارير</h3>
-          <p>تقارير مفصلة للمبيعات والمشتريات والأرباح</p>
+          <p>أرباح، مبيعات، مخزون، موظفين — كل رقم في مكانه</p>
         </div>
-
         <div class="feature-card fade-up">
           <span class="feature-icon">👨‍💼</span>
           <h3>إدارة الموظفين</h3>
-          <p>حضور وانصراف ورواتب وصلاحيات</p>
+          <p>حضور وانصراف، رواتب، صلاحيات، وأداء كل موظف</p>
         </div>
-
-        <div class="feature-card fade-up">
-          <span class="feature-icon">🏪</span>
-          <h3>مخازن متعددة</h3>
-          <p>دعم عدة مخازن (أجهزة، إكسسوارات، قطع غيار)</p>
-        </div>
-
-        <div class="feature-card fade-up">
-          <span class="feature-icon">📲</span>
-          <h3>تطبيق موبايل</h3>
-          <p>تابع محلك من موبايلك مع مزامنة تلقائية</p>
-        </div>
-
         <div class="feature-card fade-up">
           <span class="feature-icon">🔒</span>
           <h3>أمان متقدم</h3>
-          <p>تشفير AES-256 وصلاحيات متعددة المستويات</p>
+          <p>تشفير AES-256 وصلاحيات متعددة المستويات وسجل مراجعة</p>
         </div>
-
         <div class="feature-card fade-up">
           <span class="feature-icon">🌐</span>
-          <h3>شبكة متعددة</h3>
-          <p>ربط عدة أجهزة على نفس الشبكة</p>
+          <h3>شبكة أجهزة</h3>
+          <p>ربط عدة أجهزة كمبيوتر على نفس الشبكة المحلية</p>
         </div>
-
+        <div class="feature-card fade-up">
+          <span class="feature-icon">🖨️</span>
+          <h3>طباعة وباركود</h3>
+          <p>طباعة فواتير وباركود وتقارير مباشرة</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════
-       PRICING SECTION
-       ══════════════════════════════════════ -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-badge">الباقات</span>
-        <h2>اختر الباقة المناسبة</h2>
-        <p>باقات مرنة تناسب جميع أحجام المحلات</p>
-      </div>
-      <div class="pricing-grid">
-
-        <!-- Basic -->
-        <div class="pricing-card fade-up">
-          <h3>أساسي</h3>
-          <div class="pricing-users">2 مستخدمين</div>
-          <ul class="pricing-features">
-            <li>نقطة البيع (POS)</li>
-            <li>إدارة المخزون</li>
-            <li>المبيعات والفواتير</li>
-            <li>إدارة العملاء</li>
-          </ul>
-          <a href="#download" class="btn btn-secondary">ابدأ مجاناً</a>
-        </div>
-
-        <!-- Pro (Highlighted) -->
-        <div class="pricing-card highlighted fade-up">
-          <span class="pricing-badge">الأكثر طلباً</span>
-          <h3>احترافي</h3>
-          <div class="pricing-users">5 مستخدمين</div>
-          <ul class="pricing-features">
-            <li>كل مميزات الأساسي</li>
-            <li>التقارير المتقدمة</li>
-            <li>إدارة الموردين</li>
-            <li>المشتريات والمصاريف</li>
-            <li>إدارة الصيانة</li>
-            <li>تطبيق الموبايل</li>
-          </ul>
-          <a href="#download" class="btn btn-primary">اختر الاحترافي</a>
-        </div>
-
-        <!-- Enterprise -->
-        <div class="pricing-card fade-up">
-          <h3>مؤسسي</h3>
-          <div class="pricing-users">999 مستخدم</div>
-          <ul class="pricing-features">
-            <li>جميع المميزات بلا حدود</li>
-            <li>مخازن متعددة</li>
-            <li>شبكة أجهزة متعددة</li>
-            <li>صلاحيات متقدمة</li>
-            <li>دعم فني أولوية</li>
-            <li>تحديثات مجانية</li>
-          </ul>
-          <a href="mailto:support@elos-system.com" class="btn btn-purple">تواصل معنا</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       HOW IT WORKS SECTION
-       ══════════════════════════════════════ -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-badge">طريقة الاستخدام</span>
-        <h2>ابدأ في 4 خطوات بسيطة</h2>
-        <p>من التحميل للبيع في دقائق معدودة</p>
-      </div>
-      <div class="steps-grid">
-
-        <div class="step-card fade-up">
-          <div class="step-number">1</div>
-          <span class="step-icon">📥</span>
-          <h3>حمّل البرنامج</h3>
-          <p>حمّل ملف التثبيت وثبّته على جهازك</p>
-        </div>
-
-        <div class="step-card fade-up">
-          <div class="step-number">2</div>
-          <span class="step-icon">⚙️</span>
-          <h3>أدخل بيانات المحل</h3>
-          <p>اتبع معالج الإعداد لإدخال اسم المحل والإعدادات</p>
-        </div>
-
-        <div class="step-card fade-up">
-          <div class="step-number">3</div>
-          <span class="step-icon">📦</span>
-          <h3>أضف منتجاتك</h3>
-          <p>أضف الأجهزة والإكسسوارات وابدأ البيع</p>
-        </div>
-
-        <div class="step-card fade-up">
-          <div class="step-number">4</div>
-          <span class="step-icon">📱</span>
-          <h3>ربط الموبايل</h3>
-          <p>حمّل تطبيق الموبايل وامسح QR Code للربط التلقائي</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       MOBILE APP SECTION
+       MOBILE APP
        ══════════════════════════════════════ -->
   <section class="mobile-app" id="mobile-app">
     <div class="container">
@@ -267,48 +222,30 @@
         <div class="mobile-app-text">
           <span class="section-badge fade-up">تطبيق الموبايل</span>
           <h2 class="fade-up">تابع محلك من أي مكان</h2>
-          <p class="fade-up">تطبيق موبايل متكامل يتزامن تلقائياً مع النظام الرئيسي. تابع المبيعات والمخزون والصيانة من هاتفك أينما كنت.</p>
+          <p class="fade-up">تطبيق موبايل متكامل يتزامن تلقائياً مع النظام. كل حاجة بتحصل في المحل — بتظهر عندك على الموبايل في ثانية.</p>
           <ul class="app-features-list fade-up">
             <li><span class="check-icon">✓</span> مبيعات الأجهزة والإكسسوارات وقطع الغيار</li>
             <li><span class="check-icon">✓</span> مخزون مفصل بـ 3 أقسام</li>
             <li><span class="check-icon">✓</span> تذاكر الصيانة والإصلاحات</li>
-            <li><span class="check-icon">✓</span> العملاء والموردين</li>
-            <li><span class="check-icon">✓</span> الخزينة والدرج</li>
+            <li><span class="check-icon">✓</span> العملاء والموردين وكشوف الحساب</li>
+            <li><span class="check-icon">✓</span> الخزينة والدرج والمحافظ</li>
             <li><span class="check-icon">✓</span> إشعارات فورية عند كل عملية</li>
-            <li><span class="check-icon">✓</span> ربط تلقائي عبر QR Code</li>
+            <li><span class="check-icon">✓</span> ربط تلقائي عبر QR Code في ثانية</li>
           </ul>
-          <a href="#download" class="btn btn-green btn-lg fade-up">📱 تحميل تطبيق الموبايل</a>
+          <a href="#download" class="btn btn-green btn-lg fade-up">📱 حمّل تطبيق الموبايل</a>
         </div>
         <div class="mobile-app-visual fade-up">
           <div class="phone-mockup">
             <div class="phone-screen">
-              <div class="phone-logo">ELOS</div>
-              <div class="phone-label">ACC Mobile</div>
+              <img src="assets/logo.png" alt="ELOS" class="phone-logo-img">
+              <div class="phone-label">ELOS Mobile</div>
               <div class="phone-screen-grid">
-                <div class="phone-screen-item">
-                  <span class="item-icon">📱</span>
-                  الأجهزة
-                </div>
-                <div class="phone-screen-item">
-                  <span class="item-icon">🎧</span>
-                  الإكسسوارات
-                </div>
-                <div class="phone-screen-item">
-                  <span class="item-icon">🔧</span>
-                  الصيانة
-                </div>
-                <div class="phone-screen-item">
-                  <span class="item-icon">👥</span>
-                  العملاء
-                </div>
-                <div class="phone-screen-item">
-                  <span class="item-icon">💼</span>
-                  الخزينة
-                </div>
-                <div class="phone-screen-item">
-                  <span class="item-icon">📊</span>
-                  التقارير
-                </div>
+                <div class="phone-screen-item"><span class="item-icon">📱</span>الأجهزة</div>
+                <div class="phone-screen-item"><span class="item-icon">🎧</span>الإكسسوارات</div>
+                <div class="phone-screen-item"><span class="item-icon">🔧</span>الصيانة</div>
+                <div class="phone-screen-item"><span class="item-icon">👥</span>العملاء</div>
+                <div class="phone-screen-item"><span class="item-icon">💼</span>الخزينة</div>
+                <div class="phone-screen-item"><span class="item-icon">📊</span>التقارير</div>
               </div>
             </div>
           </div>
@@ -318,41 +255,196 @@
   </section>
 
   <!-- ══════════════════════════════════════
-       DOWNLOAD SECTION
+       PRICING
+       ══════════════════════════════════════ -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">الباقات</span>
+        <h2>اختر الباقة المناسبة لمحلك</h2>
+        <p>ابدأ مجاناً — وادفع بس لما تتأكد إن النظام مناسبك</p>
+      </div>
+      <div class="pricing-grid">
+
+        <!-- Free Trial -->
+        <div class="pricing-card fade-up">
+          <h3>تجربة مجانية</h3>
+          <div class="pricing-price">مجاناً</div>
+          <div class="pricing-duration">14 يوم</div>
+          <ul class="pricing-features">
+            <li class="included">كل المميزات بدون استثناء</li>
+            <li class="included">تطبيق الموبايل (14 يوم)</li>
+            <li class="included">نقطة البيع + المخزون</li>
+            <li class="included">الصيانة + التقارير</li>
+            <li class="included">دعم واتساب</li>
+          </ul>
+          <a href="#download" class="btn btn-secondary">جرب مجاناً الآن</a>
+        </div>
+
+        <!-- Annual (Highlighted) -->
+        <div class="pricing-card highlighted fade-up">
+          <span class="pricing-badge">الأكثر طلباً</span>
+          <h3>اشتراك سنوي</h3>
+          <div class="pricing-price">
+            <span class="old-price">3,200 ج.م</span>
+            2,600 ج.م<span class="price-period">/سنة</span>
+          </div>
+          <div class="pricing-save">وفّر 600 ج.م</div>
+          <ul class="pricing-features">
+            <li class="included">كل المميزات بدون استثناء</li>
+            <li class="included">تطبيق الموبايل (سنة كاملة)</li>
+            <li class="included">ترخيص موبايل مدمج</li>
+            <li class="included">تحديثات مجانية طوال السنة</li>
+            <li class="included">دعم فني بأولوية</li>
+          </ul>
+          <a href="https://wa.me/201031372078?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B4%D8%AA%D8%B1%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%B3%D9%86%D9%88%D9%8A%D8%A9" target="_blank" class="btn btn-primary">اشترك الآن</a>
+        </div>
+
+        <!-- Lifetime -->
+        <div class="pricing-card fade-up">
+          <h3>مدى الحياة</h3>
+          <div class="pricing-price">
+            <span class="old-price">5,000 ج.م</span>
+            4,000 ج.م<span class="price-period"> مرة واحدة</span>
+          </div>
+          <div class="pricing-save">وفّر 1,000 ج.م</div>
+          <ul class="pricing-features">
+            <li class="included">كل المميزات للأبد</li>
+            <li class="included">تحديثات مجانية مدى الحياة</li>
+            <li class="included">تطبيق موبايل (14 يوم تجربة)</li>
+            <li class="note">ترخيص الموبايل سنوي منفصل</li>
+            <li class="included">دعم فني بأولوية</li>
+          </ul>
+          <a href="https://wa.me/201031372078?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A8%D8%A7%D9%82%D8%A9%20%D9%85%D8%AF%D9%89%20%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%A9" target="_blank" class="btn btn-purple">اشتري مدى الحياة</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       HOW IT WORKS
+       ══════════════════════════════════════ -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">ابدأ الآن</span>
+        <h2>4 خطوات وتبدأ تبيع</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card fade-up">
+          <div class="step-number">1</div>
+          <span class="step-icon">📥</span>
+          <h3>حمّل البرنامج</h3>
+          <p>حمّل ملف التثبيت مجاناً وثبّته على جهازك</p>
+        </div>
+        <div class="step-card fade-up">
+          <div class="step-number">2</div>
+          <span class="step-icon">⚙️</span>
+          <h3>أدخل بيانات محلك</h3>
+          <p>اسم المحل، العنوان، والإعدادات الأساسية</p>
+        </div>
+        <div class="step-card fade-up">
+          <div class="step-number">3</div>
+          <span class="step-icon">📦</span>
+          <h3>أضف منتجاتك</h3>
+          <p>أجهزة، إكسسوارات، قطع غيار — وابدأ البيع</p>
+        </div>
+        <div class="step-card fade-up">
+          <div class="step-number">4</div>
+          <span class="step-icon">📱</span>
+          <h3>اربط موبايلك</h3>
+          <p>امسح QR Code وتابع محلك من أي مكان</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       DOWNLOAD
        ══════════════════════════════════════ -->
   <section class="download" id="download">
     <div class="container">
       <div class="section-header fade-up">
         <span class="section-badge">التحميل</span>
         <h2>حمّل الآن وابدأ مجاناً</h2>
-        <p>متاح لأنظمة Windows وأجهزة Android</p>
+        <p>14 يوم تجربة مجانية بكل المميزات — بدون بطاقة ائتمان</p>
       </div>
       <div class="download-grid">
-
-        <!-- Desktop -->
         <div class="download-card fade-up">
           <span class="download-icon">🖥️</span>
           <h3>نسخة الكمبيوتر</h3>
-          <div class="download-version">ELOS Accounting V2.1</div>
+          <div class="download-version">ELOS Accounting V3</div>
           <div class="download-meta">
-            <span>📦 الحجم: 83 ميجا</span>
-            <span>💻 المتطلبات: Windows 10/11</span>
+            <span>📦 الحجم: 95 ميجا</span>
+            <span>💻 Windows 10/11</span>
           </div>
           <a href="#" class="btn btn-primary">⬇️ تحميل للكمبيوتر</a>
         </div>
-
-        <!-- Mobile -->
         <div class="download-card fade-up">
           <span class="download-icon">📱</span>
           <h3>تطبيق الموبايل</h3>
-          <div class="download-version">ELOS ACC Mobile V1.0</div>
+          <div class="download-version">ELOS Mobile V3</div>
           <div class="download-meta">
             <span>📦 الحجم: 67 ميجا</span>
-            <span>📱 المتطلبات: Android 6.0+</span>
+            <span>📱 Android 6.0+</span>
           </div>
           <a href="#" class="btn btn-green">⬇️ تحميل للموبايل</a>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ══════════════════════════════════════
+       FAQ
+       ══════════════════════════════════════ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">أسئلة شائعة</span>
+        <h2>عندك سؤال؟</h2>
+      </div>
+      <div class="faq-list fade-up">
+
+        <div class="faq-item">
+          <button class="faq-question">هل البرنامج بيشتغل بدون إنترنت؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>أيوا — النظام بيشتغل أوفلاين بالكامل. بياناتك محفوظة على جهازك. الإنترنت مطلوب بس لو عايز تربط تطبيق الموبايل.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">هل بياناتي آمنة؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>بياناتك مشفرة بتشفير AES-256 ومحفوظة محلياً على جهازك. محدش يقدر يوصلها غيرك. وكل عملية متسجلة في سجل مراجعة.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">أقدر أستخدم البرنامج على أكتر من جهاز؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>أيوا — تقدر تربط عدة أجهزة كمبيوتر على نفس الشبكة المحلية. وكمان تربط حتى 3 موبايلات على نفس الحساب.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">إيه الفرق بين الباقة السنوية ومدى الحياة؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>السنوية (2,600 ج.م/سنة) بتشمل كل حاجة + ترخيص الموبايل سنة كاملة. مدى الحياة (4,000 ج.م مرة واحدة) بتشمل كل حاجة للأبد بس ترخيص الموبايل سنوي منفصل.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">لو عندي مشكلة أتواصل إزاي؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>تقدر تتواصل معانا على واتساب <a href="https://wa.me/201031372078" target="_blank">01031372078</a> أو إيميل <a href="mailto:support@elos-system.com">support@elos-system.com</a> — وهنرد عليك في أسرع وقت.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FINAL CTA
+       ══════════════════════════════════════ -->
+  <section class="final-cta">
+    <div class="container fade-up">
+      <h2>جاهز تدير محلك باحترافية؟</h2>
+      <p>حمّل ELOS V3 دلوقتي وابدأ تجربتك المجانية — 14 يوم بكل المميزات.</p>
+      <div class="hero-buttons">
+        <a href="#download" class="btn btn-primary btn-lg">📥 حمّل مجاناً الآن</a>
+        <a href="https://wa.me/201031372078" target="_blank" class="btn btn-whatsapp btn-lg">💬 كلمنا على واتساب</a>
       </div>
     </div>
   </section>
@@ -363,32 +455,29 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-
         <div class="footer-brand">
-          <div class="footer-logo">ELOS</div>
-          <p>نظام محاسبي متكامل لإدارة محلات الموبايلات. يشمل نقطة البيع، إدارة المخزون، الصيانة، التقارير، وتطبيق موبايل للمتابعة من أي مكان.</p>
+          <div class="footer-logo">
+            <img src="assets/favicon.png" alt="ELOS" class="footer-logo-icon">
+            ELOS V3
+          </div>
+          <p>نظام محاسبي متكامل لإدارة محلات الموبايلات. نقطة بيع، مخزون، صيانة، تقارير، وتطبيق موبايل.</p>
         </div>
-
         <div class="footer-col">
           <h4>روابط سريعة</h4>
           <ul>
             <li><a href="#features">المميزات</a></li>
             <li><a href="#pricing">الباقات</a></li>
-            <li><a href="#how-it-works">طريقة الاستخدام</a></li>
             <li><a href="#download">التحميل</a></li>
+            <li><a href="#faq">أسئلة شائعة</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>تواصل معنا</h4>
           <ul class="footer-contact">
-            <li>
-              <span class="contact-icon">📧</span>
-              <a href="mailto:support@elos-system.com">support@elos-system.com</a>
-            </li>
+            <li><span class="contact-icon">💬</span><a href="https://wa.me/201031372078" target="_blank">01031372078</a></li>
+            <li><span class="contact-icon">📧</span><a href="mailto:support@elos-system.com">support@elos-system.com</a></li>
           </ul>
         </div>
-
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 ELOS Development Team. جميع الحقوق محفوظة.</p>

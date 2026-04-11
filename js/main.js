@@ -103,6 +103,24 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', highlightActiveSection, { passive: true });
   highlightActiveSection();
 
+  // ── FAQ Accordion ──
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isActive = item.classList.contains('active');
+
+      // Close all others
+      document.querySelectorAll('.faq-item.active').forEach(openItem => {
+        openItem.classList.remove('active');
+      });
+
+      // Toggle clicked
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+
   // ── Fade-In Animation on Scroll (Intersection Observer) ──
   const fadeElements = document.querySelectorAll('.fade-up');
 
