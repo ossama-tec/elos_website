@@ -2269,17 +2269,21 @@ section {
 
 .lightbox-spinner {
   position: absolute;
-  width: 48px;
-  height: 48px;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.15);
+  border: 2.5px solid rgba(255, 255, 255, 0.20);
   border-top-color: var(--coral);
   animation: lb-spin 0.7s linear infinite;
   opacity: 0;
   transition: opacity 0.2s;
   pointer-events: none;
+  background: rgba(10, 24, 40, 0.5);
+  backdrop-filter: blur(4px);
 }
-.lightbox.loading .lightbox-spinner { opacity: 1; }
+.lightbox.loading .lightbox-spinner { opacity: 0.9; }
 
 @keyframes lb-spin {
   to { transform: rotate(360deg); }

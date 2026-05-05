@@ -195,48 +195,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── Lightbox (popup with original PNG) ──
+  // ── Lightbox (popup with original-quality image) ──
   const lightbox = document.querySelector('.lightbox');
   if (lightbox) {
     const lbImg     = lightbox.querySelector('img');
     const lbCaption = lightbox.querySelector('.lightbox-caption');
     const lbClose   = lightbox.querySelector('.lightbox-close');
     const lbStage   = lightbox.querySelector('.lightbox-stage');
+    let upgradeToken = 0;
 
-    function openLightbox(src, alt) {
-      lightbox.classList.add('loading');
-      lbImg.src = '';
-      lbImg.alt = alt || '';
-      lbCaption.textContent = alt || '';
+    function openLightbox(displayedSrc, originalSrc, alt) {
       lightbox.classList.add('open');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      lbImg.alt = alt || '';
+      lbCaption.textContent = alt || '';
 
-      // Load full-size PNG (original)
-      const tmp = new Image();
-      tmp.onload = () => {
-        lbImg.src = src;
-        lightbox.classList.remove('loading');
-      };
-      tmp.onerror = () => lightbox.classList.remove('loading');
-      tmp.src = src;
+      // 1. Show what's already cached (WebP rendered on page) — instant
+      lbImg.src = displayedSrc;
 
-      trackEvent('lightbox_open', { image: src.split('/').pop() });
+      // 2. If a higher-quality original exists, upgrade silently in background
+      const myToken = ++upgradeToken;
+      if (originalSrc && originalSrc !== displayedSrc) {
+        lightbox.classList.add('loading');
+        const tmp = new Image();
+        tmp.onload = () => {
+          // Only upgrade if user hasn't closed/changed image meanwhile
+          if (myToken === upgradeToken && lightbox.classList.contains('open')) {
+            lbImg.src = originalSrc;
+          }
+          lightbox.classList.remove('loading');
+        };
+        tmp.onerror = () => lightbox.classList.remove('loading');
+        tmp.src = originalSrc;
+      }
+
+      trackEvent('lightbox_open', { image: (displayedSrc.split('/').pop()) });
     }
 
     function closeLightbox() {
+      upgradeToken++;
       lightbox.classList.remove('open');
+      lightbox.classList.remove('loading');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      lbImg.src = '';
     }
 
     // Make every screenshot <picture> clickable
     document.querySelectorAll('picture').forEach(pic => {
       const img = pic.querySelector('img');
-      if (!img || !img.src.includes('screenshots/')) return;
+      if (!img) return;
+      const path = img.getAttribute('src') || '';
+      if (!path.includes('screenshots/')) return;
       pic.classList.add('zoomable');
-      pic.addEventListener('click', () => openLightbox(img.src, img.alt));
+      pic.addEventListener('click', () => {
+        // currentSrc = what's actually rendered (WebP if supported, else PNG)
+        // src        = always the PNG fallback (max quality)
+        const displayed = img.currentSrc || img.src;
+        openLightbox(displayed, img.src, img.alt);
+      });
     });
 
     // Close handlers
