@@ -195,6 +195,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── Lightbox (popup with original PNG) ──
+  const lightbox = document.querySelector('.lightbox');
+  if (lightbox) {
+    const lbImg     = lightbox.querySelector('img');
+    const lbCaption = lightbox.querySelector('.lightbox-caption');
+    const lbClose   = lightbox.querySelector('.lightbox-close');
+    const lbStage   = lightbox.querySelector('.lightbox-stage');
+
+    function openLightbox(src, alt) {
+      lightbox.classList.add('loading');
+      lbImg.src = '';
+      lbImg.alt = alt || '';
+      lbCaption.textContent = alt || '';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Load full-size PNG (original)
+      const tmp = new Image();
+      tmp.onload = () => {
+        lbImg.src = src;
+        lightbox.classList.remove('loading');
+      };
+      tmp.onerror = () => lightbox.classList.remove('loading');
+      tmp.src = src;
+
+      trackEvent('lightbox_open', { image: src.split('/').pop() });
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    // Make every screenshot <picture> clickable
+    document.querySelectorAll('picture').forEach(pic => {
+      const img = pic.querySelector('img');
+      if (!img || !img.src.includes('screenshots/')) return;
+      pic.classList.add('zoomable');
+      pic.addEventListener('click', () => openLightbox(img.src, img.alt));
+    });
+
+    // Close handlers
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lbStage) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+  }
+
   // ── Fade-In Animation on Scroll (Intersection Observer) ──
   const fadeElements = document.querySelectorAll('.fade-up');
 
