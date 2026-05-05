@@ -835,11 +835,14 @@ section {
 .app-features-list li {
   padding: 11px 0;
   font-size: 1rem;
-  color: var(--paper);
+  color: var(--ink-soft);
   display: flex;
   align-items: center;
   gap: 14px;
 }
+
+/* Light text only when this list lives inside the dark mobile-app section */
+.mobile-app .app-features-list li { color: var(--paper); }
 
 .app-features-list li .check-icon {
   width: 22px; height: 22px;
