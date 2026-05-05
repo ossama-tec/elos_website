@@ -1,0 +1,10 @@
+# Claude Code local state
+.claude/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

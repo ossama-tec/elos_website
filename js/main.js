@@ -121,6 +121,80 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── Conversion Event Tracking ──
+  function trackEvent(name, params = {}) {
+    if (typeof gtag === 'function') gtag('event', name, params);
+    if (typeof fbq === 'function') fbq('trackCustom', name, params);
+  }
+
+  // Track all elements with data-track attribute
+  document.querySelectorAll('[data-track]').forEach(el => {
+    el.addEventListener('click', () => {
+      const name = el.getAttribute('data-track');
+      const label = el.textContent.trim().slice(0, 60);
+      trackEvent(name, { label });
+    });
+  });
+
+  // Track WhatsApp clicks (any wa.me link)
+  document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent('whatsapp_click', { source: link.getAttribute('data-track') || 'inline' });
+      if (typeof fbq === 'function') fbq('track', 'Contact');
+    });
+  });
+
+  // Track download clicks
+  document.querySelectorAll('a[download]').forEach(link => {
+    link.addEventListener('click', () => {
+      const platform = link.href.includes('.apk') ? 'mobile' : 'desktop';
+      trackEvent('download', { platform });
+      if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'ELOS-' + platform });
+    });
+  });
+
+  // ── Lead Capture Form (Pre-Download) ──
+  const leadForms = document.querySelectorAll('form[data-lead-form]');
+  leadForms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const name = (formData.get('shop_name') || '').trim();
+      const phone = (formData.get('phone') || '').trim();
+      const platform = form.dataset.platform || 'desktop';
+
+      if (!name || !phone) return;
+
+      trackEvent('lead_submitted', { platform, has_name: !!name, has_phone: !!phone });
+      if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'ELOS-' + platform });
+
+      // Open WhatsApp with pre-filled message → founder gets the lead
+      const message = `مرحباً، اسمي/محلي: ${name}%0Aرقمي: ${phone}%0Aحابب أحمل ELOS ${platform === 'mobile' ? 'تطبيق الموبايل' : 'نسخة الكمبيوتر'} وأبدأ التجربة المجانية`;
+      const waUrl = `https://wa.me/201031372078?text=${message}`;
+      window.open(waUrl, '_blank');
+
+      // Trigger download after short delay
+      const downloadUrl = form.dataset.downloadUrl;
+      if (downloadUrl) {
+        setTimeout(() => {
+          const a = document.createElement('a');
+          a.href = downloadUrl;
+          a.download = '';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }, 800);
+      }
+
+      // Show confirmation
+      const successMsg = form.querySelector('.lead-success');
+      if (successMsg) {
+        form.querySelector('.lead-fields').style.display = 'none';
+        successMsg.style.display = 'block';
+      }
+    });
+  });
+
   // ── Fade-In Animation on Scroll (Intersection Observer) ──
   const fadeElements = document.querySelectorAll('.fade-up');
 
