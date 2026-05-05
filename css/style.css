@@ -65,6 +65,7 @@ body {
 a { text-decoration: none; color: inherit; transition: color var(--t); }
 ul { list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }
 
 ::selection { background: var(--coral); color: var(--ivory); }
 
