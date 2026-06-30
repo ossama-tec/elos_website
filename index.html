@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ELOS V3 — أقوى نظام لمحلات الموبايلات في مصر. بيع، مخزون، صيانة، تقارير، وتطبيق موبايل في نظام واحد. جرب مجاناً 14 يوم.">
+  <meta name="description" content="ELOS V3 — أقوى نظام لمحلات الموبايلات في مصر. بيع، مخزون، صيانة، تقارير، وتطبيق موبايل في نظام واحد. جرب مجاناً 7 أيام.">
   <meta name="keywords" content="نظام محاسبي, محلات موبايلات, نقطة بيع, POS, مخزون, صيانة, ELOS, برنامج محاسبة, إدارة محل موبايلات">
 
   <!-- Open Graph -->
@@ -45,6 +45,20 @@
 <body>
 
   <div class="mobile-overlay"></div>
+
+  <!-- ══════════════════════════════════════
+       V3.1 ANNOUNCEMENT BANNER
+       ══════════════════════════════════════ -->
+  <div class="announce-bar" id="announceBar">
+    <div class="container">
+      <a href="#download" class="announce-text" data-track="announce-download">
+        <span class="announce-tag">جديد</span>
+        وصل تحديث <strong>V3.1</strong><span class="announce-detail"> — تحويلات أموال، أقساط متطورة، تسعير جملة وقطاعي، فاتورة جديدة، وشكل أسرع</span>
+        <span class="announce-cta">حمّل التحديث ←</span>
+      </a>
+      <button class="announce-close" id="announceClose" aria-label="إغلاق الإعلان">✕</button>
+    </div>
+  </div>
 
   <!-- ══════════════════════════════════════
        FLOATING WHATSAPP
@@ -89,11 +103,12 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-text">
-          <span class="hero-version fade-up">الإصدار V3 — أحدث إصدار 2026</span>
+          <span class="hero-version fade-up">الإصدار V3.1 — أحدث تحديث 2026</span>
           <h1 class="fade-up">أقوى نظام لمحلات <span class="accent">الموبايلات</span> في مصر</h1>
           <p class="subtitle fade-up">محلّك في إيدك — من البيع للصيانة للتقارير. نظام محاسبي متكامل: أجهزة، إكسسوارات، قطع غيار، صيانة، مخازن، وتطبيق موبايل في مكان واحد.</p>
+          <p class="hero-whatsnew fade-up"><span class="hero-whatsnew-tag">جديد في V3.1</span> نظام تحويلات أموال متكامل، أقساط متطورة، تسعير جملة وقطاعي، شكل فاتورة جديد، وبرنامج أسرع وأخف</p>
           <div class="hero-buttons fade-up">
-            <a href="#download" class="btn btn-primary btn-lg" data-track="hero-cta-primary">جرب مجاناً 14 يوم</a>
+            <a href="#download" class="btn btn-primary btn-lg" data-track="hero-cta-primary">جرب مجاناً 7 أيام</a>
             <a href="https://wa.me/201031372078" target="_blank" class="btn btn-ghost btn-lg" data-track="hero-cta-whatsapp">تواصل معانا</a>
           </div>
           <div class="hero-trust fade-up">
@@ -300,6 +315,16 @@
           <h3>طباعة وباركود</h3>
           <p>طباعة فواتير وباركود وتقارير مباشرة</p>
         </div>
+        <div class="feature-card fade-up">
+          <span class="feature-icon">🧾</span>
+          <h3>نظام الأقساط</h3>
+          <p>بيع بالتقسيط مع حاسبة أقساط، جدول استحقاق، وفائدة سنوية وتتبع المديونية</p>
+        </div>
+        <div class="feature-card fade-up">
+          <span class="feature-icon">🔄</span>
+          <h3>التحويلات المالية</h3>
+          <p>حوّل بين الخزائن والمحافظ الإلكترونية مع تسجيل العمولة وكشف لكل محفظة</p>
+        </div>
       </div>
     </div>
   </section>
@@ -368,20 +393,20 @@
         </div>
         <div class="desktop-gallery-item fade-up">
           <div class="desktop-gallery-frame">
-            <picture><source media="(max-width: 768px)" srcset="assets/screenshots/desktop/desktop-spare-parts-m.webp" type="image/webp"><source srcset="assets/screenshots/desktop/desktop-spare-parts.webp" type="image/webp"><img width="1919" height="1024" loading="lazy" decoding="async" src="assets/screenshots/desktop/desktop-spare-parts.png" alt="شاشة قطع الغيار"></picture>
+            <picture><source media="(max-width: 768px)" srcset="assets/screenshots/desktop/desktop-reports-m.webp" type="image/webp"><source srcset="assets/screenshots/desktop/desktop-reports.webp" type="image/webp"><img width="1919" height="1029" loading="lazy" decoding="async" src="assets/screenshots/desktop/desktop-reports.png" alt="شاشة التقارير"></picture>
           </div>
           <div class="desktop-gallery-meta">
-            <h4>قطع الغيار</h4>
-            <p>إدارة كاملة لقطع الغيار مع التكلفة والكمية المتاحة</p>
+            <h4>التقارير</h4>
+            <p>تقرير يومي بالأرباح والمبيعات والمصروفات والصيانة في شاشة واحدة</p>
           </div>
         </div>
         <div class="desktop-gallery-item fade-up">
           <div class="desktop-gallery-frame">
-            <picture><source media="(max-width: 768px)" srcset="assets/screenshots/desktop/desktop-payment-m.webp" type="image/webp"><source srcset="assets/screenshots/desktop/desktop-payment.webp" type="image/webp"><img width="1019" height="857" loading="lazy" decoding="async" src="assets/screenshots/desktop/desktop-payment.png" alt="شاشة إتمام البيع"></picture>
+            <picture><source media="(max-width: 768px)" srcset="assets/screenshots/desktop/desktop-settings-m.webp" type="image/webp"><source srcset="assets/screenshots/desktop/desktop-settings.webp" type="image/webp"><img width="1919" height="1031" loading="lazy" decoding="async" src="assets/screenshots/desktop/desktop-settings.png" alt="شاشة الإعدادات الجديدة في V3.1"></picture>
           </div>
           <div class="desktop-gallery-meta">
-            <h4>إتمام البيع</h4>
-            <p>6 طرق دفع — كاش، محفظة، بنك، تقسيط، آجل، تقسيم</p>
+            <h4>الإعدادات <span class="gallery-new">جديد</span></h4>
+            <p>إعدادات بشكل جديد في V3.1 — شكل فاتورة جديد بقالبين ولغتين وتحكم كامل في الطباعة والحسابات</p>
           </div>
         </div>
         <div class="desktop-gallery-item fade-up">
@@ -660,7 +685,7 @@
               <td><span class="check-no">✗</span></td>
             </tr>
             <tr>
-              <td class="feat-col">تجربة مجانية ١٤ يوم بدون بطاقة ائتمان</td>
+              <td class="feat-col">تجربة مجانية ٧ أيام بدون بطاقة ائتمان</td>
               <td class="elos-col"><span class="check-yes">✓</span></td>
               <td><span class="check-partial">±</span></td>
               <td><span class="check-partial">±</span></td>
@@ -681,7 +706,7 @@
           <span><span class="check-no">✗</span> غير متوفر</span>
         </div>
         <div class="comparison-cta">
-          <a href="#download" class="btn btn-primary btn-lg" data-track="comparison-cta">جرب ELOS مجاناً ١٤ يوم</a>
+          <a href="#download" class="btn btn-primary btn-lg" data-track="comparison-cta">جرب ELOS مجاناً ٧ أيام</a>
           <small class="comparison-disclaimer">المقارنة بناءً على المعلومات المتاحة عن كل نظام في مايو ٢٠٢٦. كل شركة قد تطوّر مميزاتها — راجع الموقع الرسمي لكل برنامج للتأكد.</small>
         </div>
       </div>
@@ -704,10 +729,10 @@
         <div class="pricing-card fade-up">
           <h3>تجربة مجانية</h3>
           <div class="pricing-price">مجاناً</div>
-          <div class="pricing-duration">14 يوم</div>
+          <div class="pricing-duration">7 أيام</div>
           <ul class="pricing-features">
             <li>كل المميزات بدون استثناء</li>
-            <li>تطبيق الموبايل (14 يوم)</li>
+            <li>تطبيق الموبايل (7 أيام)</li>
             <li>نقطة البيع + المخزون</li>
             <li>الصيانة + التقارير</li>
             <li>دعم واتساب</li>
@@ -745,7 +770,7 @@
           <ul class="pricing-features">
             <li>كل المميزات للأبد</li>
             <li>تحديثات مجانية مدى الحياة</li>
-            <li>تطبيق موبايل (14 يوم تجربة)</li>
+            <li>تطبيق موبايل (7 أيام تجربة)</li>
             <li class="note">ترخيص الموبايل سنوي منفصل</li>
             <li>دعم فني بأولوية</li>
           </ul>
@@ -832,7 +857,7 @@
       <div class="section-header fade-up">
         <span class="section-badge">التحميل</span>
         <h2>حمّل الآن وابدأ مجاناً</h2>
-        <p>سجّل بياناتك، هنبعتلك التحميل على واتساب وهنساعدك في التركيب — ١٤ يوم تجربة بكل المميزات</p>
+        <p>سجّل بياناتك، هنبعتلك التحميل على واتساب وهنساعدك في التركيب — ٧ أيام تجربة بكل المميزات</p>
       </div>
       <div class="download-grid">
 
@@ -840,9 +865,20 @@
         <div class="download-card fade-up">
           <span class="download-icon">🖥️</span>
           <h3>نسخة الكمبيوتر</h3>
-          <div class="download-version">ELOS Accounting V3 · ٩٥ ميجا · Windows 10/11</div>
+          <div class="download-version">ELOS Accounting V3 · الإصدار 3.1.0 · ٩٥ ميجا · Windows 10/11</div>
+          <div class="download-changelog">
+            <span class="changelog-title">🆕 أهم الجديد في 3.1</span>
+            <ul>
+              <li>نظام تحويلات أموال متكامل</li>
+              <li>تسعير جملة وقطاعي لكل المنتجات</li>
+              <li>شكل فاتورة جديد (قالبين + لغتين)</li>
+              <li>نظام أقساط متطور بالكامل</li>
+              <li>صفحة مصروفات جديدة</li>
+              <li>شكل برنامج جديد وشريط تنقل أسرع</li>
+            </ul>
+          </div>
           <form data-lead-form data-platform="desktop"
-                data-download-url="https://github.com/ossama-tec/elos_website/releases/download/v3.0.0/ELOS-Accounting-V3-3.0.0-Setup.exe"
+                data-download-url="https://github.com/ossama-tec/elos_website/releases/download/v3.1.0/ELOS-Accounting-V3-3.1.0-Setup.exe"
                 class="lead-form">
             <div class="lead-fields">
               <input type="text" name="shop_name" placeholder="اسم محلك" required autocomplete="organization">
@@ -920,7 +956,7 @@
   <section class="final-cta">
     <div class="container fade-up">
       <h2>جاهز تدير محلك باحترافية؟</h2>
-      <p>حمّل ELOS V3 دلوقتي وابدأ تجربتك المجانية — 14 يوم بكل المميزات.</p>
+      <p>حمّل ELOS V3 دلوقتي وابدأ تجربتك المجانية — 7 أيام بكل المميزات.</p>
       <div class="hero-buttons">
         <a href="#download" class="btn btn-primary btn-lg">📥 حمّل مجاناً الآن</a>
         <a href="https://wa.me/201031372078" target="_blank" class="btn btn-secondary btn-lg">💬 كلمنا على واتساب</a>

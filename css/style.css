@@ -78,12 +78,164 @@ picture { display: contents; }
 /* ========================================
    NAVIGATION
    ======================================== */
-.navbar {
+/* ── V3.1 Announcement Bar ── */
+body { --announce-h: 42px; }
+body.announce-off { --announce-h: 0px; }
+
+.announce-bar {
   position: fixed;
   top: 0; right: 0; left: 0;
+  z-index: 1001;
+  background: linear-gradient(90deg, var(--coral-deep), var(--coral));
+  color: #fff;
+  transition: transform var(--t), opacity var(--t);
+}
+.announce-bar .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 42px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  position: relative;
+}
+.announce-text {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 10px;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.announce-text strong { font-weight: 800; }
+.announce-tag {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 1px 9px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.announce-cta {
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.7);
+  padding-bottom: 1px;
+  transition: border-color var(--t);
+}
+.announce-text:hover .announce-cta { border-color: #fff; }
+.announce-close {
+  position: absolute;
+  inset-inline-start: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 8px 10px;
+  transition: color var(--t);
+}
+.announce-close:hover { color: #fff; }
+body.announce-off .announce-bar {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Hero "what's new" line ── */
+.hero-whatsnew {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.hero-whatsnew-tag {
+  background: var(--coral-soft);
+  color: var(--coral-deep);
+  border-radius: 999px;
+  padding: 2px 11px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ── Gallery "new" pill ── */
+.gallery-new {
+  display: inline-block;
+  vertical-align: middle;
+  margin-inline-start: 6px;
+  background: var(--coral);
+  color: #fff;
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+/* ── Download changelog note ── */
+.download-changelog {
+  margin: -2px 0 10px;
+  padding: 11px 13px;
+  background: var(--coral-soft);
+  border-radius: var(--radius-sm);
+  text-align: start;
+}
+.download-changelog .changelog-title {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--coral-deep);
+  margin-bottom: 7px;
+}
+.download-changelog ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.download-changelog li {
+  position: relative;
+  padding-inline-start: 18px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.download-changelog li::before {
+  content: '✓';
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--coral);
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .announce-detail { display: none; }
+  .announce-text { font-size: 0.8rem; }
+  .announce-cta { font-size: 0.8rem; }
+  .announce-close { inset-inline-start: 0; padding: 8px; }
+}
+
+.navbar {
+  position: fixed;
+  top: var(--announce-h, 0px); right: 0; left: 0;
   z-index: 1000;
   padding: 18px 0;
-  transition: all var(--t);
+  transition: top var(--t), padding var(--t), background var(--t);
   background: transparent;
 }
 

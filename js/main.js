@@ -7,11 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Sticky Navbar ──
   const navbar = document.querySelector('.navbar');
 
+  // ── V3.1 Announcement Bar ──
+  const announceClose = document.getElementById('announceClose');
+  const ANNOUNCE_KEY = 'elos_announce_v31_dismissed';
+  let announceDismissed = false;
+  try { announceDismissed = localStorage.getItem(ANNOUNCE_KEY) === '1'; } catch (e) {}
+  if (announceDismissed) document.body.classList.add('announce-off');
+
+  if (announceClose) {
+    announceClose.addEventListener('click', () => {
+      announceDismissed = true;
+      document.body.classList.add('announce-off');
+      try { localStorage.setItem(ANNOUNCE_KEY, '1'); } catch (e) {}
+    });
+  }
+
   function handleNavbarScroll() {
     if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
+      document.body.classList.add('announce-off');
     } else {
       navbar.classList.remove('scrolled');
+      if (!announceDismissed) document.body.classList.remove('announce-off');
     }
   }
 
