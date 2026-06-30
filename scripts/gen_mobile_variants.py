@@ -3,8 +3,8 @@ from PIL import Image
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 configs = [
-    {"dir": "C:/elos_website/assets/screenshots/desktop", "max_w": 720},
-    {"dir": "C:/elos_website/assets/screenshots/mobile",  "max_w": 540},
+    {"dir": "C:/ELOS_Site/elos_website/assets/screenshots/desktop", "max_w": 720},
+    {"dir": "C:/ELOS_Site/elos_website/assets/screenshots/mobile",  "max_w": 540},
 ]
 
 total_before, total_after = 0, 0
