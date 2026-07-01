@@ -1,6 +1,6 @@
 {
-  "latest": "3.1.0",
+  "latest": "3.1.1",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://github.com/ossama-tec/elos-accounting/releases/download/v3.1.0/ELOS-Accounting-V3-3.1.0-Setup.exe",
-  "notes": "نظام تحويلات أموال متكامل، تسعير جملة وقطاعي، شكل فاتورة جديد (قالبين + لغتين)، نظام أقساط متطور، صفحة مصروفات جديدة، وشكل برنامج أسرع"
+  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v3.1.1/ELOS-Accounting-V3-3.1.1-Setup.zip",
+  "notes": "إصلاحات: عرض الأصول الثابتة داخل المخزن، خصم المصروف/التوريد من المحفظة المحددة فقط، طباعة ملصق استلام الصيانة، ربط سداد القروض بالقرض المحدد، وتوحيد مودال المصروف في الخزينة"
 }
