@@ -228,6 +228,34 @@ body.announce-off .announce-bar {
   .announce-close { inset-inline-start: 0; padding: 8px; }
 }
 
+/* ── Cookie notice ── */
+.cookie-notice {
+  position: fixed;
+  inset-inline: 16px;
+  bottom: 16px;
+  z-index: 1200;
+  max-width: 540px;
+  margin-inline: auto;
+  background: var(--ink);
+  color: var(--ivory);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 16px 44px rgba(10, 24, 40, 0.35);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.cookie-notice[hidden] { display: none; }
+.cookie-notice p { margin: 0; flex: 1; }
+.cookie-notice a { color: #fff; text-decoration: underline; }
+.cookie-notice .btn { flex: none; }
+@media (max-width: 560px) {
+  .cookie-notice { flex-direction: column; align-items: stretch; text-align: center; bottom: 12px; }
+  .cookie-notice .btn { width: 100%; }
+}
+
 .navbar {
   position: fixed;
   top: var(--announce-h, 0px); right: 0; left: 0;

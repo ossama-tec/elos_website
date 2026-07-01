@@ -138,6 +138,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── Cookie Notice ──
+  const cookieNotice = document.getElementById('cookieNotice');
+  const cookieAccept = document.getElementById('cookieAccept');
+  const COOKIE_KEY = 'elos_cookie_ack';
+  if (cookieNotice) {
+    let acked = false;
+    try { acked = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
+    if (!acked) cookieNotice.hidden = false;
+    if (cookieAccept) {
+      cookieAccept.addEventListener('click', () => {
+        cookieNotice.hidden = true;
+        try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+      });
+    }
+  }
+
   // ── Conversion Event Tracking ──
   function trackEvent(name, params = {}) {
     if (typeof gtag === 'function') gtag('event', name, params);
