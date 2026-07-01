@@ -186,9 +186,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'ELOS-' + platform });
 
       // Open WhatsApp with pre-filled message → founder gets the lead
-      const message = `مرحباً، اسمي/محلي: ${name}%0Aرقمي: ${phone}%0Aحابب أحمل ELOS ${platform === 'mobile' ? 'تطبيق الموبايل' : 'نسخة الكمبيوتر'} وأبدأ التجربة المجانية`;
+      const safeName = encodeURIComponent(name);
+      const safePhone = encodeURIComponent(phone);
+      const message = `مرحباً، اسمي/محلي: ${safeName}%0Aرقمي: ${safePhone}%0Aحابب أحمل ELOS ${platform === 'mobile' ? 'تطبيق الموبايل' : 'نسخة الكمبيوتر'} وأبدأ التجربة المجانية`;
       const waUrl = `https://wa.me/201031372078?text=${message}`;
-      window.open(waUrl, '_blank');
+      window.open(waUrl, '_blank', 'noopener');
 
       // Trigger download after short delay
       const downloadUrl = form.dataset.downloadUrl;
