@@ -1561,7 +1561,14 @@ section {
   border: 1px solid var(--stone);
   text-align: center;
   transition: all var(--t);
+  display: flex;
+  flex-direction: column;
 }
+/* Push the action (form on desktop, Play button on mobile) to the bottom
+   so the shorter card distributes its extra height above the CTA and both
+   cards line up along the bottom edge */
+.download-card > form,
+.download-card > .btn { margin-top: auto; }
 .download-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-2);
