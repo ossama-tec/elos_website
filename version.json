@@ -1,6 +1,6 @@
 {
-    "latest":  "3.1.2",
+    "latest":  "3.1.3",
     "minSupported":  "3.1.0",
-    "downloadUrl":  "https://github.com/ossama-tec/elos_website/releases/download/v3.1.2/ELOS-Accounting-V3-3.1.2-Setup.zip",
-    "notes":  "إصلاح: خصم دفع توريد الأجهزة من المحفظة المحددة فقط (كان بيتخصم من كل محافظ نفس النوع)"
+    "downloadUrl":  "https://github.com/ossama-tec/elos_website/releases/download/v3.1.3/ELOS-Accounting-V3-3.1.3-Setup.zip",
+    "notes":  "دعم العملة في كل النظام: كل المعاملات والفواتير ومعاينة الفاتورة والإيصالات المطبوعة بتظهر بالعملة المختارة بدل الجنيه"
 }
