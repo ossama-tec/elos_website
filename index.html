@@ -3,19 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ELOS V3 — أقوى نظام لمحلات الموبايلات في مصر. بيع، مخزون، صيانة، تقارير، وتطبيق موبايل في نظام واحد. جرب مجاناً 14 يوم.">
+  <meta name="description" content="ELOS V3 — أقوى نظام لمحلات الموبايلات في مصر. بيع، مخزون، صيانة، تقارير، وتطبيق موبايل في نظام واحد. جرب مجاناً 7 أيام.">
   <meta name="keywords" content="نظام محاسبي, محلات موبايلات, نقطة بيع, POS, مخزون, صيانة, ELOS, برنامج محاسبة, إدارة محل موبايلات">
+  <meta name="theme-color" content="#0d9488">
+  <link rel="canonical" href="https://elos-system.com/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="ELOS V3 — أقوى نظام لمحلات الموبايلات في مصر">
   <meta property="og:description" content="بيع أجهزة وإكسسوارات وقطع غيار + صيانة + مخازن + تقارير + تطبيق موبايل — كل ده في نظام واحد.">
-  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:image" content="https://elos-system.com/assets/logo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://elos-system.com/">
+  <meta property="og:site_name" content="ELOS">
+  <meta property="og:locale" content="ar_EG">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ELOS V3 — أقوى نظام لمحلات الموبايلات في مصر">
+  <meta name="twitter:description" content="بيع، مخزون، صيانة، تقارير، وتطبيق موبايل في نظام واحد. جرب مجاناً 7 أيام.">
+  <meta name="twitter:image" content="https://elos-system.com/assets/logo.png">
 
   <title>ELOS V3 — أقوى نظام لمحلات الموبايلات في مصر</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
 
   <!-- ════════ TRACKING ════════ -->
@@ -41,15 +56,61 @@
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2504885989955815&ev=PageView&noscript=1"/></noscript>
   <!-- ════════ /TRACKING ════════ -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ELOS Accounting V3",
+    "operatingSystem": "Windows 10, Windows 11, Android",
+    "applicationCategory": "BusinessApplication",
+    "description": "أقوى نظام لمحلات الموبايلات في مصر — نقطة بيع، مخزون، صيانة، تقارير، وتطبيق موبايل في نظام واحد.",
+    "url": "https://elos-system.com/",
+    "image": "https://elos-system.com/assets/logo.png",
+    "inLanguage": "ar",
+    "offers": [
+      { "@type": "Offer", "price": "0", "priceCurrency": "EGP", "name": "تجربة مجانية 7 أيام" },
+      { "@type": "Offer", "price": "2600", "priceCurrency": "EGP", "name": "اشتراك سنوي" },
+      { "@type": "Offer", "price": "4000", "priceCurrency": "EGP", "name": "مدى الحياة" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "ELOS",
+      "url": "https://elos-system.com/",
+      "logo": "https://elos-system.com/assets/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/ElOsAccSystem/",
+        "https://www.instagram.com/elos_acc/",
+        "https://www.youtube.com/@ElOsAccSystem",
+        "https://www.tiktok.com/@elos.accounting.s"
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
 
   <div class="mobile-overlay"></div>
 
   <!-- ══════════════════════════════════════
+       V3.1 ANNOUNCEMENT BANNER
+       ══════════════════════════════════════ -->
+  <div class="announce-bar" id="announceBar">
+    <div class="container">
+      <a href="#download" class="announce-text" data-track="announce-download">
+        <span class="announce-tag">جديد</span>
+        وصل تحديث <strong>V3.1</strong><span class="announce-detail"> — تحويلات أموال، أقساط متطورة، تسعير جملة وقطاعي، فاتورة جديدة، وشكل أسرع</span>
+        <span class="announce-cta">حمّل التحديث ←</span>
+      </a>
+      <button class="announce-close" id="announceClose" aria-label="إغلاق الإعلان">✕</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
        FLOATING WHATSAPP
        ══════════════════════════════════════ -->
-  <a href="https://wa.me/201031372078?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%86%D8%B8%D8%A7%D9%85%20ELOS" target="_blank" class="whatsapp-float" aria-label="تواصل واتساب">
+  <a href="https://wa.me/201031372078?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%86%D8%B8%D8%A7%D9%85%20ELOS" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="تواصل واتساب">
     <svg viewBox="0 0 24 24" width="26" height="26" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
@@ -70,7 +131,7 @@
         <li><a href="#download">التحميل</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://wa.me/201031372078" target="_blank" class="nav-phone" data-track="nav-whatsapp" aria-label="واتساب">
+        <a href="https://wa.me/201031372078" target="_blank" rel="noopener noreferrer" class="nav-phone" data-track="nav-whatsapp" aria-label="واتساب">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           <span>01031372078</span>
         </a>
@@ -89,12 +150,13 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-text">
-          <span class="hero-version fade-up">الإصدار V3 — أحدث إصدار 2026</span>
+          <span class="hero-version fade-up">الإصدار V3.1 — أحدث تحديث 2026</span>
           <h1 class="fade-up">أقوى نظام لمحلات <span class="accent">الموبايلات</span> في مصر</h1>
           <p class="subtitle fade-up">محلّك في إيدك — من البيع للصيانة للتقارير. نظام محاسبي متكامل: أجهزة، إكسسوارات، قطع غيار، صيانة، مخازن، وتطبيق موبايل في مكان واحد.</p>
+          <p class="hero-whatsnew fade-up"><span class="hero-whatsnew-tag">جديد في V3.1</span> نظام تحويلات أموال متكامل، أقساط متطورة، تسعير جملة وقطاعي، شكل فاتورة جديد، وبرنامج أسرع وأخف</p>
           <div class="hero-buttons fade-up">
-            <a href="#download" class="btn btn-primary btn-lg" data-track="hero-cta-primary">جرب مجاناً 14 يوم</a>
-            <a href="https://wa.me/201031372078" target="_blank" class="btn btn-ghost btn-lg" data-track="hero-cta-whatsapp">تواصل معانا</a>
+            <a href="#download" class="btn btn-primary btn-lg" data-track="hero-cta-primary">جرب مجاناً 7 أيام</a>
+            <a href="https://wa.me/201031372078" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg" data-track="hero-cta-whatsapp">تواصل معانا</a>
           </div>
           <div class="hero-trust fade-up">
             <span><span class="check">✓</span> بدون بطاقة ائتمان</span>
@@ -118,6 +180,9 @@
           <div class="hero-phone-overlay">
             <picture><source media="(max-width: 768px)" srcset="assets/screenshots/mobile/01_dashboard_enhanced-m.webp" type="image/webp"><source srcset="assets/screenshots/mobile/01_dashboard_enhanced.webp" type="image/webp"><img width="1080" height="1920" loading="lazy" decoding="async" src="assets/screenshots/mobile/01_dashboard_enhanced.png" alt="تطبيق الموبايل ELOS"></picture>
           </div>
+          <span class="hero-badge hero-badge-1"><span class="hb-dot" style="background:var(--coral)"></span> تتبع IMEI لكل جهاز</span>
+          <span class="hero-badge hero-badge-2"><span class="hb-dot" style="background:var(--orange)"></span> 6 طرق دفع</span>
+          <span class="hero-badge hero-badge-3"><span class="hb-dot" style="background:var(--green)"></span> شغّال أوفلاين 100%</span>
         </div>
       </div>
 
@@ -150,7 +215,7 @@
         <div class="demo-video-frame fade-up">
           <div class="demo-video-phone">
             <iframe
-              src="https://www.youtube.com/embed/Lt-V-DkkaXs?rel=0&modestbranding=1&playsinline=1"
+              src="https://www.youtube-nocookie.com/embed/Lt-V-DkkaXs?rel=0&modestbranding=1&playsinline=1"
               title="ELOS V3 Demo — أقوى نظام لمحلات الموبايلات"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -300,6 +365,16 @@
           <h3>طباعة وباركود</h3>
           <p>طباعة فواتير وباركود وتقارير مباشرة</p>
         </div>
+        <div class="feature-card fade-up">
+          <span class="feature-icon">🧾</span>
+          <h3>نظام الأقساط</h3>
+          <p>بيع بالتقسيط مع حاسبة أقساط، جدول استحقاق، وفائدة سنوية وتتبع المديونية</p>
+        </div>
+        <div class="feature-card fade-up">
+          <span class="feature-icon">🔄</span>
+          <h3>التحويلات المالية</h3>
+          <p>حوّل بين الخزائن والمحافظ الإلكترونية مع تسجيل العمولة وكشف لكل محفظة</p>
+        </div>
       </div>
     </div>
   </section>
@@ -368,20 +443,20 @@
         </div>
         <div class="desktop-gallery-item fade-up">
           <div class="desktop-gallery-frame">
-            <picture><source media="(max-width: 768px)" srcset="assets/screenshots/desktop/desktop-spare-parts-m.webp" type="image/webp"><source srcset="assets/screenshots/desktop/desktop-spare-parts.webp" type="image/webp"><img width="1919" height="1024" loading="lazy" decoding="async" src="assets/screenshots/desktop/desktop-spare-parts.png" alt="شاشة قطع الغيار"></picture>
+            <picture><source media="(max-width: 768px)" srcset="assets/screenshots/desktop/desktop-reports-m.webp" type="image/webp"><source srcset="assets/screenshots/desktop/desktop-reports.webp" type="image/webp"><img width="1919" height="1029" loading="lazy" decoding="async" src="assets/screenshots/desktop/desktop-reports.png" alt="شاشة التقارير"></picture>
           </div>
           <div class="desktop-gallery-meta">
-            <h4>قطع الغيار</h4>
-            <p>إدارة كاملة لقطع الغيار مع التكلفة والكمية المتاحة</p>
+            <h4>التقارير</h4>
+            <p>تقرير يومي بالأرباح والمبيعات والمصروفات والصيانة في شاشة واحدة</p>
           </div>
         </div>
         <div class="desktop-gallery-item fade-up">
           <div class="desktop-gallery-frame">
-            <picture><source media="(max-width: 768px)" srcset="assets/screenshots/desktop/desktop-payment-m.webp" type="image/webp"><source srcset="assets/screenshots/desktop/desktop-payment.webp" type="image/webp"><img width="1019" height="857" loading="lazy" decoding="async" src="assets/screenshots/desktop/desktop-payment.png" alt="شاشة إتمام البيع"></picture>
+            <picture><source media="(max-width: 768px)" srcset="assets/screenshots/desktop/desktop-settings-m.webp" type="image/webp"><source srcset="assets/screenshots/desktop/desktop-settings.webp" type="image/webp"><img width="1919" height="1031" loading="lazy" decoding="async" src="assets/screenshots/desktop/desktop-settings.png" alt="شاشة الإعدادات الجديدة في V3.1"></picture>
           </div>
           <div class="desktop-gallery-meta">
-            <h4>إتمام البيع</h4>
-            <p>6 طرق دفع — كاش، محفظة، بنك، تقسيط، آجل، تقسيم</p>
+            <h4>الإعدادات <span class="gallery-new">جديد</span></h4>
+            <p>إعدادات بشكل جديد في V3.1 — شكل فاتورة جديد بقالبين ولغتين وتحكم كامل في الطباعة والحسابات</p>
           </div>
         </div>
         <div class="desktop-gallery-item fade-up">
@@ -660,7 +735,7 @@
               <td><span class="check-no">✗</span></td>
             </tr>
             <tr>
-              <td class="feat-col">تجربة مجانية ١٤ يوم بدون بطاقة ائتمان</td>
+              <td class="feat-col">تجربة مجانية ٧ أيام بدون بطاقة ائتمان</td>
               <td class="elos-col"><span class="check-yes">✓</span></td>
               <td><span class="check-partial">±</span></td>
               <td><span class="check-partial">±</span></td>
@@ -681,7 +756,7 @@
           <span><span class="check-no">✗</span> غير متوفر</span>
         </div>
         <div class="comparison-cta">
-          <a href="#download" class="btn btn-primary btn-lg" data-track="comparison-cta">جرب ELOS مجاناً ١٤ يوم</a>
+          <a href="#download" class="btn btn-primary btn-lg" data-track="comparison-cta">جرب ELOS مجاناً ٧ أيام</a>
           <small class="comparison-disclaimer">المقارنة بناءً على المعلومات المتاحة عن كل نظام في مايو ٢٠٢٦. كل شركة قد تطوّر مميزاتها — راجع الموقع الرسمي لكل برنامج للتأكد.</small>
         </div>
       </div>
@@ -704,10 +779,10 @@
         <div class="pricing-card fade-up">
           <h3>تجربة مجانية</h3>
           <div class="pricing-price">مجاناً</div>
-          <div class="pricing-duration">14 يوم</div>
+          <div class="pricing-duration">7 أيام</div>
           <ul class="pricing-features">
             <li>كل المميزات بدون استثناء</li>
-            <li>تطبيق الموبايل (14 يوم)</li>
+            <li>تطبيق الموبايل (7 أيام)</li>
             <li>نقطة البيع + المخزون</li>
             <li>الصيانة + التقارير</li>
             <li>دعم واتساب</li>
@@ -731,7 +806,7 @@
             <li>تحديثات مجانية طوال السنة</li>
             <li>دعم فني بأولوية</li>
           </ul>
-          <a href="https://wa.me/201031372078?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B4%D8%AA%D8%B1%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%B3%D9%86%D9%88%D9%8A%D8%A9" target="_blank" class="btn btn-primary">اشترك الآن</a>
+          <a href="https://wa.me/201031372078?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B4%D8%AA%D8%B1%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%B3%D9%86%D9%88%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">اشترك الآن</a>
         </div>
 
         <!-- Lifetime -->
@@ -745,11 +820,11 @@
           <ul class="pricing-features">
             <li>كل المميزات للأبد</li>
             <li>تحديثات مجانية مدى الحياة</li>
-            <li>تطبيق موبايل (14 يوم تجربة)</li>
+            <li>تطبيق موبايل (7 أيام تجربة)</li>
             <li class="note">ترخيص الموبايل سنوي منفصل</li>
             <li>دعم فني بأولوية</li>
           </ul>
-          <a href="https://wa.me/201031372078?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A8%D8%A7%D9%82%D8%A9%20%D9%85%D8%AF%D9%89%20%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%A9" target="_blank" class="btn btn-purple">اشتري مدى الحياة</a>
+          <a href="https://wa.me/201031372078?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A8%D8%A7%D9%82%D8%A9%20%D9%85%D8%AF%D9%89%20%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%A9" target="_blank" rel="noopener noreferrer" class="btn btn-purple">اشتري مدى الحياة</a>
         </div>
 
       </div>
@@ -832,7 +907,7 @@
       <div class="section-header fade-up">
         <span class="section-badge">التحميل</span>
         <h2>حمّل الآن وابدأ مجاناً</h2>
-        <p>سجّل بياناتك، هنبعتلك التحميل على واتساب وهنساعدك في التركيب — ١٤ يوم تجربة بكل المميزات</p>
+        <p>سجّل بياناتك، هنبعتلك التحميل على واتساب وهنساعدك في التركيب — ٧ أيام تجربة بكل المميزات</p>
       </div>
       <div class="download-grid">
 
@@ -840,13 +915,24 @@
         <div class="download-card fade-up">
           <span class="download-icon">🖥️</span>
           <h3>نسخة الكمبيوتر</h3>
-          <div class="download-version">ELOS Accounting V3 · ٩٥ ميجا · Windows 10/11</div>
+          <div class="download-version">ELOS Accounting V3 · الإصدار 3.1.0 · ٩٥ ميجا · Windows 10/11</div>
+          <div class="download-changelog">
+            <span class="changelog-title">🆕 أهم الجديد في 3.1</span>
+            <ul>
+              <li>نظام تحويلات أموال متكامل</li>
+              <li>تسعير جملة وقطاعي لكل المنتجات</li>
+              <li>شكل فاتورة جديد (قالبين + لغتين)</li>
+              <li>نظام أقساط متطور بالكامل</li>
+              <li>صفحة مصروفات جديدة</li>
+              <li>شكل برنامج جديد وشريط تنقل أسرع</li>
+            </ul>
+          </div>
           <form data-lead-form data-platform="desktop"
-                data-download-url="https://github.com/ossama-tec/elos_website/releases/download/v3.0.0/ELOS-Accounting-V3-3.0.0-Setup.exe"
+                data-download-url="https://github.com/ossama-tec/elos_website/releases/download/v3.1.0/ELOS-Accounting-V3-3.1.0-Setup.exe"
                 class="lead-form">
             <div class="lead-fields">
-              <input type="text" name="shop_name" placeholder="اسم محلك" required autocomplete="organization">
-              <input type="tel" name="phone" placeholder="رقم واتساب" required pattern="01[0-9]{9}" autocomplete="tel">
+              <input type="text" name="shop_name" placeholder="اسم محلك" required autocomplete="organization" aria-label="اسم محلك">
+              <input type="tel" name="phone" placeholder="رقم واتساب" required pattern="01[0-9]{9}" autocomplete="tel" aria-label="رقم واتساب">
               <button type="submit" class="btn btn-primary" data-track="lead-desktop">⬇️ احصل على نسخة الكمبيوتر</button>
               <small class="lead-note">ها يفتح واتساب لتأكيد بياناتك ويبدأ التحميل تلقائياً</small>
             </div>
@@ -863,6 +949,17 @@
           <span class="download-icon">📱</span>
           <h3>تطبيق الموبايل</h3>
           <div class="download-version">ELOS Mobile V3 · متاح على Google Play · Android 6.0+</div>
+          <div class="download-changelog">
+            <span class="changelog-title">📲 محلّك معاك في جيبك</span>
+            <ul>
+              <li>تابع مبيعاتك لحظة بلحظة</li>
+              <li>المخزون والأصناف في أي وقت</li>
+              <li>الصيانة وتذاكر العملاء</li>
+              <li>الخزينة والتحصيلات</li>
+              <li>إشعارات فورية بكل جديد</li>
+              <li>8 شاشات كاملة بالعربي</li>
+            </ul>
+          </div>
           <a href="https://play.google.com/store/apps/details?id=com.elos.accounting"
              target="_blank" rel="noopener"
              class="btn btn-green"
@@ -906,8 +1003,18 @@
         </div>
 
         <div class="faq-item">
+          <button class="faq-question">نزل تحديث جديد — أحدّث نسختي إزاي؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>النظام بيتحقق من التحديثات تلقائياً وبينبّهك لما ينزل إصدار جديد. تقدر كمان تحمّل أحدث نسخة من صفحة التحميل وتثبّتها فوق القديمة — بياناتك بتفضل زي ما هي بدون أي فقدان.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">التطبيق متاح على آيفون؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>تطبيق الموبايل متاح دلوقتي على أندرويد (6.0 وأحدث) من Google Play. نسخة الآيفون بيتم تطويرها حالياً وهتنزل قريباً — تابعنا عشان تعرف أول ما تنزل.</p></div>
+        </div>
+
+        <div class="faq-item">
           <button class="faq-question">لو عندي مشكلة أتواصل إزاي؟<span class="faq-arrow">▼</span></button>
-          <div class="faq-answer"><p>تقدر تتواصل معانا على واتساب <a href="https://wa.me/201031372078" target="_blank">01031372078</a> أو إيميل <a href="mailto:support@elos-system.com">support@elos-system.com</a> — وهنرد عليك في أسرع وقت.</p></div>
+          <div class="faq-answer"><p>تقدر تتواصل معانا على واتساب <a href="https://wa.me/201031372078" target="_blank" rel="noopener noreferrer">01031372078</a> أو إيميل <a href="mailto:support@elos-system.com">support@elos-system.com</a> — وهنرد عليك في أسرع وقت.</p></div>
         </div>
 
       </div>
@@ -920,10 +1027,10 @@
   <section class="final-cta">
     <div class="container fade-up">
       <h2>جاهز تدير محلك باحترافية؟</h2>
-      <p>حمّل ELOS V3 دلوقتي وابدأ تجربتك المجانية — 14 يوم بكل المميزات.</p>
+      <p>حمّل ELOS V3 دلوقتي وابدأ تجربتك المجانية — 7 أيام بكل المميزات.</p>
       <div class="hero-buttons">
         <a href="#download" class="btn btn-primary btn-lg">📥 حمّل مجاناً الآن</a>
-        <a href="https://wa.me/201031372078" target="_blank" class="btn btn-secondary btn-lg">💬 كلمنا على واتساب</a>
+        <a href="https://wa.me/201031372078" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">💬 كلمنا على واتساب</a>
       </div>
     </div>
   </section>
@@ -967,13 +1074,14 @@
         <div class="footer-col">
           <h4>تواصل معنا</h4>
           <ul class="footer-contact">
-            <li><span class="contact-icon">💬</span><a href="https://wa.me/201031372078" target="_blank">01031372078</a></li>
+            <li><span class="contact-icon">💬</span><a href="https://wa.me/201031372078" target="_blank" rel="noopener noreferrer">01031372078</a></li>
             <li><span class="contact-icon">📧</span><a href="mailto:support@elos-system.com">support@elos-system.com</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 ELOS Development Team. جميع الحقوق محفوظة.</p>
+        <p><a href="privacy.html">سياسة الخصوصية</a></p>
       </div>
     </div>
   </footer>
@@ -988,6 +1096,14 @@
       <img alt="">
     </div>
     <div class="lightbox-caption"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       COOKIE NOTICE
+       ══════════════════════════════════════ -->
+  <div class="cookie-notice" id="cookieNotice" hidden>
+    <p>بنستخدم كوكيز لتحسين تجربتك وتحليل استخدام الموقع. بمواصلتك تكون موافق على ذلك. <a href="privacy.html">اعرف أكتر</a></p>
+    <button class="btn btn-primary btn-sm" id="cookieAccept">تمام</button>
   </div>
 
   <script src="js/main.js"></script>

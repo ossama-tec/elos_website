@@ -7,11 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Sticky Navbar ──
   const navbar = document.querySelector('.navbar');
 
+  // ── V3.1 Announcement Bar ──
+  const announceClose = document.getElementById('announceClose');
+  const ANNOUNCE_KEY = 'elos_announce_v31_dismissed';
+  let announceDismissed = false;
+  try { announceDismissed = localStorage.getItem(ANNOUNCE_KEY) === '1'; } catch (e) {}
+  if (announceDismissed) document.body.classList.add('announce-off');
+
+  if (announceClose) {
+    announceClose.addEventListener('click', () => {
+      announceDismissed = true;
+      document.body.classList.add('announce-off');
+      try { localStorage.setItem(ANNOUNCE_KEY, '1'); } catch (e) {}
+    });
+  }
+
   function handleNavbarScroll() {
     if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
+      document.body.classList.add('announce-off');
     } else {
       navbar.classList.remove('scrolled');
+      if (!announceDismissed) document.body.classList.remove('announce-off');
     }
   }
 
@@ -121,6 +138,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── Cookie Notice ──
+  const cookieNotice = document.getElementById('cookieNotice');
+  const cookieAccept = document.getElementById('cookieAccept');
+  const COOKIE_KEY = 'elos_cookie_ack';
+  if (cookieNotice) {
+    let acked = false;
+    try { acked = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
+    if (!acked) cookieNotice.hidden = false;
+    if (cookieAccept) {
+      cookieAccept.addEventListener('click', () => {
+        cookieNotice.hidden = true;
+        try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+      });
+    }
+  }
+
   // ── Conversion Event Tracking ──
   function trackEvent(name, params = {}) {
     if (typeof gtag === 'function') gtag('event', name, params);
@@ -169,9 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'ELOS-' + platform });
 
       // Open WhatsApp with pre-filled message → founder gets the lead
-      const message = `مرحباً، اسمي/محلي: ${name}%0Aرقمي: ${phone}%0Aحابب أحمل ELOS ${platform === 'mobile' ? 'تطبيق الموبايل' : 'نسخة الكمبيوتر'} وأبدأ التجربة المجانية`;
+      const safeName = encodeURIComponent(name);
+      const safePhone = encodeURIComponent(phone);
+      const message = `مرحباً، اسمي/محلي: ${safeName}%0Aرقمي: ${safePhone}%0Aحابب أحمل ELOS ${platform === 'mobile' ? 'تطبيق الموبايل' : 'نسخة الكمبيوتر'} وأبدأ التجربة المجانية`;
       const waUrl = `https://wa.me/201031372078?text=${message}`;
-      window.open(waUrl, '_blank');
+      window.open(waUrl, '_blank', 'noopener');
 
       // Trigger download after short delay
       const downloadUrl = form.dataset.downloadUrl;

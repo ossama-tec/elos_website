@@ -2,5 +2,5 @@
   "latest": "3.1.0",
   "minSupported": "3.1.0",
   "downloadUrl": "https://github.com/ossama-tec/elos-accounting/releases/download/v3.1.0/ELOS-Accounting-V3-3.1.0-Setup.exe",
-  "notes": "إصلاحات إنفاذ الترخيص + إعادة تصميم شاشات التفعيل والإعداد والدخول"
+  "notes": "نظام تحويلات أموال متكامل، تسعير جملة وقطاعي، شكل فاتورة جديد (قالبين + لغتين)، نظام أقساط متطور، صفحة مصروفات جديدة، وشكل برنامج أسرع"
 }
