@@ -1,6 +1,6 @@
 {
-    "latest":  "3.1.4",
+    "latest":  "3.1.5",
     "minSupported":  "3.1.0",
-    "downloadUrl":  "https://github.com/ossama-tec/elos_website/releases/download/v3.1.4/ELOS-Accounting-V3-3.1.4-Setup.zip",
-    "notes":  "تحديث نظام الموظفين: رواتب وسلف وخصومات وعمولات صيانة مترابطة بالخزينة + تحسين طباعة الفواتير الحرارية (توسيط ووضوح) + دعم رمز العملة في الفواتير ورسائل الواتساب + إصلاحات."
+    "downloadUrl":  "https://github.com/ossama-tec/elos_website/releases/download/v3.1.5/ELOS-Accounting-V3-3.1.5-Setup.zip",
+    "notes":  "تحسين كبير في سرعة البرنامج وتقليل استهلاك الرام والمعالج + فاتورة صيانة PDF (حفظ على الجهاز أو إرسال واتساب للعميل) + إصلاحات للنسخ الاحتياطي"
 }
