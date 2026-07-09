@@ -1,6 +1,6 @@
 {
-    "latest":  "3.1.8",
+    "latest":  "3.1.9",
     "minSupported":  "3.1.0",
-    "downloadUrl":  "https://github.com/ossama-tec/elos_website/releases/download/v3.1.8/ELOS-Accounting-V3-3.1.8-Setup.zip",
-    "notes":  "صيانة: إمكانية اختيار تسجيل تذكرة الصيانة في كشف حساب العميل من لحظة الاستلام أو بعد التسليم + خانة (التكلفة المتوقعة) تظهر في إيصال الاستلام فقط. المخازن: زر لتعليم الصنف أو الجهاز تالف/هالك وإخراجه من المخزون واحتسابه خسارة + صفحة تقرير الهالك. إصلاح: عرض العملة الصحيحة عند تصدير PDF لكشف حساب العميل والمورد."
+    "downloadUrl":  "https://github.com/ossama-tec/elos_website/releases/download/v3.1.9/ELOS-Accounting-V3-3.1.9-Setup.zip",
+    "notes":  "إصلاح ترحيل الجرد للأجهزة (عجز الأجهزة يتسجل هالك بدل فشل الجرد)"
 }
