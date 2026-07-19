@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Sticky Navbar ──
   const navbar = document.querySelector('.navbar');
 
-  // ── V3.1 Announcement Bar ──
+  // ── V3.2 Announcement Bar ──
   const announceClose = document.getElementById('announceClose');
-  const ANNOUNCE_KEY = 'elos_announce_v31_dismissed';
+  const ANNOUNCE_KEY = 'elos_announce_v32_dismissed';
   let announceDismissed = false;
   try { announceDismissed = localStorage.getItem(ANNOUNCE_KEY) === '1'; } catch (e) {}
   if (announceDismissed) document.body.classList.add('announce-off');
@@ -321,6 +321,23 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     // Fallback: show all elements
     fadeElements.forEach(el => el.classList.add('visible'));
+  }
+
+  // ── Hero pointer glow (desktop, motion-safe only) ──
+  const hero = document.querySelector('.hero');
+  if (hero &&
+      matchMedia('(prefers-reduced-motion: no-preference)').matches &&
+      matchMedia('(pointer: fine)').matches) {
+    let glowRaf = null;
+    hero.addEventListener('mousemove', (e) => {
+      if (glowRaf) return;
+      glowRaf = requestAnimationFrame(() => {
+        const rect = hero.getBoundingClientRect();
+        hero.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+        hero.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+        glowRaf = null;
+      });
+    }, { passive: true });
   }
 
 });
