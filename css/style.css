@@ -4,15 +4,19 @@
    ======================================== */
 
 :root {
-  /* Editorial neutrals (Anthropic-inspired) tuned to brand navy */
-  --ink:        #0a1828;
-  --ink-soft:   #1a2942;
-  --ivory:      #faf9f5;
-  --paper:      #f5f3ec;
-  --stone:      #e6e4da;
-  --stone-soft: #efede4;
-  --mute:       #5d6677;
-  --mute-soft:  #a8aebd;
+  /* Full-dark 2026 theme — token NAMES kept from the light theme so the
+     whole file inherits the night palette without touching every rule:
+     --ink* = text (now light), --ivory/--paper = surfaces (now night),
+     --stone = borders (now translucent teal). True light lives in --cream. */
+  --ink:        #f2f5f4;
+  --ink-soft:   #d7dfe4;
+  --ivory:      #06131d;
+  --paper:      #0b1f2c;
+  --stone:      rgba(148, 210, 205, 0.12);
+  --stone-soft: #0e2634;
+  --mute:       #93a5b1;
+  --mute-soft:  #64798a;
+  --cream:      #faf9f5;
 
   /* PRIMARY brand — Teal/Cyan (matches the logo "E") */
   --coral:      #0d9488;
@@ -90,7 +94,7 @@ ul { list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
 picture { display: contents; }
 
-::selection { background: var(--coral); color: var(--ivory); }
+::selection { background: var(--coral); color: var(--cream); }
 
 .container {
   max-width: 1180px;
@@ -227,7 +231,7 @@ body.announce-off .announce-bar {
   display: block;
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--coral-deep);
+  color: var(--teal-bright);
   margin-bottom: 7px;
 }
 .download-changelog ul {
@@ -352,8 +356,9 @@ body.announce-off .announce-bar {
   z-index: 1200;
   max-width: 540px;
   margin-inline: auto;
-  background: var(--ink);
-  color: var(--ivory);
+  background: var(--night-2);
+  border: 1px solid var(--glass-dark-brd);
+  color: var(--night-text);
   border-radius: var(--radius);
   padding: 14px 16px;
   display: flex;
@@ -527,7 +532,7 @@ body.announce-off .announce-bar {
 
 .btn-primary {
   background: var(--grad-cta);
-  color: var(--ivory);
+  color: var(--cream);
   box-shadow: 0 8px 24px rgba(13, 148, 136, 0.35);
 }
 .btn-primary:hover {
@@ -543,7 +548,7 @@ body.announce-off .announce-bar {
 }
 .btn-secondary:hover {
   background: var(--ink);
-  color: var(--ivory);
+  color: var(--night);
   transform: translateY(-1px);
 }
 
@@ -569,7 +574,7 @@ body.announce-off .announce-bar {
 
 .btn-green {
   background: var(--green);
-  color: var(--ivory);
+  color: var(--cream);
   box-shadow: var(--shadow-2);
 }
 .btn-green:hover {
@@ -579,12 +584,13 @@ body.announce-off .announce-bar {
 }
 
 .btn-purple {
-  background: var(--ink);
-  color: var(--ivory);
+  background: var(--night-2);
+  color: var(--cream);
+  border-color: var(--glass-dark-brd);
   box-shadow: var(--shadow-2);
 }
 .btn-purple:hover {
-  background: #000;
+  background: #10293a;
   transform: translateY(-1px);
   box-shadow: var(--shadow-3);
 }
@@ -640,9 +646,9 @@ section {
   font-size: 0.82rem;
   font-weight: 600;
   margin-bottom: 18px;
-  background: var(--coral-soft);
-  color: var(--coral-deep);
-  border: 1px solid rgba(13, 148, 136, 0.20);
+  background: rgba(45, 212, 191, 0.12);
+  color: var(--teal-bright);
+  border: 1px solid rgba(45, 212, 191, 0.30);
   letter-spacing: 0.3px;
 }
 
@@ -1052,8 +1058,8 @@ section {
   font-size: 0.78rem;
   font-weight: 600;
   background: var(--blue-soft);
-  color: #4575a1;
-  border: 1px solid rgba(106, 155, 204, 0.2);
+  color: #8fb8e0;
+  border: 1px solid rgba(106, 155, 204, 0.3);
   letter-spacing: 0.3px;
 }
 
@@ -1109,7 +1115,7 @@ section {
   position: relative;
   padding: 32px 28px;
   border-radius: var(--radius);
-  background: var(--ivory);
+  background: var(--paper);
   border: 1px solid var(--stone);
   transition: all var(--t);
   overflow: hidden;
@@ -1205,7 +1211,7 @@ section {
   line-height: 1.2;
   letter-spacing: -0.5px;
   margin-bottom: 22px;
-  color: var(--ivory);
+  color: var(--cream);
 }
 
 .mobile-app-text > p {
@@ -1227,7 +1233,7 @@ section {
 }
 
 /* Light text only when this list lives inside the dark mobile-app section */
-.mobile-app .app-features-list li { color: var(--paper); }
+.mobile-app .app-features-list li { color: var(--night-text); }
 
 .app-features-list li .check-icon {
   width: 22px; height: 22px;
@@ -1413,7 +1419,7 @@ section {
   transform: translate(-50%, -50%);
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--mute);
+  color: #5d6677; /* stays dark — sits on the white window-chrome bar */
   letter-spacing: 0.2px;
   font-family: var(--display);
   pointer-events: none;
@@ -1529,7 +1535,7 @@ section {
 .pricing-card.highlighted {
   border: 1px solid rgba(45, 212, 191, 0.35);
   background: linear-gradient(160deg, var(--night-2) 0%, var(--night) 100%);
-  color: var(--ivory);
+  color: var(--cream);
   transform: scale(1.03);
   box-shadow: var(--shadow-glow), var(--shadow-3);
 }
@@ -1537,8 +1543,8 @@ section {
 
 .pricing-card.highlighted .pricing-features li { color: var(--mute-soft); border-bottom-color: rgba(255,255,255,0.08); }
 .pricing-card.highlighted .pricing-features li::before { color: var(--teal-bright); }
-.pricing-card.highlighted h3 { color: var(--ivory); }
-.pricing-card.highlighted .pricing-price { color: var(--ivory); }
+.pricing-card.highlighted h3 { color: var(--cream); }
+.pricing-card.highlighted .pricing-price { color: var(--cream); }
 .pricing-card.highlighted .pricing-duration { color: var(--mute-soft); }
 .pricing-card.highlighted .price-period { color: var(--mute-soft); }
 .pricing-card.highlighted .old-price { color: var(--mute); }
@@ -1553,7 +1559,7 @@ section {
   font-size: 0.78rem;
   font-weight: 700;
   background: var(--orange);
-  color: var(--ivory);
+  color: var(--cream);
   white-space: nowrap;
   box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35), 0 2px 4px rgba(20, 20, 19, 0.10);
 }
@@ -1606,7 +1612,7 @@ section {
   font-size: 0.78rem;
   font-weight: 700;
   background: var(--green-soft);
-  color: var(--green);
+  color: #9dc2a4;
   margin-bottom: 24px;
 }
 
@@ -1638,7 +1644,7 @@ section {
 }
 .pricing-features li.note::before {
   content: 'i';
-  color: var(--blue);
+  color: #8fb8e0;
   font-style: italic;
   font-family: serif;
 }
@@ -1762,7 +1768,7 @@ section {
 
 .download-card .download-version {
   font-size: 0.84rem;
-  color: var(--coral);
+  color: var(--teal-bright);
   font-weight: 600;
   margin-bottom: 22px;
   letter-spacing: 0.3px;
@@ -1836,7 +1842,7 @@ section {
   line-height: 1.85;
   padding-right: 4px;
 }
-.faq-answer a { color: var(--coral); text-decoration: underline; text-underline-offset: 3px; }
+.faq-answer a { color: var(--teal-bright); text-decoration: underline; text-underline-offset: 3px; }
 
 /* ========================================
    FINAL CTA
@@ -1867,7 +1873,7 @@ section {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -1px;
-  color: var(--ivory);
+  color: var(--cream);
   margin-bottom: 18px;
 }
 
@@ -1879,12 +1885,12 @@ section {
   line-height: 1.75;
 }
 .final-cta .btn-secondary {
-  color: var(--ivory);
-  border-color: var(--ivory);
+  color: var(--cream);
+  border-color: var(--cream);
 }
 .final-cta .btn-secondary:hover {
-  background: var(--ivory);
-  color: var(--ink);
+  background: var(--cream);
+  color: var(--night);
 }
 
 /* ========================================
@@ -1951,7 +1957,7 @@ section {
 .footer-social a:hover {
   background: var(--coral);
   border-color: var(--coral);
-  color: var(--ivory);
+  color: var(--cream);
   transform: translateY(-2px);
   box-shadow: var(--shadow-2);
 }
@@ -2084,7 +2090,7 @@ section {
   width: 22px; height: 22px;
   border-radius: 50%;
   background: var(--coral);
-  color: var(--ivory);
+  color: var(--cream);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2184,8 +2190,8 @@ section {
   background: var(--ivory);
 }
 .comparison-table thead th.elos-col {
-  background: var(--ink);
-  color: var(--ivory);
+  background: var(--grad-cta);
+  color: var(--cream);
   position: relative;
 }
 .comparison-table thead th.elos-col::after {
@@ -2260,7 +2266,7 @@ section {
   width: 28px; height: 28px;
   border-radius: 50%;
   background: var(--coral);
-  color: var(--ivory);
+  color: var(--cream);
   font-weight: 800;
   font-size: 0.85rem;
 }
@@ -2282,7 +2288,7 @@ section {
   width: 28px; height: 28px;
   border-radius: 50%;
   background: var(--orange-soft);
-  color: var(--orange-deep);
+  color: var(--orange-bright);
   border: 1.5px solid rgba(234, 88, 12, 0.3);
   font-weight: 800;
   font-size: 0.95rem;
@@ -2303,11 +2309,11 @@ section {
   margin-top: 4px;
 }
 .comparison-table .price-row td.elos-col strong {
-  color: var(--coral);
+  color: var(--teal-bright);
   font-size: 1.15rem;
 }
 .comparison-table .price-row td.elos-col small {
-  color: rgba(13, 148, 136, 0.85);
+  color: rgba(45, 212, 191, 0.85);
 }
 
 .comparison-legend {
@@ -2335,9 +2341,9 @@ section {
   font-weight: 800;
   font-size: 0.75rem;
 }
-.comparison-legend .check-yes { background: var(--coral); color: var(--ivory); }
+.comparison-legend .check-yes { background: var(--coral); color: var(--cream); }
 .comparison-legend .check-no { background: var(--stone); color: var(--mute); }
-.comparison-legend .check-partial { background: var(--orange-soft); color: var(--orange-deep); border: 1.5px solid rgba(234, 88, 12, 0.3); }
+.comparison-legend .check-partial { background: var(--orange-soft); color: var(--orange-bright); border: 1.5px solid rgba(234, 88, 12, 0.3); }
 
 .comparison-cta {
   text-align: center;
@@ -2472,7 +2478,7 @@ section {
   height: 48px;
   border-radius: 50%;
   background: var(--coral);
-  color: var(--ivory);
+  color: var(--cream);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2510,10 +2516,10 @@ section {
 }
 
 .testimonial-card {
-  background: var(--glass-light);
+  background: rgba(11, 31, 44, 0.65);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--stone);
+  border: 1px solid var(--glass-dark-brd);
   border-radius: var(--radius-xl);
   padding: 32px 28px;
   display: flex;
@@ -2588,7 +2594,7 @@ section {
   height: 44px;
   border-radius: 50%;
   background: var(--coral);
-  color: var(--ivory);
+  color: var(--cream);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2621,7 +2627,7 @@ section {
   display: inline-block;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--orange-deep);
+  color: var(--orange-bright);
   background: var(--orange-soft);
   padding: 7px 14px;
   border-radius: 100px;
@@ -2950,7 +2956,7 @@ section {
   .hero-whatsnew,
   .stats-bar,
   .whatsnew-card { background: rgba(11, 31, 44, 0.92); }
-  .testimonial-card { background: var(--ivory); }
+  .testimonial-card { background: rgba(11, 31, 44, 0.92); }
 }
 
 @media (prefers-reduced-motion: reduce) {
