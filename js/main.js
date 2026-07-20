@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── V3.2 Announcement Bar ──
   const announceClose = document.getElementById('announceClose');
-  const ANNOUNCE_KEY = 'elos_announce_v32_dismissed';
+  const ANNOUNCE_KEY = 'elos_announce_v32_released_dismissed';
   let announceDismissed = false;
   try { announceDismissed = localStorage.getItem(ANNOUNCE_KEY) === '1'; } catch (e) {}
   if (announceDismissed) document.body.classList.add('announce-off');
