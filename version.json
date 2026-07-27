@@ -1,6 +1,6 @@
 {
-    "latest":  "3.2.2",
+    "latest":  "3.2.3",
     "minSupported":  "3.1.0",
-    "downloadUrl":  "https://github.com/ossama-tec/elos_website/releases/download/v3.2.2/ELOS-Accounting-V3-3.2.2-Setup.zip",
-    "notes":  "فاتورة A4 للبيع والصيانة + توقيت حافز الفني (عند الجاهزية أو التسليم) + قبض وصرف على حسابات العملاء والموردين + إصلاح حفظ بيانات الجهاز و IMEI في تقرير المشتريات"
+    "downloadUrl":  "https://github.com/ossama-tec/elos_website/releases/download/v3.2.3/ELOS-Accounting-V3-3.2.3-Setup.zip",
+    "notes":  "تاريخ الجهاز كامل في مخزن الأجهزة (المورد والشراء والبيع) + ملاحظات وملحقات إيصال الاستلام + كشف راتب لموظف محدد + أرشفة جماعية + إصلاح تقارير الصيانة (التذاكر المسلّمة والخصم) وظهور المحافظ الجديدة بدون إعادة تشغيل"
 }
