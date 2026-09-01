@@ -1,7 +1,7 @@
 {
-  "latest": "4.0.0",
+  "latest": "4.0.5",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.0/ELOS-Accounting-V4-4.0.0-Setup.zip",
-  "notes": "ELOS V4 — فروع متعددة بمزامنة لحظية، نسخة سحابية باسترجاع كامل على أي جهاز، نقاط ولاء للعملاء، صيانة بنظام الكانبان مع صور واستلام دفعات، استبدال الجهاز في فاتورة واحدة، تقدير الضرائب والزكاة، كشوف حساب الموظفين والشركاء، وأداء أسرع وأمان أقوى",
-  "sig": "+1twKpNi/X7+SqFdMsq3r+2IIcdwxDyG9QfN6fxLs1KpMngrXEvk332Y0pAzNC04zKb8zFakbEVhWIFPM1b1Ag=="
+  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.5/ELOS-Accounting-V4-4.0.5-Setup.zip",
+  "notes": "إصلاح مهم لدفتر الموردين في التثبيتات متعددة الفروع: كل قيد بينسب لفرعه ولا يمكن تعديله أو حذفه من فرع آخر، مع إصلاح تلقائي للبيانات المتأثرة — وتحسينات داخلية على أدوات الاختبار والبناء",
+  "sig": "VlsVblsdhjULYcWeacFm1wm22Z5QpaJbPY43MKXMNL5boUA8FCvQm72inhSsAbbSC/qtLsVJdopwwlltL8a6Bg=="
 }
