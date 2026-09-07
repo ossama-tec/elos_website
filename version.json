@@ -1,7 +1,7 @@
 {
-  "latest": "4.0.5",
+  "latest": "4.0.6",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.5/ELOS-Accounting-V4-4.0.5-Setup.zip",
-  "notes": "إصلاح مهم لدفتر الموردين في التثبيتات متعددة الفروع: كل قيد بينسب لفرعه ولا يمكن تعديله أو حذفه من فرع آخر، مع إصلاح تلقائي للبيانات المتأثرة — وتحسينات داخلية على أدوات الاختبار والبناء",
-  "sig": "VlsVblsdhjULYcWeacFm1wm22Z5QpaJbPY43MKXMNL5boUA8FCvQm72inhSsAbbSC/qtLsVJdopwwlltL8a6Bg=="
+  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.6/ELOS-Accounting-V4-4.0.6-Setup.zip",
+  "notes": "ضريبة القيمة المضافة (اختيارية) + تقفيل شهري للخزنة + مواعيد الموظفين وخصم التأخير + نقاط الولاء في الصيانة + إصلاحات نقطة البيع والمشتريات والتقارير",
+  "sig": "pUx2L7y1dmnvxBQSznipuCutxcAs19SxJ6D5NdxAm70yPL7aax2KfXvNU6pJAaIuHCv8KxMrrOqFF7Yn2QDpAw=="
 }
