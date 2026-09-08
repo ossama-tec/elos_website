@@ -973,7 +973,7 @@
       <div class="download-grid">
 
         <!-- Desktop Lead Form -->
-        <div class="download-card fade-up">
+        <div class="download-card download-card--desktop fade-up">
           <span class="download-icon">🖥️</span>
           <h3>نسخة الكمبيوتر</h3>
           <div class="download-version">ELOS Accounting V4 · الإصدار 4.0 · ~١٠٠ ميجا · Windows 10/11</div>
@@ -994,9 +994,17 @@
                 class="lead-form">
             <div class="lead-fields">
               <input type="text" name="shop_name" placeholder="اسم محلك" required autocomplete="organization" aria-label="اسم محلك">
-              <input type="tel" name="phone" placeholder="رقم واتساب" required pattern="01[0-9]{9}" autocomplete="tel" aria-label="رقم واتساب">
+              <div class="phone-field">
+                <select name="cc" class="cc-select" aria-label="مفتاح الدولة" title="مفتاح الدولة">
+                  <option value="EG">🇪🇬 مصر +20</option>
+                </select>
+                <input type="tel" name="phone" placeholder="01012345678" required inputmode="tel" autocomplete="tel-national" aria-label="رقم واتساب" maxlength="20">
+              </div>
+              <small class="phone-hint">اكتب الرقم من غير مفتاح الدولة — مثال: 01012345678</small>
+              <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <small class="lead-error" role="alert" hidden></small>
               <button type="submit" class="btn btn-primary" data-track="lead-desktop">⬇️ احصل على نسخة الكمبيوتر</button>
-              <small class="lead-note">ها يفتح واتساب لتأكيد بياناتك ويبدأ التحميل تلقائياً</small>
+              <small class="lead-note">هيفتح واتساب لتأكيد بياناتك ويبدأ التحميل تلقائياً</small>
             </div>
             <div class="lead-success" style="display:none;">
               <div class="lead-success-icon">✓</div>
@@ -1007,7 +1015,7 @@
         </div>
 
         <!-- Mobile App — Direct to Google Play -->
-        <div class="download-card fade-up">
+        <div class="download-card download-card--mobile fade-up">
           <span class="download-icon">📱</span>
           <h3>تطبيق الموبايل</h3>
           <div class="download-version">ELOS Mobile · متاح على Google Play · Android 6.0+</div>

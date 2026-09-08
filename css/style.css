@@ -2460,6 +2460,62 @@ section {
   margin-top: 4px;
 }
 
+/* ── رقم الواتساب مع مفتاح الدولة ── */
+.phone-field {
+  display: flex;
+  direction: ltr;
+  gap: 8px;
+}
+.phone-field input[type="tel"] { flex: 1 1 auto; min-width: 0; }
+.lead-fields .cc-select {
+  flex: 0 0 auto;
+  max-width: 46%;
+  padding: 13px 10px;
+  border: 1.5px solid var(--stone);
+  border-radius: var(--radius-sm);
+  background: var(--stone-soft);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.95rem;
+  direction: rtl;
+  cursor: pointer;
+}
+.lead-fields .cc-select:focus {
+  outline: none;
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px var(--coral-soft);
+}
+.lead-fields .cc-select option { background: var(--stone-soft); color: var(--ink); }
+.phone-hint {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--mute-soft);
+  text-align: right;
+  margin-top: -4px;
+  line-height: 1.5;
+}
+.lead-error {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fb7185;
+  text-align: right;
+  line-height: 1.5;
+  animation: leadShake 0.3s ease;
+}
+.lead-error[hidden] { display: none; }
+.lead-fields input.is-invalid { border-color: #fb7185; box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.15); }
+@keyframes leadShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+}
+/* honeypot — مخفي عن البشر، البوتات بتملاه */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+/* على الموبايل: تطبيق الموبايل الأول (معظم عملاء الإعلانات بيبدأوا بيه) */
+body.dev-mobile .download-card--mobile { order: -1; }
+
 .lead-note {
   display: block;
   font-size: 0.78rem;
