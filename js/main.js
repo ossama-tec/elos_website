@@ -316,7 +316,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const CC_KEY = 'elos_cc_v1';
+  let countryPromise = null;
+  function getCountry() { return countryPromise || (countryPromise = detectCountry()); }
   function detectCountry() {
+    // 0) ?cc=SA في الرابط (لينكات إعلانات دولة معيّنة أو للاختبار) — بيتحفظ كاختيار
+    try {
+      const q = new URLSearchParams(location.search).get('cc');
+      if (q && byIso(q.toUpperCase())) {
+        try { localStorage.setItem(CC_KEY, q.toUpperCase()); } catch (e) {}
+        return Promise.resolve({ iso: q.toUpperCase(), how: 'query' });
+      }
+    } catch (e) {}
     // 1) اختيار سابق للمستخدم
     try { const s = localStorage.getItem(CC_KEY); if (s && byIso(s)) return Promise.resolve({ iso: s, how: 'saved' }); } catch (e) {}
     // 2) لوكيشن بالـ IP (مهلة قصيرة) ← 3) التايم زون ← 4) لغة المتصفح ← 5) مصر
@@ -356,9 +366,10 @@ document.addEventListener('DOMContentLoaded', () => {
     select.addEventListener('change', () => {
       touched = true; apply(select.value);
       try { localStorage.setItem(CC_KEY, select.value); } catch (e) {}
+      setCurrencyForCountry(select.value);
       input.focus();
     });
-    detectCountry().then(({ iso }) => { if (!touched) apply(iso); });
+    getCountry().then(({ iso }) => { if (!touched) apply(iso); });
     return { select, input };
   }
 
@@ -466,6 +477,68 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // ── الأسعار بالريال السعودي لزوار السعودية ──
+  // القيمة = نفس السعر بالجنيه محوّل بسعر الصرف الحي + 10 ريال فرق تحويل (قرار أسامة 2026-09-08).
+  // سعر الصرف من open.er-api.com (مجاني، بيتحدث يوميًا) مع قيمة احتياطية لو الطلب فشل.
+  const SAR_PER_EGP_FALLBACK = 0.0737;   // سبتمبر 2026
+  const SAR_FEE = 10;
+  const CUR_KEY = 'elos_currency_v1';    // 'SAR' | 'EGP' — اختيار يدوي بيتحفظ
+  const priceEls = document.querySelectorAll('[data-egp], [data-egp-save]');
+  let ratePromise = null;
+  let currentCurrency = 'EGP';
+
+  function getSarRate() {
+    if (ratePromise) return ratePromise;
+    ratePromise = (('fetch' in window)
+      ? fetch('https://open.er-api.com/v6/latest/EGP', { cache: 'force-cache' })
+          .then(r => r.ok ? r.json() : null)
+          .then(d => (d && d.rates && d.rates.SAR > 0.03 && d.rates.SAR < 0.2) ? d.rates.SAR : SAR_PER_EGP_FALLBACK)
+          .catch(() => SAR_PER_EGP_FALLBACK)
+      : Promise.resolve(SAR_PER_EGP_FALLBACK));
+    return ratePromise;
+  }
+  const toSar = (egp, rate) => Math.ceil(egp * rate) + SAR_FEE;
+  const fmt = n => n.toLocaleString('en-US');
+
+  function renderCurrency(cur, rate) {
+    currentCurrency = cur;
+    priceEls.forEach(el => {
+      if (!el.dataset.egpText) el.dataset.egpText = el.textContent;   // النص الأصلي بالجنيه
+      if (cur === 'EGP') { el.textContent = el.dataset.egpText; return; }
+      if (el.dataset.egp) {
+        el.textContent = fmt(toSar(+el.dataset.egp, rate)) + ' ر.س';
+      } else if (el.dataset.egpSave) {
+        const [oldP, newP] = el.dataset.egpSave.split(',').map(Number);
+        el.textContent = 'وفّر ' + fmt(toSar(oldP, rate) - toSar(newP, rate)) + ' ر.س';
+      }
+    });
+    document.querySelectorAll('[data-currency-note]').forEach(note => {
+      note.hidden = false;
+      note.innerHTML = cur === 'SAR'
+        ? '🇸🇦 الأسعار معروضة بالريال السعودي (تقريبية حسب سعر الصرف) · <button type="button" data-cur="EGP">عرض بالجنيه المصري</button>'
+        : '🇪🇬 الأسعار بالجنيه المصري · <button type="button" data-cur="SAR">عرض بالريال السعودي</button>';
+      const btn = note.querySelector('button');
+      btn.addEventListener('click', () => {
+        try { localStorage.setItem(CUR_KEY, btn.dataset.cur); } catch (e) {}
+        getSarRate().then(r => renderCurrency(btn.dataset.cur, r));
+        trackEvent('currency_switch', { to: btn.dataset.cur });
+      });
+    });
+  }
+
+  function setCurrencyForCountry(iso) {
+    if (!priceEls.length) return;
+    let saved = null;
+    try { saved = localStorage.getItem(CUR_KEY); } catch (e) {}
+    const cur = saved || (iso === 'SA' ? 'SAR' : 'EGP');
+    if (cur === 'EGP' && currentCurrency === 'EGP' && !saved && iso !== 'SA') return; // مفيش حاجة تتغير
+    getSarRate().then(r => renderCurrency(cur, r));
+  }
+
+  if (priceEls.length) {
+    getCountry().then(({ iso }) => setCurrencyForCountry(iso));
+  }
 
   // ── Lightbox (popup with original-quality image) ──
   const lightbox = document.querySelector('.lightbox');

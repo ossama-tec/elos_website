@@ -2512,7 +2512,14 @@ section {
   75% { transform: translateX(-4px); }
 }
 /* honeypot — مخفي عن البشر، البوتات بتملاه */
-.lead-fields input.hp-field { position: absolute; left: -9999px; top: 0; width: 1px; height: 1px; padding: 0; border: 0; opacity: 0; pointer-events: none; }
+.lead-fields input.hp-field {
+  /* مخفي بصريًا من غير إزاحة سالبة — الإزاحة -9999px كانت بتوسّع الصفحة أفقيًا 10 آلاف بكسل
+     وبتخلي الموبايل يفتح على مساحة فاضية (اتكشفت 2026-09-08) */
+  position: absolute; top: 0; right: 0;
+  width: 1px; height: 1px; padding: 0; border: 0; margin: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%);
+  opacity: 0; pointer-events: none; white-space: nowrap;
+}
 .lead-form { position: relative; }
 
 /* على الموبايل: تطبيق الموبايل الأول (معظم عملاء الإعلانات بيبدأوا بيه) */
@@ -3064,4 +3071,16 @@ body.dev-mobile .download-card--mobile { order: -1; }
 }
 @media (max-width: 480px) {
   .features-grid { grid-template-columns: 1fr; }
+}
+
+/* ── عرض الأسعار بالريال السعودي لزوار السعودية (2026-09-08) ── */
+.currency-note {
+  display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px;
+  margin: 10px auto 0; padding: 8px 14px; font-size: 0.85rem; color: var(--ink-soft);
+  background: rgba(45, 212, 191, 0.08); border: 1px solid rgba(45, 212, 191, 0.25); border-radius: 999px;
+}
+.currency-note[hidden] { display: none; }
+.currency-note button {
+  background: none; border: 0; color: var(--teal-bright); font: inherit; font-weight: 700;
+  cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 0;
 }
