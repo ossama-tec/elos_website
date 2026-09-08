@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── رقم الإصدار الحالي من version.json (نفس الملف اللي البرنامج بيقرأه) ──
   const verEls = document.querySelectorAll('[data-app-version]');
   if (verEls.length && 'fetch' in window) {
-    fetch('version.json', { cache: 'no-cache' })
+    fetch('/version.json', { cache: 'no-cache' })
       .then(r => r.ok ? r.json() : null)
       .then(v => { if (v && v.latest) verEls.forEach(el => { el.textContent = v.latest; }); })
       .catch(() => {});
