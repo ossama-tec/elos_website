@@ -146,12 +146,32 @@ document.addEventListener('DOMContentLoaded', () => {
     let acked = false;
     try { acked = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
     if (!acked) cookieNotice.hidden = false;
+    // موافقة ضمنية: لو كمّل قراءة (نزل 900px) الشريط يختفي لوحده
+    if (!acked) {
+      const implicitAck = () => {
+        if (window.scrollY > 900) {
+          cookieNotice.hidden = true;
+          try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+          window.removeEventListener('scroll', implicitAck);
+        }
+      };
+      window.addEventListener('scroll', implicitAck, { passive: true });
+    }
     if (cookieAccept) {
       cookieAccept.addEventListener('click', () => {
         cookieNotice.hidden = true;
         try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
       });
     }
+  }
+
+  // ── رقم الإصدار الحالي من version.json (نفس الملف اللي البرنامج بيقرأه) ──
+  const verEls = document.querySelectorAll('[data-app-version]');
+  if (verEls.length && 'fetch' in window) {
+    fetch('version.json', { cache: 'no-cache' })
+      .then(r => r.ok ? r.json() : null)
+      .then(v => { if (v && v.latest) verEls.forEach(el => { el.textContent = v.latest; }); })
+      .catch(() => {});
   }
 
   // ── Conversion Event Tracking ──
