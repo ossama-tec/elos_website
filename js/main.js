@@ -481,7 +481,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── الأسعار بالريال السعودي لزوار السعودية ──
   // أسعار ثابتة بالريال (قرار أسامة 2026-09-08): السنوي 220 ر.س · مدى الحياة 400 ر.س —
   // كل سعر عليه data-sar، والخصم المعروض data-sar-save. الزائر بيتحدد بـipapi ← التايم زون ← ?cc=SA.
-  const CUR_KEY = 'elos_currency_v1';    // 'SAR' | 'EGP' — اختيار يدوي بيتحفظ
   const priceEls = document.querySelectorAll('[data-sar], [data-sar-save]');
   let currentCurrency = 'EGP';
   const fmt = n => Number(n).toLocaleString('en-US');
@@ -494,26 +493,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (el.dataset.sar) el.textContent = fmt(el.dataset.sar) + ' ر.س';
       else if (el.dataset.sarSave) el.textContent = 'وفّر ' + fmt(el.dataset.sarSave) + ' ر.س';
     });
+    // زائر السعودية بيشوف الريال بس — من غير زرار للجنيه (قرار أسامة 2026-09-08)
     document.querySelectorAll('[data-currency-note]').forEach(note => {
-      note.hidden = false;
-      note.innerHTML = cur === 'SAR'
-        ? '🇸🇦 الأسعار معروضة بالريال السعودي · <button type="button" data-cur="EGP">عرض بالجنيه المصري</button>'
-        : '🇪🇬 الأسعار بالجنيه المصري · <button type="button" data-cur="SAR">عرض بالريال السعودي</button>';
-      const btn = note.querySelector('button');
-      btn.addEventListener('click', () => {
-        try { localStorage.setItem(CUR_KEY, btn.dataset.cur); } catch (e) {}
-        renderCurrency(btn.dataset.cur);
-        trackEvent('currency_switch', { to: btn.dataset.cur });
-      });
+      note.hidden = cur !== 'SAR';
+      note.textContent = cur === 'SAR' ? '🇸🇦 الأسعار بالريال السعودي' : '';
     });
   }
 
   function setCurrencyForCountry(iso) {
     if (!priceEls.length) return;
-    let saved = null;
-    try { saved = localStorage.getItem(CUR_KEY); } catch (e) {}
-    const cur = saved || (iso === 'SA' ? 'SAR' : 'EGP');
-    if (cur === 'EGP' && currentCurrency === 'EGP' && !saved && iso !== 'SA') return; // مفيش حاجة تتغير
+    const cur = iso === 'SA' ? 'SAR' : 'EGP';
+    if (cur === currentCurrency) return; // مفيش حاجة تتغير
     renderCurrency(cur);
   }
 
