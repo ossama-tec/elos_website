@@ -2511,7 +2511,8 @@ section {
   75% { transform: translateX(-4px); }
 }
 /* honeypot — مخفي عن البشر، البوتات بتملاه */
-.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.lead-fields input.hp-field { position: absolute; left: -9999px; top: 0; width: 1px; height: 1px; padding: 0; border: 0; opacity: 0; pointer-events: none; }
+.lead-form { position: relative; }
 
 /* على الموبايل: تطبيق الموبايل الأول (معظم عملاء الإعلانات بيبدأوا بيه) */
 body.dev-mobile .download-card--mobile { order: -1; }
