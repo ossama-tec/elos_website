@@ -1,7 +1,7 @@
 {
-  "latest": "4.0.8",
+  "latest": "4.0.9",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.8/ELOS-Accounting-V4-4.0.8-Setup.zip",
-  "notes": "إصلاح تقفيل يومية الصيانة (كان بيطلع صفر) + تعديل الفاتورة من نقطة البيع كان بيودّع مرتين في الخزنة + قطع الغيار في تقرير تاريخ المنتج ومصدر القطعة في المخازن + لمسات في نقطة البيع ومودال الباركود",
-  "sig": "csIrNiNOr4giUCjWIuROczi/eE5rSowIwbKRTtvPsbV+DH9WrpqcXEycySydPyfGvrZrl1xQURHs23u19BwtDQ=="
+  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.9/ELOS-Accounting-V4-4.0.9-Setup.zip",
+  "notes": "السحب الشخصي (مسحوبات المالك) ما بقاش يتحسب خسارة في الأرباح والخسائر وصافي الرئيسية وحصص الشركاء + نسبة الشريك «من المحل كله» بقت بتدخل في الحساب + تعديل باركود الجهاز من مودال التعديل",
+  "sig": "XWPVksF3dIM0kWVjnS8PYPeVcL7BMbW+1PCVsenoQ9Dt8I9mCe4g6EinK9f13J/5RVrPWsmDQdz1v22sgXJbCw=="
 }
