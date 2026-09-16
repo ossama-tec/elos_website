@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#06131d">
+  <title>متابعة حالة الجهاز — ELOS</title>
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
+  <style>
+    :root {
+      --bg: #06131d; --card: #0b1f2c; --card-2: #0e2634; --line: rgba(148, 210, 205, 0.14);
+      --ink: #f2f5f4; --ink-soft: #d7dfe4; --mute: #93a5b1;
+      --teal: #0d9488; --teal-soft: rgba(13, 148, 136, 0.16);
+      --orange: #ea580c; --green: #22c55e; --green-soft: rgba(34, 197, 94, 0.16);
+      --amber: #f59e0b; --amber-soft: rgba(245, 158, 11, 0.16);
+      --red: #ef4444; --red-soft: rgba(239, 68, 68, 0.16);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg); color: var(--ink); font-family: 'Tajawal', system-ui, sans-serif; min-height: 100%; }
+    body { padding: 20px 16px 40px; display: flex; flex-direction: column; align-items: center; }
+    .wrap { width: 100%; max-width: 460px; }
+    .brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 18px; color: var(--mute); font-size: 14px; }
+    .brand img { width: 28px; height: 28px; border-radius: 7px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px 18px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+    .shop { text-align: center; margin-bottom: 14px; }
+    .shop .name { font-size: 22px; font-weight: 800; }
+    .shop .sub { color: var(--mute); font-size: 13px; margin-top: 2px; }
+    .status-box { border-radius: 14px; padding: 16px 14px; text-align: center; margin: 14px 0; border: 1px solid var(--line); }
+    .status-box .lbl { font-size: 12px; color: var(--mute); margin-bottom: 4px; }
+    .status-box .val { font-size: 24px; font-weight: 800; line-height: 1.3; }
+    .status-box .hint { font-size: 13px; color: var(--ink-soft); margin-top: 6px; }
+    .s-wait { background: var(--amber-soft); } .s-wait .val { color: var(--amber); }
+    .s-work { background: var(--teal-soft); } .s-work .val { color: #2dd4bf; }
+    .s-ready { background: var(--green-soft); } .s-ready .val { color: var(--green); }
+    .s-done { background: var(--card-2); } .s-done .val { color: var(--ink-soft); }
+    .s-cancel { background: var(--red-soft); } .s-cancel .val { color: #fca5a5; }
+    .rows { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+    .row { background: var(--card-2); border-radius: 12px; padding: 10px 12px; }
+    .row .k { font-size: 11px; color: var(--mute); }
+    .row .v { font-size: 15px; font-weight: 700; margin-top: 2px; word-break: break-word; }
+    .row.wide { grid-column: 1 / -1; }
+    .timeline { list-style: none; margin: 16px 0 6px; padding: 0 6px; }
+    .timeline li { display: flex; align-items: center; gap: 12px; padding: 7px 0; color: var(--mute); font-size: 14px; position: relative; }
+    .timeline li::before { content: ''; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--line); background: var(--card); flex: none; }
+    .timeline li.done { color: var(--ink-soft); } .timeline li.done::before { background: var(--teal); border-color: var(--teal); }
+    .timeline li.now { color: var(--ink); font-weight: 800; } .timeline li.now::before { background: var(--green); border-color: var(--green); box-shadow: 0 0 0 4px var(--green-soft); }
+    .cost { border-top: 1px dashed var(--line); margin-top: 12px; padding-top: 12px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
+    .cost .k { font-size: 11px; color: var(--mute); } .cost .v { font-size: 16px; font-weight: 800; margin-top: 2px; }
+    .cost .v.rem { color: var(--amber); }
+    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 15px; text-decoration: none; color: #fff; border: none; cursor: pointer; font-family: inherit; }
+    .btn-call { background: var(--teal); } .btn-wa { background: #16a34a; } .btn-ghost { background: var(--card-2); color: var(--ink-soft); grid-column: 1 / -1; font-size: 13px; font-weight: 600; }
+    .meta { text-align: center; color: var(--mute); font-size: 12px; margin-top: 12px; }
+    .foot { margin-top: 22px; color: var(--mute); font-size: 12px; text-align: center; }
+    .foot a { color: #2dd4bf; text-decoration: none; }
+    .msg { text-align: center; padding: 26px 10px; }
+    .msg .big { font-size: 40px; margin-bottom: 8px; }
+    .msg h2 { font-size: 20px; margin-bottom: 8px; }
+    .msg p { color: var(--mute); font-size: 14px; line-height: 1.7; }
+    .spinner { width: 34px; height: 34px; border: 3px solid var(--line); border-top-color: var(--teal); border-radius: 50%; margin: 0 auto 12px; animation: spin .9s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/favicon.png" alt="ELOS"><span>متابعة حالة الجهاز</span></div>
+
+    <div class="card" id="loading">
+      <div class="msg"><div class="spinner"></div><p>جاري جلب حالة جهازك…</p></div>
+    </div>
+
+    <div class="card hidden" id="error">
+      <div class="msg">
+        <div class="big">🔍</div>
+        <h2 id="errTitle">الرابط غير صحيح</h2>
+        <p id="errBody">تأكد إنك مسحت الكود من إيصال الاستلام، أو تواصل مع المحل مباشرة.</p>
+        <div class="actions" style="margin-top:18px"><button class="btn btn-ghost" onclick="load()">إعادة المحاولة</button></div>
+      </div>
+    </div>
+
+    <div class="card hidden" id="result">
+      <div class="shop"><div class="name" id="shopName">—</div><div class="sub">تذكرة صيانة <bdo dir="ltr" id="ticketNo"></bdo></div></div>
+
+      <div class="status-box" id="statusBox">
+        <div class="lbl">حالة جهازك دلوقتي</div>
+        <div class="val" id="statusVal">—</div>
+        <div class="hint" id="statusHint"></div>
+      </div>
+
+      <div class="rows">
+        <div class="row wide"><div class="k">الجهاز</div><div class="v" id="device">—</div></div>
+        <div class="row"><div class="k">تاريخ الاستلام</div><div class="v"><bdo dir="ltr" id="receivedAt">—</bdo></div></div>
+        <div class="row"><div class="k">آخر تحديث</div><div class="v"><bdo dir="ltr" id="updatedAt">—</bdo></div></div>
+      </div>
+
+      <ul class="timeline" id="timeline"></ul>
+
+      <div class="cost hidden" id="cost">
+        <div><div class="k">إجمالي التكلفة</div><div class="v" id="costTotal">—</div></div>
+        <div><div class="k">المدفوع</div><div class="v" id="costPaid">—</div></div>
+        <div><div class="k">المتبقي</div><div class="v rem" id="costRemaining">—</div></div>
+      </div>
+
+      <div class="actions" id="actions">
+        <a class="btn btn-call hidden" id="btnCall" href="#">📞 اتصل بالمحل</a>
+        <a class="btn btn-wa hidden" id="btnWa" href="#" target="_blank" rel="noopener">💬 واتساب</a>
+        <button class="btn btn-ghost" onclick="load(true)">🔄 تحديث الحالة</button>
+      </div>
+      <div class="meta">الصفحة بتتحدث تلقائيًا كل دقيقة</div>
+    </div>
+
+    <div class="foot">خدمة متابعة الصيانة مقدمة من <a href="https://elos-system.com/">ELOS</a> لمحلات الموبايلات</div>
+  </div>
+
+  <script>
+    // ⚙️ الـAPI: راوت عام على proxy المزامنة (crm.elos-system.com/proxy/track/:token)
+    var API_BASE = 'https://crm.elos-system.com/proxy/track/';
+
+    // الحالات بنفس مفاتيح البرنامج (renderer/repairs.js STATUS_CONFIG)
+    var STEPS = [
+      { key: 'received',         label: 'تم استلام الجهاز' },
+      { key: 'diagnosing',       label: 'جاري الفحص' },
+      { key: 'waiting_approval', label: 'في انتظار موافقتك على التكلفة' },
+      { key: 'in_repair',        label: 'تحت الصيانة' },
+      { key: 'ready',            label: 'جاهز للاستلام' },
+      { key: 'delivered',        label: 'تم التسليم' }
+    ];
+    var ALIAS = { pending: 'received', in_progress: 'in_repair', canceled: 'cancelled' };
+    var STATUS_TEXT = {
+      received:         { cls: 's-wait',   val: 'تم استلام الجهاز',    hint: 'هيتم فحصه قريبًا' },
+      diagnosing:       { cls: 's-work',   val: 'جاري الفحص',          hint: 'الفني بيحدد العطل والتكلفة' },
+      waiting_approval: { cls: 's-wait',   val: 'في انتظار موافقتك',   hint: 'المحل محتاج موافقتك على التكلفة — تواصل معاه' },
+      in_repair:        { cls: 's-work',   val: 'تحت الصيانة 🔧',      hint: 'شغّالين على جهازك' },
+      ready:            { cls: 's-ready',  val: 'جاهز للاستلام ✅',    hint: 'تقدر تيجي تستلم جهازك' },
+      delivered:        { cls: 's-done',   val: 'تم التسليم',          hint: 'شكراً لتعاملك معانا' },
+      cancelled:        { cls: 's-cancel', val: 'لم يتم الإصلاح',      hint: 'تواصل مع المحل لاستلام الجهاز' },
+      refunded:         { cls: 's-cancel', val: 'تم الاسترداد',        hint: '' }
+    };
+
+    function $(id) { return document.getElementById(id); }
+    function show(id) { ['loading', 'error', 'result'].forEach(function (x) { $(x).classList.toggle('hidden', x !== id); }); }
+    function fmtDate(s) {
+      if (!s) return '—';
+      var d = new Date(s); if (isNaN(d)) return String(s).slice(0, 16);
+      return d.toLocaleDateString('ar-EG-u-nu-latn') + ' ' + d.toLocaleTimeString('ar-EG-u-nu-latn', { hour: '2-digit', minute: '2-digit' });
+    }
+    function fmtMoney(n) { return Number(n || 0).toLocaleString('en-US', { maximumFractionDigits: 0 }) + ' ج.م'; }
+    function waLink(phone) {
+      var p = String(phone || '').replace(/[^0-9]/g, '');
+      if (!p) return '';
+      if (p.indexOf('00') === 0) p = p.slice(2);
+      if (p.indexOf('01') === 0 && p.length === 11) p = '2' + p;       // مصر
+      if (p.indexOf('05') === 0 && p.length === 10) p = '966' + p.slice(1); // السعودية
+      return 'https://wa.me/' + p;
+    }
+
+    function render(d) {
+      var st = ALIAS[d.status] || d.status || 'received';
+      var t = STATUS_TEXT[st] || { cls: 's-work', val: st, hint: '' };
+      $('shopName').textContent = (d.shop && d.shop.name) || 'المحل';
+      $('ticketNo').textContent = d.ticket_no || '';
+      var box = $('statusBox'); box.className = 'status-box ' + t.cls;
+      $('statusVal').textContent = t.val; $('statusHint').textContent = t.hint;
+      $('device').textContent = d.device || d.device_category || '—';
+      $('receivedAt').textContent = fmtDate(d.received_at);
+      $('updatedAt').textContent = fmtDate(d.updated_at);
+
+      var tl = $('timeline'); tl.innerHTML = '';
+      var idx = STEPS.findIndex(function (s) { return s.key === st; });
+      var terminal = (st === 'cancelled' || st === 'refunded');
+      STEPS.forEach(function (s, i) {
+        var li = document.createElement('li');
+        li.textContent = s.label;
+        if (!terminal) { if (i < idx) li.className = 'done'; else if (i === idx) li.className = 'now'; }
+        else if (i === 0) li.className = 'done';
+        tl.appendChild(li);
+      });
+      if (terminal) { var li2 = document.createElement('li'); li2.className = 'now'; li2.textContent = t.val; tl.appendChild(li2); }
+
+      if (d.cost) {
+        $('cost').classList.remove('hidden');
+        $('costTotal').textContent = fmtMoney(d.cost.total);
+        $('costPaid').textContent = fmtMoney(d.cost.paid);
+        $('costRemaining').textContent = fmtMoney(d.cost.remaining);
+      } else { $('cost').classList.add('hidden'); }
+
+      var phone = d.shop && d.shop.phone;
+      $('btnCall').classList.toggle('hidden', !phone);
+      $('btnWa').classList.toggle('hidden', !phone);
+      if (phone) { $('btnCall').href = 'tel:' + String(phone).replace(/[^0-9+]/g, ''); $('btnWa').href = waLink(phone); }
+      show('result');
+    }
+
+    var token = (new URLSearchParams(location.search).get('t') || '').trim().toUpperCase();
+    function load(manual) {
+      if (!token) { $('errTitle').textContent = 'الرابط ناقص'; $('errBody').textContent = 'امسح الـQR الموجود على إيصال الاستلام عشان تشوف حالة جهازك.'; show('error'); return; }
+      if (manual) show('loading');
+      fetch(API_BASE + encodeURIComponent(token), { cache: 'no-store' })
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, status: r.status, body: j }; }); })
+        .then(function (res) {
+          if (res.ok && res.body && res.body.ok) return render(res.body);
+          if (res.status === 404) { $('errTitle').textContent = 'مفيش تذكرة بالرابط ده'; $('errBody').textContent = 'يمكن المحل لسه مفعّلش خدمة المتابعة، أو الرابط مش سليم. تواصل مع المحل مباشرة.'; }
+          else if (res.status === 429) { $('errTitle').textContent = 'محاولات كتير'; $('errBody').textContent = 'استنى دقيقة وجرّب تاني.'; }
+          else { $('errTitle').textContent = 'تعذر جلب الحالة'; $('errBody').textContent = 'في مشكلة مؤقتة في الخدمة — جرّب تاني بعد شوية.'; }
+          show('error');
+        })
+        .catch(function () { $('errTitle').textContent = 'مفيش اتصال'; $('errBody').textContent = 'اتأكد من الإنترنت وجرّب تاني.'; show('error'); });
+    }
+    load();
+    setInterval(function () { if (!$('result').classList.contains('hidden')) load(false); }, 60000);
+  </script>
+</body>
+</html>
