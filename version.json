@@ -1,7 +1,7 @@
 {
-  "latest": "4.0.10",
+  "latest": "4.0.11",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.10/ELOS-Accounting-V4-4.0.10-Setup.zip",
-  "notes": "إصلاح مرتجع المشتريات على الفاتورة الآجل (ما بيسجّلش استرداد للخزنة لفلوس ما اتدفعتش) + مطابقة كشف حساب المورد مع القائمة + إصلاح زرارَي تعديل/تحصيل في تفاصيل العميل + عدد شهور مخصص في الأقساط",
-  "sig": "VR8Do6aAsqpNd1svHioDB/g5dFptxu9dljH/kHG0AK68hok0zd8MkmRKbBcWDZsjRD6wvr9LlWSBPYf9dDX/CA=="
+  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.11/ELOS-Accounting-V4-4.0.11-Setup.zip",
+  "notes": "صفحة متابعة حالة جهاز الصيانة للعميل بالـQR على إيصال الاستلام + رصيد العميل (إجمالي المستحق عليك) على فاتورة البيع والواتساب + متبقي المخزون جوه سلة نقطة البيع + باركود التذكرة في نافذة ما بعد الاستلام وطباعة الكل + إصلاحات: خانة السعر في السلة، سعر الجهاز 0.00 في إعادة الطباعة، أرقام شريط العملاء كاملة فوق المليون",
+  "sig": "AOsSM77c+4Kz8KLgy9uAC88vmVy6RZJ/3F/iCQtLS70RS9XUAvdeC3eW2MpjnqtW/WEUHt1IasPswshVNm2bDQ=="
 }
