@@ -1,7 +1,7 @@
 {
-  "latest": "4.0.12",
+  "latest": "4.0.13",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.12/ELOS-Accounting-V4-4.0.12-Setup.zip",
-  "notes": "الأقساط: دفع أكتر من قيمة القسط مع خصم الزيادة من الأقساط الجاية + تعديل ومسح عقد التقسيط. إصلاح: رصيد العميل وكشف الحساب بقوا بيحسبوا فايدة/مصاريف التقسيط والرسوم الإضافية زي نقطة البيع والتقسيط بالظبط",
-  "sig": "jgo5pr2rV7p6v8hjVlSfelxn2DM8aE/LfL/F++4A2EAy31lBuynlPSlu8njNH6C93Gc7qKjF+W3XvBohAw+yDQ=="
+  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.13/ELOS-Accounting-V4-4.0.13-Setup.zip",
+  "notes": "إصلاح تقرير الأرباح والمصروفات في الشهور اللي فيها أكتر من 1000 حركة خزنة (كان بيفقد مصروفات أول الشهر) + حفظ اسم المصدر عند إضافة جهاز بكتابة يدوية",
+  "sig": "IpCqrz3sh1ySfoLeTwSVoalZI3TwdZJ8hlTRa2NewFQq2N0FlAWULnQhAAXh0u+GtB0PaogK8CMmOIn9gJk+Bw=="
 }
