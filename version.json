@@ -1,7 +1,7 @@
 {
-  "latest": "4.0.11",
+  "latest": "4.0.12",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.11/ELOS-Accounting-V4-4.0.11-Setup.zip",
-  "notes": "صفحة متابعة حالة جهاز الصيانة للعميل بالـQR على إيصال الاستلام + رصيد العميل (إجمالي المستحق عليك) على فاتورة البيع والواتساب + متبقي المخزون جوه سلة نقطة البيع + باركود التذكرة في نافذة ما بعد الاستلام وطباعة الكل + إصلاحات: خانة السعر في السلة، سعر الجهاز 0.00 في إعادة الطباعة، أرقام شريط العملاء كاملة فوق المليون",
-  "sig": "AOsSM77c+4Kz8KLgy9uAC88vmVy6RZJ/3F/iCQtLS70RS9XUAvdeC3eW2MpjnqtW/WEUHt1IasPswshVNm2bDQ=="
+  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.12/ELOS-Accounting-V4-4.0.12-Setup.zip",
+  "notes": "الأقساط: دفع أكتر من قيمة القسط مع خصم الزيادة من الأقساط الجاية + تعديل ومسح عقد التقسيط. إصلاح: رصيد العميل وكشف الحساب بقوا بيحسبوا فايدة/مصاريف التقسيط والرسوم الإضافية زي نقطة البيع والتقسيط بالظبط",
+  "sig": "jgo5pr2rV7p6v8hjVlSfelxn2DM8aE/LfL/F++4A2EAy31lBuynlPSlu8njNH6C93Gc7qKjF+W3XvBohAw+yDQ=="
 }
