@@ -1,7 +1,7 @@
 {
-  "latest": "4.0.13",
+  "latest": "4.0.14",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.13/ELOS-Accounting-V4-4.0.13-Setup.zip",
-  "notes": "إصلاح تقرير الأرباح والمصروفات في الشهور اللي فيها أكتر من 1000 حركة خزنة (كان بيفقد مصروفات أول الشهر) + حفظ اسم المصدر عند إضافة جهاز بكتابة يدوية",
-  "sig": "IpCqrz3sh1ySfoLeTwSVoalZI3TwdZJ8hlTRa2NewFQq2N0FlAWULnQhAAXh0u+GtB0PaogK8CMmOIn9gJk+Bw=="
+  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.14/ELOS-Accounting-V4-4.0.14-Setup.zip",
+  "notes": "جديد: بحث وطلبات البضاعة بين الفروع (زرار «في الفروع» في المخزون ونقطة البيع + تنبيه للفرع المطلوب منه) · إعداد صيغة الأرقام عربي ٠-٩ على الفواتير · راتب/سلفة لموظف من صفحة المصروفات · بطارية لكل جهاز في الإضافة المتعددة · إعادة تشغيل بعد تغيير العملة · زرار «طباعة الستيكر + الإيصال» بعد استلام الصيانة. إصلاح: تعديل فاتورة بيعة لمورد بيسمع في كشف حسابه · العملة في الفاتورة الإنجليزية وليبل الباركود · تقفيل شفت كله مبيعات آجلة · الباركود المقسوم كان بيطبع الضعف · إشعارات الوضع الفاتح · صلاحيات المستخدمين (تفعيل صفحة بيدي تعديل + قسم متقدم) · عدّاد «متاح للبيع» مع البحث · حذف الجهاز بيوصل الموبايل وحذف الفرع الموقوف.",
+  "sig": "zTusFpYueC8uL/W/Lbgd/Y0J4GwyRSPmax0N4aBwELpiKnuS4i5h7PQFvoCY+g2Dc+S+OQPcvt+ODFyaKfC2AQ=="
 }
