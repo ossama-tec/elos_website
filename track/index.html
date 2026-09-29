@@ -69,7 +69,7 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="brand"><img src="../assets/favicon.png" alt="ELOS"><span>متابعة حالة الجهاز</span></div>
+    <div class="brand"><img src="../assets/favicon.png" alt="ELOS"><span data-sew="متابعة حالة الماكينة">متابعة حالة الجهاز</span></div>
 
     <div class="card" id="loading">
       <div class="msg"><div class="spinner"></div><p>جاري جلب حالة جهازك…</p></div>
@@ -88,13 +88,13 @@
       <div class="shop"><div class="name" id="shopName">—</div><div class="sub">تذكرة صيانة <bdo dir="ltr" id="ticketNo"></bdo></div></div>
 
       <div class="status-box" id="statusBox">
-        <div class="lbl">حالة جهازك دلوقتي</div>
+        <div class="lbl" data-sew="حالة ماكينتك دلوقتي">حالة جهازك دلوقتي</div>
         <div class="val" id="statusVal">—</div>
         <div class="hint" id="statusHint"></div>
       </div>
 
       <div class="rows">
-        <div class="row wide"><div class="k">الجهاز</div><div class="v" id="device">—</div></div>
+        <div class="row wide"><div class="k" data-sew="الماكينة">الجهاز</div><div class="v" id="device">—</div></div>
         <div class="row"><div class="k">تاريخ الاستلام</div><div class="v"><bdo dir="ltr" id="receivedAt">—</bdo></div></div>
         <div class="row"><div class="k">آخر تحديث</div><div class="v"><bdo dir="ltr" id="updatedAt">—</bdo></div></div>
       </div>
@@ -115,7 +115,7 @@
       <div class="meta">الصفحة بتتحدث تلقائيًا كل دقيقة</div>
     </div>
 
-    <div class="foot">خدمة متابعة الصيانة مقدمة من <a href="https://elos-system.com/">ELOS</a> لمحلات الموبايلات</div>
+    <div class="foot">خدمة متابعة الصيانة مقدمة من <a href="https://elos-system.com/">ELOS</a> <span data-sew="لمحلات ماكينات الخياطة">لمحلات الموبايلات</span></div>
   </div>
 
   <script>
@@ -143,6 +143,24 @@
       refunded:         { cls: 's-cancel', val: 'تم الاسترداد',        hint: '' }
     };
 
+    // 🧵 محل ماكينات خياطة (ELOS: renderer/js/industry.js) — بنعرفه من فئة التذكرة
+    //    نفسها (الـAPI مابيرجّعش نوع النشاط). الموبايل: مفيش أي تغيير.
+    var SEWING_CATS = { industrial: 'صناعي', overlock: 'أوفرلوك', coverstitch: 'ترابيز', household: 'منزلي', embroidery: 'تطريز' };
+    var PHONE_CATS = { mobile: 'موبايل', tablet: 'تابلت', laptop: 'لابتوب', desktop: 'كمبيوتر', printer: 'طابعة', other: 'أخرى' };
+    function toSewing(txt) {
+      return String(txt)
+        .replace(/جهازك/g, 'ماكينتك').replace(/الجهاز/g, 'الماكينة')
+        .replace(/فحصه/g, 'فحصها').replace(/جهاز/g, 'ماكينة');
+    }
+    function applySewing() {
+      STEPS.forEach(function (s) { s.label = toSewing(s.label); });
+      Object.keys(STATUS_TEXT).forEach(function (k) {
+        STATUS_TEXT[k].val = toSewing(STATUS_TEXT[k].val); STATUS_TEXT[k].hint = toSewing(STATUS_TEXT[k].hint);
+      });
+      document.title = toSewing(document.title);
+      document.querySelectorAll('[data-sew]').forEach(function (el) { el.textContent = el.getAttribute('data-sew'); });
+    }
+
     function $(id) { return document.getElementById(id); }
     function show(id) { ['loading', 'error', 'result'].forEach(function (x) { $(x).classList.toggle('hidden', x !== id); }); }
     function fmtDate(s) {
@@ -161,13 +179,16 @@
     }
 
     function render(d) {
+      var sewing = Object.prototype.hasOwnProperty.call(SEWING_CATS, d.device_category);
+      if (sewing && !render._sew) { applySewing(); render._sew = true; }
       var st = ALIAS[d.status] || d.status || 'received';
       var t = STATUS_TEXT[st] || { cls: 's-work', val: st, hint: '' };
       $('shopName').textContent = (d.shop && d.shop.name) || 'المحل';
       $('ticketNo').textContent = d.ticket_no || '';
       var box = $('statusBox'); box.className = 'status-box ' + t.cls;
       $('statusVal').textContent = t.val; $('statusHint').textContent = t.hint;
-      $('device').textContent = d.device || d.device_category || '—';
+      var catLabel = SEWING_CATS[d.device_category] || PHONE_CATS[d.device_category] || d.device_category;
+      $('device').textContent = d.device || catLabel || '—';
       $('receivedAt').textContent = fmtDate(d.received_at);
       $('updatedAt').textContent = fmtDate(d.updated_at);
 
