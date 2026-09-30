@@ -52,6 +52,12 @@
     .cost { border-top: 1px dashed var(--line); margin-top: 12px; padding-top: 12px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
     .cost .k { font-size: 11px; color: var(--mute); } .cost .v { font-size: 16px; font-weight: 800; margin-top: 2px; }
     .cost .v.rem { color: var(--amber); }
+    .warranty { display: flex; align-items: center; gap: 12px; margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: var(--green-soft); border: 1px solid var(--green); }
+    .warranty .w-ico { font-size: 26px; line-height: 1; }
+    .warranty .w-val { font-size: 15px; font-weight: 800; color: var(--green); }
+    .warranty .w-sub { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+    .warranty.expired { background: var(--card-2); border-color: var(--line); }
+    .warranty.expired .w-val { color: var(--ink-soft); }
     .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
     .btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 15px; text-decoration: none; color: #fff; border: none; cursor: pointer; font-family: inherit; }
     .btn-call { background: var(--teal); } .btn-wa { background: #16a34a; } .btn-ghost { background: var(--card-2); color: var(--ink-soft); grid-column: 1 / -1; font-size: 13px; font-weight: 600; }
@@ -100,6 +106,12 @@
       </div>
 
       <ul class="timeline" id="timeline"></ul>
+
+      <!-- 🛡️ ضمان الصيانة — بيظهر بعد التسليم لو المحل سجّل مدة ضمان -->
+      <div class="warranty hidden" id="warranty">
+        <div class="w-ico">🛡️</div>
+        <div><div class="w-val" id="warrantyVal">—</div><div class="w-sub" id="warrantySub"></div></div>
+      </div>
 
       <div class="cost hidden" id="cost">
         <div><div class="k">إجمالي التكلفة</div><div class="v" id="costTotal">—</div></div>
@@ -203,6 +215,25 @@
         tl.appendChild(li);
       });
       if (terminal) { var li2 = document.createElement('li'); li2.className = 'now'; li2.textContent = t.val; tl.appendChild(li2); }
+
+      // 🛡️ الضمان: until = آخر يوم ضمان (YYYY-MM-DD) — بنقارنه بالنهارده عند العميل
+      var w = $('warranty');
+      if (d.warranty && d.warranty.until) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d.warranty.until);
+        var until = m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+        var today = new Date(); today.setHours(0, 0, 0, 0);
+        var left = until ? Math.round((until - today) / 86400000) : -1;
+        var untilTxt = m ? (m[3] + '/' + m[2] + '/' + m[1]) : '';
+        w.classList.remove('hidden');
+        w.classList.toggle('expired', left < 0);
+        $('warrantyVal').textContent = left >= 0
+          ? (left === 0 ? 'الضمان ساري — آخر يوم النهارده' : 'الضمان ساري — باقي ' + left + ' يوم')
+          : 'الضمان انتهى';
+        $('warrantySub').textContent = (d.warranty.days ? 'ضمان ' + d.warranty.days + ' يوم من التسليم — ' : '') + (left >= 0 ? 'لحد ' : 'في ') + untilTxt;
+      } else { w.classList.add('hidden'); }
+      if (d.warranty_claim_of) {
+        $('statusHint').textContent = 'استلام في الضمان (التذكرة الأصلية ' + d.warranty_claim_of + ')' + (t.hint ? ' — ' + t.hint : '');
+      }
 
       if (d.cost) {
         $('cost').classList.remove('hidden');
