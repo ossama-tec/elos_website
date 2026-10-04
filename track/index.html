@@ -231,6 +231,12 @@
           : 'الضمان انتهى';
         $('warrantySub').textContent = (d.warranty.days ? 'ضمان ' + d.warranty.days + ' يوم من التسليم — ' : '') + (left >= 0 ? 'لحد ' : 'في ') + untilTxt;
       } else { w.classList.add('hidden'); }
+      // ⏸️ الإصلاح متوقف: ظهرت مشكلة جديدة والمحل مستني موافقة العميل
+      if (d.hold && d.hold.reason) {
+        $('statusHint').textContent = 'ظهرت مشكلة جديدة أثناء الإصلاح: ' + d.hold.reason
+          + (d.hold.extra ? ' — تكلفة إضافية ' + fmtMoney(d.hold.extra) : '')
+          + ' — المحل مستني موافقتك، تواصل معاه';
+      }
       if (d.warranty_claim_of) {
         $('statusHint').textContent = 'استلام في الضمان (التذكرة الأصلية ' + d.warranty_claim_of + ')' + (t.hint ? ' — ' + t.hint : '');
       }
