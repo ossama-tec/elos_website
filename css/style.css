@@ -1785,6 +1785,41 @@ section {
 
 .download-card .btn { width: 100%; }
 
+/* 🍎 اختيار النظام في كارت الكمبيوتر (ويندوز / ماك) */
+.os-picker {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 6px 0 12px;
+}
+.os-opt {
+  border: 1px solid var(--stone);
+  background: transparent;
+  color: inherit;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--t);
+}
+.os-opt:hover { border-color: var(--coral); }
+.os-opt.is-on { background: var(--coral); border-color: var(--coral); color: #fff; }
+.mac-help {
+  text-align: start;
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--mute);
+  background: rgba(0,0,0,0.035);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin: -8px 0 16px;
+}
+.mac-help p + p { margin-top: 6px; }
+.mac-help b { color: inherit; }
+
 /* ========================================
    FAQ
    ======================================== */

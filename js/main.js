@@ -391,6 +391,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }).then(r => r.ok).catch(() => false);
   }
 
+  // ── 🍎 اختيار النظام في كارت الكمبيوتر (ويندوز / ماك Apple Silicon / ماك Intel) ──
+  // بيغيّر لينك التحميل اللي الفورم بيستخدمه بعد تسجيل الليد. زائر الماك بيتختارله
+  // الماك تلقائي؛ Apple Silicon ولا Intel من userAgentData (كروم/إيدج) وإلا Apple
+  // Silicon (أغلب أجهزة الماك من 2020) — والمساعدة بتقوله يتأكد إزاي.
+  document.querySelectorAll('[data-os-picker]').forEach(picker => {
+    const card = picker.closest('.download-card');
+    const form = card && card.querySelector('form[data-lead-form]');
+    if (!form) return;
+    const winUrl = form.dataset.downloadUrl;
+    const btn = form.querySelector('button[type="submit"]');
+    const btnWin = btn ? btn.textContent : '';
+    const select = (os) => {
+      picker.querySelectorAll('.os-opt').forEach(o => {
+        const on = o.dataset.os === os;
+        o.classList.toggle('is-on', on);
+        o.setAttribute('aria-checked', on ? 'true' : 'false');
+      });
+      const opt = picker.querySelector(`.os-opt[data-os="${os}"]`);
+      const isMac = os !== 'win';
+      form.dataset.downloadUrl = isMac && opt ? opt.dataset.url : winUrl;
+      form.dataset.os = os;
+      card.querySelectorAll('[data-ver-win]').forEach(el => { el.hidden = isMac; });
+      card.querySelectorAll('[data-ver-mac], [data-mac-help]').forEach(el => { el.hidden = !isMac; });
+      if (btn) btn.textContent = isMac ? '⬇️ احصل على نسخة الماك' : btnWin;
+    };
+    picker.addEventListener('click', (e) => {
+      const o = e.target.closest('.os-opt');
+      if (!o) return;
+      select(o.dataset.os);
+      trackEvent('os_picked', { os: o.dataset.os, device: DEVICE });
+    });
+    if (DEVICE === 'mac' && !IS_MOBILE) {
+      select('mac-arm');
+      try {
+        if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+          navigator.userAgentData.getHighEntropyValues(['architecture']).then(v => {
+            if (v && v.architecture === 'x86') select('mac-intel');
+          }).catch(() => {});
+        }
+      } catch (_) {}
+    }
+  });
+
   const leadForms = document.querySelectorAll('form[data-lead-form]');
   leadForms.forEach(form => {
     const phoneField = setupPhoneField(form);
@@ -442,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `رقمي: ${parsed.e164}`,
         IS_MOBILE
           ? 'حابب أجرب ELOS — ابعتولي لينك نسخة الكمبيوتر عشان أحمّلها على جهاز الويندوز'
-          : `حابب أحمل ELOS ${platform === 'mobile' ? 'تطبيق الموبايل' : 'نسخة الكمبيوتر'} وأبدأ التجربة المجانية`
+          : `حابب أحمل ELOS ${platform === 'mobile' ? 'تطبيق الموبايل' : String(form.dataset.os || '').startsWith('mac') ? 'نسخة الماك' + (form.dataset.os === 'mac-intel' ? ' (Intel)' : ' (Apple Silicon)') : 'نسخة الكمبيوتر'} وأبدأ التجربة المجانية`
       ];
       const src = (ATTRIB.utm && ATTRIB.utm.source) || (ATTRIB.fbclid ? 'facebook' : ATTRIB.gclid ? 'google' : ATTRIB.ttclid ? 'tiktok' : '');
       if (src) lines.push(`(جاي من ${src}${ATTRIB.utm && ATTRIB.utm.campaign ? ' — ' + ATTRIB.utm.campaign : ''})`);
@@ -470,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = successMsg.querySelector('p');
         if (!willDownload && title && text) {
           title.textContent = 'تمام! سجّلنا بياناتك';
-          text.textContent = 'نسخة الكمبيوتر بتتحمّل من جهاز ويندوز — هنبعتلك اللينك على واتساب ونساعدك في التركيب.';
+          text.textContent = 'نسخة الكمبيوتر بتتحمّل من جهاز ويندوز أو ماك — هنبعتلك اللينك على واتساب ونساعدك في التركيب.';
         }
         form.querySelector('.lead-fields').style.display = 'none';
         successMsg.style.display = 'block';
