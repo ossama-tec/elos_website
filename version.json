@@ -1,7 +1,7 @@
 {
-  "latest": "4.0.17",
+  "latest": "4.0.18",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.17/ELOS-Accounting-V4-4.0.17-Setup.zip",
-  "notes": "الموقف المالي والأرباح والخسائر في الحسابات العامة، وصافي ربح موحّد في الرئيسية والتقارير، ومسحوب شهري ثابت للشريك، وفاتورة واتساب كصورة، والتابات بتحتفظ بشغلك ومسودة تلقائية لفواتير المشتريات، والباركود بيفضل زي ما هو مع تحويل الفروع، وحد أدنى للأجهزة، وتحسينات كتير.",
-  "sig": "Q9PaffuwTQLKuRa5+QHi0KwMnXgEQabq0ic0JFufn+DhV39k8B5Mn7Qk0yCBUSQII88h9zs0L+LIM22ThNdeAQ=="
+  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.0.18/ELOS-Accounting-V4-4.0.18-Setup.zip",
+  "notes": "تصدير Excel للعملاء اللي عليهم فلوس وأرصدة الموردين، والجرد بالسكانر بيطلّع الصنف الممسوح أول القائمة بلون حالته، وتحصيلات الصيانة اللي ماتقفلتش بقت في الموقف المالي، وإصلاح المرتجع في كشف حساب العميل، وتحسينات نسخة الماك.",
+  "sig": "fNFGSparQxZQEaY24l/e/dwBS9g+TEOAqSCjnhwHTfzf+LgucRwPNgWEmGBOYA+AXDLDTm5mH+RippaxHQBnCg=="
 }
