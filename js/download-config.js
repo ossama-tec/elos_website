@@ -8,9 +8,9 @@ window.ELOS_DOWNLOAD = {
   version: '4.1.0',
 
   windows: {
-    url: '#',                                   // لينك الـinstaller المباشر ('#' = الزرار مقفول)
+    url: 'https://github.com/ossama-tec/elos_website/releases/download/v4.1.0/ELOS-Accounting-V4-4.1.0-Setup.zip',                                   // لينك الـinstaller المباشر ('#' = الزرار مقفول)
     fileName: 'ELOS-Accounting-V4-4.1.0-Setup.zip',
-    size: '— MB',                               // مثال: '128 MB'
+    size: '98.8 MB',                               // مثال: '128 MB'
     date: '2026-11-05'                          // تاريخ الإصدار YYYY-MM-DD
   },
 
