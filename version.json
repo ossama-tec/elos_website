@@ -1,7 +1,7 @@
 {
-  "latest": "4.1.0",
+  "latest": "4.1.1",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.1.0/ELOS-Accounting-V4-4.1.0-Setup.zip",
-  "notes": "دفعة العميل على أكتر من تذكرة صيانة، وتعديل فواتير المشتريات في مكانها وطباعتها A4، ومصمّم ملصق الباركود، وExcel لكل مخزن، وإعدادات درج الكاش المعدني، وبند «تغيير أسعار المخزون» في الموقف المالي، وترتيب صفحة الإعدادات، وإصلاحات في الخزنة ودفتر المورد.",
-  "sig": "TDmCBMFFpIv3RildmkdBOuPUAMMBm9qXaBs+Q+UXwPt8Jv94xORq6NyQWOstX6XIebD8cz292hTedq8OVW+UBQ=="
+  "downloadUrl": "https://github.com/ossama-tec/elos_website/releases/download/v4.1.1/ELOS-Accounting-V4-4.1.1-Setup.zip",
+  "notes": "تجهيز الكمبيوتر لتطبيق الموبايل 5.0: أرقام الموبايل بقت مطابقة لشاشات الكمبيوتر لكل فرع، وحساب لكل بائع على الموبايل من زرار «تفعيل موبايل للموظف»، والفاتورة المعلّقة (F4 / F5) اللي البائع بيبعتها من الموبايل والكاشير يدفعها، وQR ربط من غير باسورد، والحذف والمرتجعات على الأيام القديمة بقت بتوصل الموبايل.",
+  "sig": "0XK1Rypj3brq7LoKWGxMdlt6j4EN+duoJUzK8td2CEzpac/KBqJnwM7e2fJEgWeItaG8Lf2/R9+JlFxNjxVrCA=="
 }
