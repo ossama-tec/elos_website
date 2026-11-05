@@ -14,6 +14,15 @@ window.ELOS_DOWNLOAD = {
     date: '2026-11-05'                          // تاريخ الإصدار YYYY-MM-DD
   },
 
+  // 🍎 نسخة الماك — release-mac.ps1 (في elos-accounting) بيحدّث اللينكين دول مع كل ريليز.
+  //    لو الاتنين فاضيين ('') الكارت بيرجع «قريبًا».
+  //    ⚠️ ممنوع تتسمّى url/version/size/date/fileName — release.ps1 بيستبدل
+  //    أي مفتاح بالأسماء دي بلينك الويندوز.
+  mac: {
+    arm64: 'https://github.com/ossama-tec/elos_website/releases/download/v4.1.0/ELOS-Accounting-V4-4.1.0-arm64.dmg',
+    intel: 'https://github.com/ossama-tec/elos_website/releases/download/v4.1.0/ELOS-Accounting-V4-4.1.0-x64.dmg'
+  },
+
   // تطبيق الموبايل — لو اللينك فاضي ('') الزرار بيختفي
   googlePlay: 'https://play.google.com/store/apps/details?id=com.elos.accounting',
 

@@ -56,6 +56,10 @@
     .dl-card h2 { font-family: var(--display); font-size: 1.25rem; margin: 0 0 12px; display: flex; align-items: center; gap: 10px; }
     .dl-card p, .dl-card li { color: var(--ink-soft); line-height: 1.9; }
     .dl-soon { opacity: .85; }
+    .dl-mac { display: flex; flex-wrap: wrap; gap: 10px; }
+    .dl-mac[hidden] { display: none; }
+    .dl-mac .btn { flex: 1 1 140px; justify-content: center; }
+    .dl-mac .dl-mac-hint { flex-basis: 100%; margin: 4px 0 0; font-size: .82rem; color: var(--mute); line-height: 1.7; }
     .dl-tag { display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--coral-soft); color: var(--teal-bright); font-size: .78rem; font-weight: 700; }
     .dl-steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
     .dl-steps li { counter-increment: s; position: relative; padding-right: 42px; margin-bottom: 12px; }
@@ -159,9 +163,14 @@
         </div>
 
         <div class="dl-grid">
-          <div class="dl-card dl-soon">
-            <h2>🍎 نسخة الماك <span class="dl-tag">قريبًا</span></h2>
-            <p>نسخة الماك هتنزل هنا قريب. لو محتاجها دلوقتي كلّمنا على واتساب.</p>
+          <div class="dl-card dl-soon" data-dl="mac-card">
+            <h2>🍎 نسخة الماك <span class="dl-tag" data-dl="mac-soon">قريبًا</span></h2>
+            <p data-dl="mac-soon-text">نسخة الماك هتنزل هنا قريب. لو محتاجها دلوقتي كلّمنا على واتساب.</p>
+            <div class="dl-mac" data-dl="mac-btns" hidden>
+              <a class="btn btn-ghost" data-dl="mac-arm" data-track="download-page-mac-arm" href="#">ماك M1 – M4</a>
+              <a class="btn btn-ghost" data-dl="mac-intel" data-track="download-page-mac-intel" href="#">ماك Intel</a>
+              <p class="dl-mac-hint">مش عارف نوع جهازك؟ من قايمة التفاحة ← <bdi dir="ltr">About This Mac</bdi>: لو مكتوب Chip يبقى M، ولو Processor يبقى Intel. · <bdi dir="ltr">macOS 10.15</bdi> وأحدث</p>
+            </div>
           </div>
           <div class="dl-card">
             <h2>💻 المتطلبات</h2>
@@ -232,6 +241,18 @@
     var hasUrl = W.url && W.url !== '#';
     if (hasUrl) { win.href = W.url; win.setAttribute('download', ''); }
     else { win.addEventListener('click', function (e) { e.preventDefault(); }); $('pending').hidden = false; }
+
+    // 🍎 الماك: لينكين في الإعدادات = زراير، فاضيين = «قريبًا»
+    var M = C.mac || {};
+    if (M.arm64 || M.intel) {
+      $('mac-card').classList.remove('dl-soon');
+      $('mac-soon').hidden = true;
+      $('mac-soon-text').hidden = true;
+      $('mac-btns').hidden = false;
+      var arm = $('mac-arm'), intel = $('mac-intel');
+      if (M.arm64) { arm.href = M.arm64; arm.setAttribute('download', ''); } else arm.hidden = true;
+      if (M.intel) { intel.href = M.intel; intel.setAttribute('download', ''); } else intel.hidden = true;
+    }
 
     var play = $('play');
     if (C.googlePlay) play.href = C.googlePlay; else play.hidden = true;
