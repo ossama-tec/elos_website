@@ -8,7 +8,7 @@ window.ELOS_DOWNLOAD = {
   version: '4.1.1',
 
   windows: {
-    url: 'https://github.com/ossama-tec/elos_website/releases/download/v4.1.1/ELOS-Accounting-V4-4.1.1-Setup.zip',                                   // لينك الـinstaller المباشر ('#' = الزرار مقفول)
+    url: 'https://elos-downloads.ossama3abss.workers.dev/v4.1.1/ELOS-Accounting-V4-4.1.1-Setup.zip',                                   // لينك الـinstaller المباشر ('#' = الزرار مقفول)
     fileName: 'ELOS-Accounting-V4-4.1.1-Setup.zip',
     size: '99 MB',                               // مثال: '128 MB'
     date: '2026-11-06'                          // تاريخ الإصدار YYYY-MM-DD
@@ -19,8 +19,8 @@ window.ELOS_DOWNLOAD = {
   //    ⚠️ ممنوع تتسمّى url/version/size/date/fileName — release.ps1 بيستبدل
   //    أي مفتاح بالأسماء دي بلينك الويندوز.
   mac: {
-    arm64: 'https://github.com/ossama-tec/elos_website/releases/download/v4.1.1/ELOS-Accounting-V4-4.1.1-arm64.dmg',
-    intel: 'https://github.com/ossama-tec/elos_website/releases/download/v4.1.1/ELOS-Accounting-V4-4.1.1-x64.dmg'
+    arm64: 'https://elos-downloads.ossama3abss.workers.dev/v4.1.1/ELOS-Accounting-V4-4.1.1-arm64.dmg',
+    intel: 'https://elos-downloads.ossama3abss.workers.dev/v4.1.1/ELOS-Accounting-V4-4.1.1-x64.dmg'
   },
 
   // تطبيق الموبايل — لو اللينك فاضي ('') الزرار بيختفي
