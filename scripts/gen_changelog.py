@@ -120,7 +120,7 @@ TEMPLATE = '''<!DOCTYPE html>
   <meta name="theme-color" content="#f6f2ea">
   <meta property="og:title" content="سجل تحديثات ELOS — آخر إصدار {{LATEST}}">
   <meta property="og:description" content="كل إصدار من ELOS وإيه اللي اتضاف واتصلح فيه. التحديث بيوصل المستخدمين تلقائي جوه البرنامج.">
-  <meta property="og:image" content="https://elos-system.com/assets/og-cover.jpg">
+  <meta property="og:image" content="https://elos-system.com/assets/og-cover.jpg?v=2">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://elos-system.com/changelog.html">
   <meta property="og:locale" content="ar_EG">
