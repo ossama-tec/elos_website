@@ -621,6 +621,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (el.dataset.sar) el.textContent = fmt(el.dataset.sar) + ' ر.س';
       else if (el.dataset.sarSave) el.textContent = 'وفّر ' + fmt(el.dataset.sarSave) + ' ر.س';
     });
+    // حاجات بالجنيه مالهاش سعر بالريال لسه (ترخيص موبايل مدى الحياة 1,200 ج.م) وطرق الدفع المصرية — بتستخبى للريال
+    document.querySelectorAll('[data-egp-only]').forEach(el => { el.hidden = cur !== 'EGP'; });
     // زائر السعودية بيشوف الريال بس — من غير زرار للجنيه (قرار أسامة 2026-09-08)
     document.querySelectorAll('[data-currency-note]').forEach(note => {
       note.hidden = cur !== 'SAR';

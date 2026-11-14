@@ -3007,3 +3007,7 @@ html.fx-on .fade-up { animation: none; }
   .tg-real .testimonial-card { flex: 0 0 84%; scroll-snap-align: center; padding: 24px 20px; }
   .tg-real .testimonial-card:hover { transform: none; }
 }
+
+/* ── طرق الدفع تحت الباقات ── */
+.pricing-pay { text-align: center; margin-top: 18px; font-size: 0.92rem; color: var(--ink-soft); }
+.pricing-pay[hidden] { display: none; }
