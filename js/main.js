@@ -248,6 +248,20 @@ document.addEventListener('DOMContentLoaded', () => {
     return rec;
   }
   const ATTRIB = captureAttribution();
+  // سطر المصدر اللي بيتضاف لرسايل الواتساب — «(جاي من facebook — اسم الحملة)» أو فاضي
+  function attribNote() {
+    const src = (ATTRIB.utm && ATTRIB.utm.source) || (ATTRIB.fbclid ? 'facebook' : ATTRIB.gclid ? 'google' : ATTRIB.ttclid ? 'tiktok' : '');
+    return src ? `(جاي من ${src}${ATTRIB.utm && ATTRIB.utm.campaign ? ' — ' + ATTRIB.utm.campaign : ''})` : '';
+  }
+
+  // ── لينكات واتساب برسالة جاهزة: <a data-wa-msg="..."> ──
+  // الـhref في الصفحة فيه الرسالة من غير المصدر (بيشتغل من غير JS)، وهنا بنزوّد سطر المصدر زي رسالة الفورم
+  document.querySelectorAll('a[data-wa-msg]').forEach(a => {
+    const lines = [a.getAttribute('data-wa-msg')];
+    const note = attribNote();
+    if (note) lines.push(note);
+    a.href = 'https://wa.me/201031372078?text=' + encodeURIComponent(lines.join('\n'));
+  });
 
   // ── Country picker for the phone field ──
   // trunk = الرقم المحلي بيبدأ بصفر بيتشال قبل مفتاح الدولة · len = عدد الأرقام بعد شيل الصفر
@@ -503,8 +517,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ];
       if (gov) lines.push(`المحافظة: ${gov}`);
       if (hasPc) lines.push(hasPc === 'yes' ? 'عندي كمبيوتر في المحل' : 'لسه مفيش كمبيوتر في المحل');
-      const src = (ATTRIB.utm && ATTRIB.utm.source) || (ATTRIB.fbclid ? 'facebook' : ATTRIB.gclid ? 'google' : ATTRIB.ttclid ? 'tiktok' : '');
-      if (src) lines.push(`(جاي من ${src}${ATTRIB.utm && ATTRIB.utm.campaign ? ' — ' + ATTRIB.utm.campaign : ''})`);
+      const note = attribNote();
+      if (note) lines.push(note);
       const waUrl = `https://wa.me/201031372078?text=${encodeURIComponent(lines.join('\n'))}`;
       window.open(waUrl, '_blank', 'noopener');
 
