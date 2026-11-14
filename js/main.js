@@ -201,8 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[download]').forEach(link => {
     link.addEventListener('click', () => {
       const platform = link.href.includes('.apk') ? 'mobile' : 'desktop';
+      // مش Lead: الضغطات دي أغلبها عملاء حاليين بيحدّثوا، وحملة الموقع بتتحاسب على Lead (تسجيل الفورم بس)
       trackEvent('download', { platform });
-      if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'ELOS-' + platform });
     });
   });
 
@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
       form.dataset.os = os;
       card.querySelectorAll('[data-ver-win]').forEach(el => { el.hidden = isMac; });
       card.querySelectorAll('[data-ver-mac], [data-mac-help]').forEach(el => { el.hidden = !isMac; });
-      if (btn) btn.textContent = isMac ? '⬇️ احصل على نسخة الماك' : btnWin;
+      if (btn && !IS_MOBILE) btn.textContent = isMac ? '⬇️ احصل على نسخة الماك' : btnWin;
     };
     picker.addEventListener('click', (e) => {
       const o = e.target.closest('.os-opt');
@@ -445,6 +445,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     if (phoneField) phoneField.input.addEventListener('input', () => { phoneField.input.classList.remove('is-invalid'); showError(''); });
 
+    // على الموبايل مفيش تحميل — اللينك بيتبعت واتساب، فالزرار والملحوظة لازم يقولوا اللي هيحصل فعلاً
+    if (IS_MOBILE && (form.dataset.platform || 'desktop') === 'desktop') {
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const note = form.querySelector('.lead-note');
+      if (submitBtn) submitBtn.textContent = '📲 ابعتلي لينك التحميل على واتساب';
+      if (note) note.textContent = 'البرنامج بيتركّب على كمبيوتر المحل وتتابعه من موبايلك — هنبعتلك اللينك على واتساب ونساعدك في التركيب';
+    }
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const formData = new FormData(form);
@@ -458,8 +466,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (parsed.error) { showError(parsed.error); return; }
       showError('');
 
-      trackEvent('lead_submitted', { platform, device: DEVICE, country: country.iso });
-      if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'ELOS-' + platform });
+      // حقول التأهيل الاختيارية (موجودة في صفحات الهبوط اللي فيها الحقلين)
+      const hasPc = String(formData.get('has_pc') || '');
+      const gov = String(formData.get('gov') || '').trim().slice(0, 40);
+
+      trackEvent('lead_submitted', { platform, device: DEVICE, country: country.iso, has_pc: hasPc || 'na' });
+      if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'ELOS-' + platform, device: DEVICE, has_pc: hasPc || 'na' });
 
       // 1) CRM — في الخلفية، مش بنستنى الرد
       sendLeadToCrm({
@@ -468,6 +480,8 @@ document.addEventListener('DOMContentLoaded', () => {
         platform,
         device: DEVICE,
         country: country.iso,
+        gov,
+        has_pc: hasPc,
         utm: ATTRIB.utm || {},
         fbclid: ATTRIB.fbclid || '',
         gclid: ATTRIB.gclid || '',
@@ -487,6 +501,8 @@ document.addEventListener('DOMContentLoaded', () => {
           ? 'حابب أجرب ELOS — ابعتولي لينك نسخة الكمبيوتر عشان أحمّلها على جهاز الويندوز'
           : `حابب أحمل ELOS ${platform === 'mobile' ? 'تطبيق الموبايل' : String(form.dataset.os || '').startsWith('mac') ? 'نسخة الماك' + (form.dataset.os === 'mac-intel' ? ' (Intel)' : ' (Apple Silicon)') : 'نسخة الكمبيوتر'} وأبدأ التجربة المجانية`
       ];
+      if (gov) lines.push(`المحافظة: ${gov}`);
+      if (hasPc) lines.push(hasPc === 'yes' ? 'عندي كمبيوتر في المحل' : 'لسه مفيش كمبيوتر في المحل');
       const src = (ATTRIB.utm && ATTRIB.utm.source) || (ATTRIB.fbclid ? 'facebook' : ATTRIB.gclid ? 'google' : ATTRIB.ttclid ? 'tiktok' : '');
       if (src) lines.push(`(جاي من ${src}${ATTRIB.utm && ATTRIB.utm.campaign ? ' — ' + ATTRIB.utm.campaign : ''})`);
       const waUrl = `https://wa.me/201031372078?text=${encodeURIComponent(lines.join('\n'))}`;

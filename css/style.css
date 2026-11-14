@@ -2522,6 +2522,24 @@ section {
   box-shadow: 0 0 0 3px var(--coral-soft);
 }
 .lead-fields .cc-select option { background: var(--stone-soft); color: var(--ink); }
+.lead-fields .lead-select {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--stone);
+  border-radius: var(--radius-sm);
+  font-family: var(--body);
+  font-size: 0.98rem;
+  color: var(--ink);
+  background: var(--ivory);
+  direction: rtl;
+  cursor: pointer;
+}
+.lead-fields .lead-select:focus {
+  outline: none;
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px var(--coral-soft);
+}
+.lead-fields .lead-select option { background: var(--ivory); color: var(--ink); }
 .phone-hint {
   display: block;
   font-size: 0.76rem;
@@ -2557,8 +2575,11 @@ section {
 }
 .lead-form { position: relative; }
 
-/* على الموبايل: تطبيق الموبايل الأول (معظم عملاء الإعلانات بيبدأوا بيه) */
-body.dev-mobile .download-card--mobile { order: -1; }
+/* على الموبايل: فورم التسجيل الأول. كارت Play قبله كان بيودّي زوار الإعلانات للمتجر من غير ما
+   يتسجلوا ليد، والتطبيق مابيشتغلش من غير نسخة الكمبيوتر. التطبيق أندرويد بس فالكارت بيتخفى على iOS. */
+body.dev-mobile .download-card--mobile .download-changelog,
+body.dev-mobile .download-card--desktop .download-changelog--compact { display: none; }
+body.dev-ios .download-card--mobile { display: none; }
 
 .lead-note {
   display: block;
