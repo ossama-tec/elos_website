@@ -127,6 +127,38 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "محتاج كمبيوتر عشان أستخدم البرنامج؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "أيوه. ELOS برنامج بيتثبت على كمبيوتر أو لابتوب المحل — ويندوز 10/11 أو ماك — وعليه بتبيع وبتسجّل كل حاجة، وبيشتغل من غير إنترنت. تطبيق الموبايل بيتربط بالبرنامج بالـ QR عشان تتابع المحل من أي مكان، لكنه مش بديل عن نسخة الكمبيوتر."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "إيه اللي بيحصل بعد الـ 7 أيام التجربة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "التجربة 7 أيام بكل المميزات ومن غير بطاقة ائتمان، فمفيش أي فلوس بتتسحب منك لوحدها. لو البرنامج مناسبك اختار الباقة السنوية (2,600 ج.م/سنة) أو مدى الحياة (4,000 ج.م مرة واحدة) وكلّمنا على واتساب عشان تشترك. ولو اشتركت ولقيته مش مناسبك، عندك ضمان استرداد 30 يوم."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "البرنامج بيشتغل على الماك؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "أيوه — فيه نسخة للماك لأجهزة Apple Silicon (M1/M2/M3/M4) وأجهزة Intel، على macOS 10.15 وأحدث. حمّلها من صفحة التحميل واختار نوع جهازك."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "التطبيق متاح على آيفون؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تطبيق الموبايل متاح دلوقتي على أندرويد (6.0 وأحدث) من Google Play. نسخة الآيفون بيتم تطويرها حالياً وهتنزل قريباً. نسخة الكمبيوتر نفسها مالهاش علاقة بنوع موبايلك."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "إيه الفرق بين برنامج محاسبة عام وبرنامج مخصوص لمحلات الموبايلات؟",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -167,10 +199,9 @@
     <div class="container">
       <a href="/" class="nav-logo"><img src="/assets/favicon.png" alt="ELOS" class="nav-logo-icon"> ELOS <span>V4</span></a>
       <ul class="nav-links">
-        <li><a href="/#features">المميزات</a></li>
-        <li><a href="/#mobile-app">تطبيق الموبايل</a></li>
-        <li><a href="/#pricing">الباقات</a></li>
-        <li><a href="/changelog.html">التحديثات</a></li>
+        <li><a href="#features">المميزات</a></li>
+        <li><a href="#pricing">الباقات</a></li>
+        <li><a href="#faq">أسئلة شائعة</a></li>
         <li><a href="#download">التحميل</a></li>
       </ul>
       <div class="nav-actions">
@@ -248,7 +279,7 @@
     </div>
   </section>
 
-  <section class="lp-section">
+  <section class="lp-section" id="features">
     <div class="container">
       <div class="lp-two fade-up">
         <div>
@@ -298,20 +329,71 @@
     </div>
   </section>
 
-  <section class="lp-section lp-section--alt" id="pricing-mini">
+  <section class="pricing" id="pricing">
     <div class="container">
       <div class="section-header fade-up">
-        <span class="section-badge">الأسعار</span>
+        <span class="section-badge">الباقات</span>
         <h2>اختر الباقة المناسبة لمحلك</h2>
         <p>ابدأ مجاناً — وادفع بس لما تتأكد إن النظام مناسبك</p>
         <p class="currency-note" data-currency-note hidden></p>
       </div>
-      <div class="lp-price fade-up">
-        <div><b>مجاناً</b><small>7 أيام تجربة بكل المميزات</small></div>
-        <div class="hl"><b><span data-egp="2600" data-sar="220">2,600 ج.م</span> / سنة</b><small>كل المميزات + تطبيق الموبايل سنة كاملة</small></div>
-        <div><b><span data-egp="4000" data-sar="400">4,000 ج.م</span> مرة واحدة</b><small>مدى الحياة + تحديثات مجانية للأبد</small></div>
+      <div class="pricing-grid">
+
+        <div class="pricing-card fade-up">
+          <h3>تجربة مجانية</h3>
+          <div class="pricing-price">مجاناً</div>
+          <div class="pricing-duration">7 أيام</div>
+          <ul class="pricing-features">
+            <li>كل المميزات بدون استثناء</li>
+            <li>تطبيق الموبايل (7 أيام)</li>
+            <li>نقطة البيع + المخزون</li>
+            <li>الصيانة + التقارير</li>
+            <li>دعم واتساب</li>
+          </ul>
+          <a href="#download" class="btn btn-ghost" data-track="lp-pricing-trial">جرب مجاناً الآن</a>
+        </div>
+
+        <div class="pricing-card highlighted fade-up">
+          <span class="pricing-badge">الأكثر طلباً</span>
+          <h3>اشتراك سنوي</h3>
+          <div class="pricing-price">
+            <span class="old-price" data-egp="3200" data-sar="270">3,200 ج.م</span>
+            <span data-egp="2600" data-sar="220">2,600 ج.م</span><span class="price-period">/سنة</span>
+          </div>
+          <div class="pricing-save" data-egp-save="3200,2600" data-sar-save="50">وفّر 600 ج.م</div>
+          <ul class="pricing-features">
+            <li>كل المميزات بدون استثناء</li>
+            <li>تطبيق الموبايل (سنة كاملة)</li>
+            <li>ترخيص موبايل مدمج</li>
+            <li>تحديثات مجانية طوال السنة</li>
+            <li>دعم فني بأولوية</li>
+          </ul>
+          <a href="https://wa.me/201031372078?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B4%D8%AA%D8%B1%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%B3%D9%86%D9%88%D9%8A%D8%A9" data-wa-msg="عايز أشترك في الباقة السنوية" data-track="lp-pricing-annual" target="_blank" rel="noopener noreferrer" class="btn btn-primary">اشترك الآن</a>
+        </div>
+
+        <div class="pricing-card fade-up">
+          <h3>مدى الحياة</h3>
+          <div class="pricing-price">
+            <span class="old-price" data-egp="5000" data-sar="500">5,000 ج.م</span>
+            <span data-egp="4000" data-sar="400">4,000 ج.م</span><span class="price-period"> مرة واحدة</span>
+          </div>
+          <div class="pricing-save" data-egp-save="5000,4000" data-sar-save="100">وفّر 1,000 ج.م</div>
+          <ul class="pricing-features">
+            <li>كل المميزات للأبد</li>
+            <li>تحديثات مجانية مدى الحياة</li>
+            <li>تطبيق موبايل (7 أيام تجربة)</li>
+            <li class="note">ترخيص الموبايل سنوي منفصل</li>
+            <li>دعم فني بأولوية</li>
+          </ul>
+          <a href="https://wa.me/201031372078?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A8%D8%A7%D9%82%D8%A9%20%D9%85%D8%AF%D9%89%20%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%A9" data-wa-msg="عايز باقة مدى الحياة" data-track="lp-pricing-lifetime" target="_blank" rel="noopener noreferrer" class="btn btn-purple">اشتري مدى الحياة</a>
+        </div>
+
       </div>
-      <p class="lp-note"><a href="/#pricing" style="color:var(--teal-bright)">تفاصيل الباقات كاملة ←</a></p>
+      <div class="pricing-guarantees fade-up">
+        <div class="pg-item"><span class="pg-icon">💰</span><div><strong>ضمان استرداد ٣٠ يوم</strong><span>مش مناسبك؟ فلوسك ترجع كاملة بدون أسئلة</span></div></div>
+        <div class="pg-item"><span class="pg-icon">🚚</span><div><strong>نقل بياناتك مجاناً</strong><span>منتجاتك وعملاؤك ومورّدينك من نظامك القديم</span></div></div>
+        <div class="pg-item"><span class="pg-icon">🎓</span><div><strong>تركيب وتدريب مجاناً</strong><span>نركّب معاك ونعلّم كل موظفينك</span></div></div>
+      </div>
     </div>
   </section>
 
@@ -322,6 +404,22 @@
         <h2>عندك سؤال؟</h2>
       </div>
       <div class="faq-list fade-up">
+        <div class="faq-item">
+          <button class="faq-question">محتاج كمبيوتر عشان أستخدم البرنامج؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>أيوه. ELOS برنامج بيتثبت على كمبيوتر أو لابتوب المحل — ويندوز 10/11 أو ماك — وعليه بتبيع وبتسجّل كل حاجة، وبيشتغل من غير إنترنت. تطبيق الموبايل بيتربط بالبرنامج بالـ QR عشان تتابع المحل من أي مكان، لكنه مش بديل عن نسخة الكمبيوتر. لو بتتصفح من موبايلك دلوقتي سجّل بياناتك تحت وهنبعتلك لينك التحميل على واتساب.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">إيه اللي بيحصل بعد الـ 7 أيام التجربة؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>التجربة 7 أيام بكل المميزات ومن غير بطاقة ائتمان، فمفيش أي فلوس بتتسحب منك لوحدها. لو البرنامج مناسبك اختار الباقة السنوية (<span data-egp="2600" data-sar="220">2,600 ج.م</span>/سنة) أو مدى الحياة (<span data-egp="4000" data-sar="400">4,000 ج.م</span> مرة واحدة) وكلّمنا على واتساب عشان تشترك. ولو اشتركت ولقيته مش مناسبك، عندك ضمان استرداد ٣٠ يوم.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">البرنامج بيشتغل على الماك؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>أيوه — فيه نسخة للماك لأجهزة Apple Silicon (M1/M2/M3/M4) وأجهزة Intel، على macOS 10.15 وأحدث. حمّلها من <a href="/download">صفحة التحميل</a> واختار نوع جهازك. أول مرة تفتح البرنامج: كليك يمين عليه ← Open ← Open.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">التطبيق متاح على آيفون؟<span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>تطبيق الموبايل متاح دلوقتي على أندرويد (6.0 وأحدث) من Google Play. نسخة الآيفون بيتم تطويرها حالياً وهتنزل قريباً — تابعنا عشان تعرف أول ما تنزل. نسخة الكمبيوتر نفسها مالهاش علاقة بنوع موبايلك.</p></div>
+        </div>
         <div class="faq-item">
           <button class="faq-question">إيه الفرق بين برنامج محاسبة عام وبرنامج مخصوص لمحلات الموبايلات؟<span class="faq-arrow">▼</span></button>
           <div class="faq-answer"><p>البرنامج العام بيتعامل مع «صنف وكمية». محل الموبايلات بيبيع أجهزة كل واحد ليه IMEI ولون وذاكرة وحالة (جديد/مستعمل)، وبيصلّح، وبيبيع بالتقسيط. ELOS مبني على ده من الأول: كل جهاز بيتتبع بالـ IMEI من الشراء للبيع، والصيانة والأقساط جزء من النظام مش إضافة.</p></div>
@@ -483,11 +581,11 @@
         <div class="footer-col">
           <h4>روابط سريعة</h4>
           <ul>
-            <li><a href="/#features">المميزات</a></li>
-            <li><a href="/#pricing">الباقات</a></li>
-            <li><a href="/#download">التحميل</a></li>
+            <li><a href="#features">المميزات</a></li>
+            <li><a href="#pricing">الباقات</a></li>
+            <li><a href="#download">التحميل</a></li>
             <li><a href="/download">تحميل / تحديث البرنامج</a></li>
-            <li><a href="/#faq">أسئلة شائعة</a></li>
+            <li><a href="#faq">أسئلة شائعة</a></li>
           </ul>
         </div>
         <div class="footer-col">

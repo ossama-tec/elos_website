@@ -277,6 +277,42 @@
                 <input type="tel" name="phone" placeholder="01012345678" required inputmode="tel" autocomplete="tel-national" aria-label="رقم واتساب" maxlength="20">
               </div>
               <small class="phone-hint">اكتب الرقم من غير مفتاح الدولة — مثال: 01012345678</small>
+              <select name="has_pc" class="lead-select" aria-label="عندك كمبيوتر أو لابتوب في المحل؟">
+                <option value="">عندك كمبيوتر أو لابتوب في المحل؟ (اختياري)</option>
+                <option value="yes">أيوه عندي</option>
+                <option value="no">لسه — هجيب</option>
+              </select>
+              <select name="gov" class="lead-select" aria-label="المحافظة">
+                <option value="">المحافظة (اختياري)</option>
+                <option>القاهرة</option>
+                <option>الجيزة</option>
+                <option>الإسكندرية</option>
+                <option>القليوبية</option>
+                <option>الدقهلية</option>
+                <option>الشرقية</option>
+                <option>الغربية</option>
+                <option>المنوفية</option>
+                <option>البحيرة</option>
+                <option>كفر الشيخ</option>
+                <option>دمياط</option>
+                <option>بورسعيد</option>
+                <option>الإسماعيلية</option>
+                <option>السويس</option>
+                <option>الفيوم</option>
+                <option>بني سويف</option>
+                <option>المنيا</option>
+                <option>أسيوط</option>
+                <option>سوهاج</option>
+                <option>قنا</option>
+                <option>الأقصر</option>
+                <option>أسوان</option>
+                <option>البحر الأحمر</option>
+                <option>الوادي الجديد</option>
+                <option>مطروح</option>
+                <option>شمال سيناء</option>
+                <option>جنوب سيناء</option>
+                <option>خارج مصر</option>
+              </select>
               <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
               <small class="lead-error" role="alert" hidden></small>
               <button type="submit" class="btn btn-primary" data-track="lead-desktop">⬇️ احصل على نسخة الكمبيوتر</button>
@@ -310,7 +346,7 @@
              target="_blank" rel="noopener"
              class="btn btn-green"
              data-track="play-store-mobile">⬇️ حمّل من Google Play</a>
-          <small class="lead-note">حمّل التطبيق مباشرة من متجر جوجل بلاي — مجاناً</small>
+          <small class="lead-note">التطبيق بيتابع محلك من موبايلك — بيشتغل بعد ما تركّب نسخة الكمبيوتر وتربطه بيها بالـ QR</small>
         </div>
 
       </div>
