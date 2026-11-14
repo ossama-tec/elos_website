@@ -528,8 +528,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const hasPc = String(formData.get('has_pc') || '');
       const gov = String(formData.get('gov') || '').trim().slice(0, 40);
 
+      // نفس الـid بيروح للبيكسل (eventID) وللـCRM (event_id) — الـCRM بيبعت نفس الـLead لفيسبوك من السيرفر
+      // وفيسبوك بيعدّهم حدث واحد. الـLead نفسه لسه بيضرب هنا بس (تسجيل الفورم).
+      const leadEventId = 'lead-' + ((window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+        : Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 12));
+      const cookie = (k) => { const m = document.cookie.match(new RegExp('(?:^|; )' + k + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : ''; };
+
       trackEvent('lead_submitted', { platform, device: DEVICE, country: country.iso, has_pc: hasPc || 'na' });
-      if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'ELOS-' + platform, device: DEVICE, has_pc: hasPc || 'na' });
+      if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'ELOS-' + platform, device: DEVICE, has_pc: hasPc || 'na' }, { eventID: leadEventId });
 
       // 1) CRM — في الخلفية، مش بنستنى الرد
       sendLeadToCrm({
@@ -548,6 +554,9 @@ document.addEventListener('DOMContentLoaded', () => {
         page: location.href.slice(0, 200),
         t: PAGE_LOADED_AT,
         elapsed: Date.now() - PAGE_LOADED_AT,
+        event_id: leadEventId,                       // نفس eventID بتاع البيكسل (dedup)
+        fbp: cookie('_fbp').slice(0, 200),
+        fbc: cookie('_fbc').slice(0, 300),
         website: (formData.get('website') || '')   // honeypot — لازم يفضل فاضي
       }).then(ok => trackEvent('lead_crm_' + (ok ? 'saved' : 'failed'), { platform }));
 
