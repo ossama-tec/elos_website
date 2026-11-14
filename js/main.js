@@ -641,6 +641,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ── زرار التجربة الثابت تحت (موبايل) ──
+  // بيظهر لما زراير الهيرو تطلع برّه الشاشة، ويستخبى لما فورم التحميل (#download) يبان.
+  // لو شريط الكوكيز ظاهر بيطلع فوقه بدل ما يتغطى.
+  const stickyCta = document.querySelector('[data-sticky-cta]');
+  if (stickyCta && 'IntersectionObserver' in window) {
+    const heroBtns = document.querySelector('.hero .hero-buttons');
+    const dlSection = document.getElementById('download');
+    let heroVisible = true, dlVisible = false;
+    const syncSticky = () => {
+      const on = !heroVisible && !dlVisible;
+      stickyCta.classList.toggle('is-on', on);
+      document.body.classList.add('has-sticky-cta');
+      const cn = document.getElementById('cookieNotice');
+      const offset = cn && !cn.hidden ? cn.offsetHeight : 0;
+      stickyCta.style.setProperty('--sticky-cta-offset', offset + 'px');
+    };
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.target === heroBtns) heroVisible = en.isIntersecting;
+        if (en.target === dlSection) dlVisible = en.isIntersecting;
+      });
+      syncSticky();
+    });
+    if (heroBtns) io.observe(heroBtns); else heroVisible = false;
+    if (dlSection) io.observe(dlSection);
+    window.addEventListener('scroll', syncSticky, { passive: true });
+    document.addEventListener('click', e => { if (e.target && e.target.id === 'cookieAccept') setTimeout(syncSticky, 0); });
+    syncSticky();
+  }
+
   // ── Fade-In Animation on Scroll (Intersection Observer) ──
   const fadeElements = document.querySelectorAll('.fade-up');
 

@@ -106,7 +106,9 @@ picture { display: contents; }
    NAVIGATION
    ======================================== */
 /* ── V3.1 Announcement Bar ── */
-body { --announce-h: 42px; }
+/* المسافة دي للشريط بس — الصفحات اللي مافيهاش شريط (صفحات الهبوط وغيرها) كانت بتسيب 42px فاضيين فوق الناف */
+body { --announce-h: 0px; }
+body.has-announce { --announce-h: 42px; }
 body.announce-off { --announce-h: 0px; }
 
 .announce-bar {
@@ -3139,4 +3141,29 @@ body.dev-ios .download-card--mobile { display: none; }
 .currency-note button {
   background: none; border: 0; color: var(--teal-bright); font: inherit; font-weight: 700;
   cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 0;
+}
+
+/* ── زرار التجربة الثابت تحت على الموبايل (صفحات الهبوط) ──
+   بيظهر بعد ما زراير الهيرو تطلع برّه الشاشة، وبيستخبى لما فورم التحميل يبان.
+   من غير JS بيفضل مخفي (مايغطيش حاجة). */
+.sticky-cta { display: none; }
+@media (max-width: 768px) {
+  .sticky-cta {
+    display: block;
+    position: fixed;
+    inset-inline: 0;
+    bottom: var(--sticky-cta-offset, 0px);
+    z-index: 1100;
+    padding: 10px 16px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    background: rgba(6, 19, 29, 0.94);
+    border-top: 1px solid var(--glass-dark-brd);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateY(110%);
+    transition: transform 0.25s var(--ease), bottom 0.25s var(--ease);
+  }
+  .sticky-cta.is-on { transform: translateY(0); }
+  .sticky-cta .btn { width: 100%; padding: 12px 18px; }
+  body.has-sticky-cta .footer { padding-bottom: 84px; }
 }

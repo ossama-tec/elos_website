@@ -69,6 +69,29 @@
     .nf p { color: var(--mute); margin-bottom: 24px; }
     @media (max-width: 900px) { .lp-two { grid-template-columns: 1fr; } .lp-steps { grid-template-columns: repeat(2, 1fr); } .lp-price, .about-team { grid-template-columns: 1fr; max-width: 480px; } }
     @media (max-width: 560px) { .lp-steps { grid-template-columns: 1fr; } .lp-hero { padding-top: 120px; } .lp-cmp { font-size: 0.85rem; } }
+    /* صفحة الهبوط على الموبايل: الهيرو أقصر + صورة حقيقية في أول شاشة + زرار بعد كل بلوك */
+    .lp-hero .container { width: 100%; }
+    .lp-sub-short { display: none; }
+    .lp-hero-visual { position: relative; max-width: 760px; margin: 36px auto 0; }
+    .lp-hero-visual .hero-window { transform: none; max-width: none; }
+    .lp-hero-phone { position: absolute; bottom: -22px; left: -14px; width: 21%; max-width: 150px; z-index: 2; border-radius: 18px; background: #0a0e14; border: 1px solid #2a3148; padding: 3px; box-shadow: 0 18px 40px rgba(0,0,0,.45); transform: rotate(-4deg); }
+    .lp-hero-phone img { border-radius: 15px; }
+    .lp-section .section-cta, .problems .section-cta { margin-top: 30px; }
+    @media (max-width: 560px) {
+      .lp-hero { padding: 84px 0 44px; }
+      .lp-hero .section-badge { display: none; }
+      .lp-hero h1 { font-size: 1.72rem; margin-top: 0; }
+      .lp-hero .lp-sub { font-size: 1rem; line-height: 1.75; margin-bottom: 20px; }
+      .lp-sub-full { display: none; }
+      .lp-sub-short { display: inline; }
+      .lp-hero .hero-buttons { gap: 10px; }
+      .lp-hero .btn-lg { padding: 13px 22px; }
+      .lp-hero .hero-trust { margin-top: 14px; gap: 8px 12px; font-size: .8rem; }
+      .lp-hero-visual { margin-top: 22px; }
+      .lp-hero-phone { width: 24%; left: -4px; bottom: -14px; border-radius: 12px; padding: 2px; }
+      .lp-hero-phone img { border-radius: 10px; }
+      .lp-section .section-cta .btn, .problems .section-cta .btn { width: 100%; }
+    }
   </style>
 
   <!-- ════════ TRACKING ════════ -->
@@ -165,7 +188,7 @@
     <div class="container">
       <span class="section-badge">برنامج محاسبة محلات الموبايلات</span>
       <h1>برنامج محاسبة مصمم <em>لمحلات الموبايلات</em> — مش برنامج عام ومتلزّق عليه</h1>
-      <p class="lp-sub">كل جهاز بالـ IMEI من الشراء للبيع، إكسسوارات وقطع غيار، صيانة، أقساط، خزينة وتقارير يومية — على الويندوز وأوفلاين، وتطبيق موبايل يتابعلك المحل من أي مكان.</p>
+      <p class="lp-sub"><span class="lp-sub-full">كل جهاز بالـ IMEI من الشراء للبيع، إكسسوارات وقطع غيار، صيانة، أقساط، خزينة وتقارير يومية — على الويندوز وأوفلاين، وتطبيق موبايل يتابعلك المحل من أي مكان.</span><span class="lp-sub-short">كل جهاز بالـ IMEI، صيانة وأقساط وخزينة — على الويندوز وأوفلاين، وتتابع محلك من موبايلك.</span></p>
       <div class="hero-buttons">
         <a href="#download" class="btn btn-primary btn-lg" data-track="lp-hero-cta">جرب مجاناً 7 أيام</a>
         <a href="https://wa.me/201031372078" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg" data-track="lp-hero-whatsapp">اسأل على واتساب</a>
@@ -174,6 +197,20 @@
         <span><span class="check">✓</span> بدون بطاقة ائتمان</span><span class="dot"></span>
         <span><span class="check">✓</span> ضمان استرداد ٣٠ يوم</span><span class="dot"></span>
         <span><span class="check">✓</span> تركيب وتدريب مجاني</span>
+      </div>
+      <div class="lp-hero-visual">
+        <div class="hero-window">
+          <div class="hero-window-bar">
+            <span class="desktop-window-dot red"></span>
+            <span class="desktop-window-dot yellow"></span>
+            <span class="desktop-window-dot green"></span>
+            <span class="desktop-window-title">ELOS Accounting V4</span>
+          </div>
+          <picture><source media="(max-width: 768px)" srcset="/assets/screenshots/desktop/desktop-pos-m.webp" type="image/webp"><source srcset="/assets/screenshots/desktop/desktop-pos.webp" type="image/webp"><img width="1919" height="1028" loading="eager" fetchpriority="high" decoding="async" src="/assets/screenshots/desktop/desktop-pos.png" alt="شاشة نقطة البيع في برنامج ELOS على الكمبيوتر"></picture>
+        </div>
+        <div class="lp-hero-phone">
+          <picture><source media="(max-width: 768px)" srcset="/assets/screenshots/mobile/01_dashboard_enhanced-m.webp" type="image/webp"><source srcset="/assets/screenshots/mobile/01_dashboard_enhanced.webp" type="image/webp"><img width="1080" height="1920" decoding="async" src="/assets/screenshots/mobile/01_dashboard_enhanced.png" alt="الشاشة الرئيسية في تطبيق ELOS على الموبايل"></picture>
+        </div>
       </div>
     </div>
   </section>
@@ -207,6 +244,7 @@
           <p>المبيعات موجودة بس المصاريف والصيانة والمرتجعات في مكان تاني — الربح رقم تقريبي.</p>
         </div>
       </div>
+      <div class="section-cta"><a href="#download" class="btn btn-primary" data-track="lp-cta-problems">جرّب ELOS على محلك 7 أيام مجاناً</a></div>
     </div>
   </section>
 
@@ -219,6 +257,7 @@
         </div>
         <div><div class="desktop-gallery-frame"><picture><source media="(max-width: 768px)" srcset="/assets/screenshots/desktop/desktop-pos-m.webp" type="image/webp"><source srcset="/assets/screenshots/desktop/desktop-pos.webp" type="image/webp"><img width="1919" height="1028" loading="lazy" decoding="async" src="/assets/screenshots/desktop/desktop-pos.png" alt="شاشة نقطة البيع في برنامج ELOS لمحلات الموبايلات"></picture></div></div>
       </div>
+      <div class="section-cta"><a href="#download" class="btn btn-primary" data-track="lp-cta-pos">جرّب نقطة البيع مجاناً</a></div>
     </div>
   </section>
 
@@ -231,6 +270,7 @@
           <ul class="app-features-list"><li><span class="check-icon">✓</span> 3 أقسام: أجهزة، إكسسوارات، قطع غيار — ومخازن متعددة</li><li><span class="check-icon">✓</span> كل جهاز بلونه وذاكرته وحالته وسعر شرائه</li><li><span class="check-icon">✓</span> تنبيهات نقص المخزون ونقل بين المخازن والفروع</li><li><span class="check-icon">✓</span> جرد سريع بالباركود</li></ul>
         </div>
       </div>
+      <div class="section-cta"><a href="#download" class="btn btn-primary" data-track="lp-cta-inventory">جرّب المخزون بالـ IMEI مجاناً</a></div>
     </div>
   </section>
 
@@ -243,6 +283,7 @@
         </div>
         <div><div class="desktop-gallery-frame"><picture><source media="(max-width: 768px)" srcset="/assets/screenshots/desktop/desktop-reports-m.webp" type="image/webp"><source srcset="/assets/screenshots/desktop/desktop-reports.webp" type="image/webp"><img width="1919" height="1028" loading="lazy" decoding="async" src="/assets/screenshots/desktop/desktop-reports.png" alt="شاشة التقارير اليومية في ELOS"></picture></div></div>
       </div>
+      <div class="section-cta"><a href="#download" class="btn btn-primary" data-track="lp-cta-reports">اعرف ربحك الحقيقي — جرّب مجاناً</a></div>
     </div>
   </section>
 
@@ -253,6 +294,7 @@
         <h2>تبدأ تبيع في نفس اليوم</h2>
       </div>
       <div class="lp-steps stagger-children"><div class="lp-step fade-up"><b>1</b><h3>حمّل البرنامج</h3><p>ملف واحد لويندوز 10/11 — وبنركّبه معاك على واتساب</p></div><div class="lp-step fade-up"><b>2</b><h3>أدخل بيانات محلك</h3><p>الاسم والعنوان وإعدادات الطباعة</p></div><div class="lp-step fade-up"><b>3</b><h3>أضف منتجاتك</h3><p>أجهزة وإكسسوارات وقطع غيار — أو بننقلها من برنامجك القديم مجاناً</p></div><div class="lp-step fade-up"><b>4</b><h3>اربط موبايلك</h3><p>امسح QR وتابع المحل من أي مكان</p></div></div>
+      <div class="section-cta"><a href="#download" class="btn btn-primary" data-track="lp-cta-steps">ابدأ التجربة المجانية</a></div>
     </div>
   </section>
 
@@ -467,6 +509,10 @@
     <button class="lightbox-close" aria-label="إغلاق">×</button>
     <div class="lightbox-stage"><div class="lightbox-spinner"></div><img alt=""></div>
     <div class="lightbox-caption"></div>
+  </div>
+
+  <div class="sticky-cta" data-sticky-cta>
+    <a href="#download" class="btn btn-primary" data-track="lp-sticky-cta">جرّب ELOS مجاناً 7 أيام</a>
   </div>
 
   <div class="cookie-notice" id="cookieNotice" hidden>
