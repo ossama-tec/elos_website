@@ -117,7 +117,7 @@ TEMPLATE = '''<!DOCTYPE html>
   <title>الجديد في كل إصدار — سجل تحديثات ELOS</title>
   <meta name="description" content="سجل تحديثات برنامج ELOS لمحلات الموبايلات: كل إصدار وإيه اللي اتضاف واتصلح فيه. آخر إصدار {{LATEST}}.">
   <link rel="canonical" href="https://elos-system.com/changelog.html">
-  <meta name="theme-color" content="#06131d">
+  <meta name="theme-color" content="#f6f2ea">
   <meta property="og:title" content="سجل تحديثات ELOS — آخر إصدار {{LATEST}}">
   <meta property="og:description" content="كل إصدار من ELOS وإيه اللي اتضاف واتصلح فيه. التحديث بيوصل المستخدمين تلقائي جوه البرنامج.">
   <meta property="og:image" content="https://elos-system.com/assets/og-cover.jpg">
@@ -239,8 +239,8 @@ TEMPLATE = '''<!DOCTYPE html>
         <div class="footer-col">
           <h4>تواصل معنا</h4>
           <ul class="footer-contact">
-            <li><span class="contact-icon">💬</span><a href="https://wa.me/201031372078?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%B9%D9%86%D8%AF%D9%8A%20%D8%B3%D8%A4%D8%A7%D9%84%20%D8%B9%D9%86%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20ELOS" data-wa-msg="مرحباً، عندي سؤال عن برنامج ELOS" target="_blank" rel="noopener noreferrer" data-track="footer-whatsapp">01031372078</a></li>
-            <li><span class="contact-icon">📧</span><a href="mailto:support@elos-system.com">support@elos-system.com</a></li>
+            <li><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><a href="https://wa.me/201031372078?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%B9%D9%86%D8%AF%D9%8A%20%D8%B3%D8%A4%D8%A7%D9%84%20%D8%B9%D9%86%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20ELOS" data-wa-msg="مرحباً، عندي سؤال عن برنامج ELOS" target="_blank" rel="noopener noreferrer" data-track="footer-whatsapp">01031372078</a></li>
+            <li><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><a href="mailto:support@elos-system.com">support@elos-system.com</a></li>
           </ul>
         </div>
       </div>
