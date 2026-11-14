@@ -2992,3 +2992,18 @@ html.fx-on .fade-up { animation: none; }
 .lp-related .section-header { margin-bottom: 30px; }
 @media (max-width: 900px) { .lp-related-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .lp-related-grid { grid-template-columns: 1fr; } }
+
+/* ── شهادات العملاء الحقيقية (تعليقات فيسبوك): من غير نجوم ولا أرقام، وعلى الموبايل صف بيتسحب بالعرض ── */
+.tg-real .testimonial-card blockquote { font-size: 0.98rem; }
+@media (max-width: 992px) and (min-width: 769px) {
+  .testimonials-grid.tg-real { grid-template-columns: repeat(2, 1fr); max-width: none; }
+}
+@media (max-width: 768px) {
+  .testimonials-grid.tg-real {
+    display: flex; gap: 14px; max-width: none;
+    overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    padding: 4px 2px 14px;
+  }
+  .tg-real .testimonial-card { flex: 0 0 84%; scroll-snap-align: center; padding: 24px 20px; }
+  .tg-real .testimonial-card:hover { transform: none; }
+}
