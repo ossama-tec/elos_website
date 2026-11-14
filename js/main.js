@@ -733,6 +733,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Fade-In Animation on Scroll (Intersection Observer) ──
   const fadeElements = document.querySelectorAll('.fade-up');
+  // من هنا الـJS هو اللي بيظهّر .fade-up — بيلغي شبكة الأمان اللي في الـCSS (fade-up-failsafe)
+  document.documentElement.classList.add('fx-on');
 
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {

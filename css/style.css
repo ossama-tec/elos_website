@@ -3,6 +3,15 @@
    Anthropic-inspired editorial light theme
    ======================================== */
 
+/* خط واحد (Tajawal) بـ3 أوزان، مستضاف على الموقع نفسه — بدل خطين × 4 أوزان من Google Fonts.
+   600 بيتعرض 700 و800 بيتعرض 700. الملفات في /fonts (subsets عربي + لاتيني زي جوجل بالظبط). */
+@font-face { font-family: 'Tajawal'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/tajawal-400-arabic.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1; }
+@font-face { font-family: 'Tajawal'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/tajawal-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Tajawal'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/tajawal-500-arabic.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1; }
+@font-face { font-family: 'Tajawal'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/tajawal-500-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Tajawal'; font-style: normal; font-weight: 700; font-display: swap; src: url(../fonts/tajawal-700-arabic.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1; }
+@font-face { font-family: 'Tajawal'; font-style: normal; font-weight: 700; font-display: swap; src: url(../fonts/tajawal-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
 :root {
   /* Full-dark 2026 theme — token NAMES kept from the light theme so the
      whole file inherits the night palette without touching every rule:
@@ -60,8 +69,8 @@
   --radius-xl:   28px;
 
   /* System */
-  --display: 'IBM Plex Sans Arabic', 'Tajawal', system-ui, sans-serif;
-  --body:    'Tajawal', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --display: 'Tajawal', system-ui, sans-serif;
+  --body:    'Tajawal', system-ui, sans-serif;
   --radius:    14px;
   --radius-sm: 10px;
   --radius-lg: 22px;
@@ -334,14 +343,6 @@ body.announce-off .announce-bar {
   color: var(--night-mute);
   line-height: 1.75;
 }
-
-.whatsnew-note {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 0.95rem;
-  color: var(--night-mute);
-}
-.whatsnew-note strong { color: var(--teal-bright); font-weight: 700; }
 
 @media (max-width: 992px) {
   .whatsnew-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1031,81 +1032,6 @@ section {
    ======================================== */
 .features { background: var(--ivory); }
 
-.feature-detail {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-bottom: 90px;
-  padding: 50px 0;
-  border-bottom: 1px dashed var(--stone);
-}
-.feature-detail:last-of-type { border-bottom: none; margin-bottom: 50px; }
-.feature-detail.reverse { direction: ltr; }
-.feature-detail.reverse > * { direction: rtl; }
-
-.feature-detail-text h3 {
-  font-family: var(--display);
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.5px;
-  margin: 14px 0 22px;
-  color: var(--ink);
-}
-
-.feature-tag {
-  display: inline-block;
-  padding: 5px 14px;
-  border-radius: 100px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  background: var(--blue-soft);
-  color: #8fb8e0;
-  border: 1px solid rgba(106, 155, 204, 0.3);
-  letter-spacing: 0.3px;
-}
-
-.feature-list { margin-top: 8px; }
-
-.feature-list li {
-  position: relative;
-  padding: 11px 0 11px 0;
-  padding-right: 30px;
-  font-size: 1rem;
-  color: var(--ink-soft);
-  line-height: 1.7;
-  border-bottom: 1px solid var(--stone);
-}
-.feature-list li:last-child { border-bottom: none; }
-
-.feature-list li::before {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 18px;
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: var(--coral-soft);
-  border: 2px solid var(--coral);
-}
-
-.feature-detail-icon {
-  font-size: 7rem;
-  text-align: center;
-  background: var(--paper);
-  border: 1px solid var(--stone);
-  border-radius: var(--radius-lg);
-  padding: 70px 30px;
-  aspect-ratio: 1 / 1;
-  max-width: 380px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-1);
-}
-
 /* Features Grid */
 .features-grid {
   display: grid;
@@ -1351,60 +1277,7 @@ section {
   margin-top: 2px;
 }
 
-/* ========================================
-   DESKTOP SHOWCASE
-   ======================================== */
-.desktop-showcase {
-  background: var(--ivory);
-  position: relative;
-}
-
-.desktop-showcase-content {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 70px;
-  align-items: center;
-}
-
-.desktop-showcase-text h2 {
-  font-family: var(--display);
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
-  margin: 14px 0 22px;
-  color: var(--ink);
-}
-.desktop-showcase-text > p {
-  font-size: 1.1rem;
-  color: var(--mute);
-  margin-bottom: 28px;
-  line-height: 1.8;
-}
-
-/* Real-screenshot window frame */
-.desktop-window {
-  position: relative;
-  border-radius: 14px;
-  background: #fff;
-  border: 1px solid var(--stone);
-  padding: 0;
-  overflow: hidden;
-  box-shadow:
-    0 34px 74px rgba(20, 20, 19, 0.15),
-    0 10px 24px rgba(20, 20, 19, 0.08);
-}
-
-.desktop-window-bar {
-  background: linear-gradient(180deg, #f4f2ec 0%, #e9e6dd 100%);
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid var(--stone);
-  position: relative;
-}
-
+/* Window chrome dots (hero window frames) */
 .desktop-window-dot {
   width: 11px;
   height: 11px;
@@ -1426,12 +1299,6 @@ section {
   letter-spacing: 0.2px;
   font-family: var(--display);
   pointer-events: none;
-}
-
-.desktop-window img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 /* ========================================
@@ -1548,7 +1415,7 @@ section {
 .pricing-card.highlighted .pricing-features li::before { color: var(--teal-bright); }
 .pricing-card.highlighted h3 { color: var(--cream); }
 .pricing-card.highlighted .pricing-price { color: var(--cream); }
-.pricing-card.highlighted .pricing-duration { color: var(--mute-soft); }
+
 .pricing-card.highlighted .price-period { color: var(--mute-soft); }
 .pricing-card.highlighted .old-price { color: var(--mute); }
 
@@ -1775,14 +1642,6 @@ section {
   font-weight: 600;
   margin-bottom: 22px;
   letter-spacing: 0.3px;
-}
-
-.download-meta { margin-bottom: 26px; }
-.download-meta span {
-  display: block;
-  font-size: 0.88rem;
-  color: var(--mute);
-  padding: 4px 0;
 }
 
 .download-card .btn { width: 100%; }
@@ -2399,63 +2258,6 @@ section {
 }
 
 /* ========================================
-   RISK REVERSAL
-   ======================================== */
-.risk-reversal {
-  background: var(--ivory);
-  padding-top: 90px;
-  padding-bottom: 90px;
-}
-
-.risk-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.risk-card {
-  text-align: center;
-  padding: 36px 28px;
-  border-radius: var(--radius-lg);
-  background: var(--ivory);
-  border: 1px solid var(--stone);
-  transition: all var(--t);
-}
-.risk-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-2);
-  border-color: var(--coral);
-}
-
-.risk-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 18px;
-  border-radius: 50%;
-  background: var(--coral-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  border: 2px solid rgba(13, 148, 136, 0.25);
-}
-
-.risk-card h3 {
-  font-family: var(--display);
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--ink);
-  letter-spacing: -0.2px;
-}
-
-.risk-card p {
-  font-size: 0.95rem;
-  color: var(--mute);
-  line-height: 1.75;
-}
-
-/* ========================================
    LEAD-CAPTURE FORM (Download)
    ======================================== */
 .lead-form {
@@ -2892,7 +2694,12 @@ body.dev-ios .download-card--mobile { display: none; }
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  /* شبكة أمان: لو main.js ماوصلش أو وقع، المحتوى يظهر لوحده بعد 3 ثواني بدل ما يفضل مخفي.
+     main.js بيحط html.fx-on لما الـobserver يشتغل فالأنيميشن دي بتتلغي وبيرجع الظهور مع السكرول. */
+  animation: fade-up-failsafe 0.6s ease-out 3s forwards;
 }
+html.fx-on .fade-up { animation: none; }
+@keyframes fade-up-failsafe { to { opacity: 1; transform: none; } }
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
@@ -2912,9 +2719,9 @@ body.dev-ios .download-card--mobile { display: none; }
    RESPONSIVE
    ======================================== */
 @media (max-width: 1024px) {
-  .feature-detail { gap: 50px; }
+  
   .mobile-app-content { gap: 50px; }
-  .desktop-showcase-content { gap: 40px; }
+  
   .hero-grid { gap: 40px; }
   .hero-phone-overlay { width: 140px; left: -20px; bottom: -20px; }
   .nav-phone span { display: none; }
@@ -2944,7 +2751,7 @@ body.dev-ios .download-card--mobile { display: none; }
   .demo-video-text { text-align: center; }
   .demo-video-points li { justify-content: flex-start; max-width: 360px; margin: 0 auto; }
 
-  .risk-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  
   .testimonials-grid { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
 
   .comparison-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -2962,15 +2769,11 @@ body.dev-ios .download-card--mobile { display: none; }
   .mobile-app-content { grid-template-columns: 1fr; gap: 50px; }
   .mobile-app-visual { order: -1; min-height: 460px; }
 
-  .desktop-showcase-content { grid-template-columns: 1fr; gap: 40px; }
-  .desktop-showcase-visual { order: -1; }
+  
+  
 
-  .feature-detail, .feature-detail.reverse {
-    grid-template-columns: 1fr;
-    direction: rtl;
-    gap: 32px;
-  }
-  .feature-detail-icon { font-size: 4.5rem; padding: 50px 20px; }
+  
+  
 
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .desktop-gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -3089,7 +2892,6 @@ body.dev-ios .download-card--mobile { display: none; }
   .hero-window, .hero-phone-overlay, .phone-frame { transition: none; }
 }
 
-
 /* ── المرحلة 2 (2026-09-08): صفحة أقصر ── */
 .feature-card--main { border-color: rgba(45, 212, 191, 0.28); background: linear-gradient(180deg, rgba(13, 148, 136, 0.10), transparent 70%), var(--ivory); }
 .section-cta { text-align: center; margin-top: 36px; }
@@ -3138,10 +2940,6 @@ body.dev-ios .download-card--mobile { display: none; }
   background: rgba(45, 212, 191, 0.08); border: 1px solid rgba(45, 212, 191, 0.25); border-radius: 999px;
 }
 .currency-note[hidden] { display: none; }
-.currency-note button {
-  background: none; border: 0; color: var(--teal-bright); font: inherit; font-weight: 700;
-  cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 0;
-}
 
 /* ── زرار التجربة الثابت تحت على الموبايل (صفحات الهبوط) ──
    بيظهر بعد ما زراير الهيرو تطلع برّه الشاشة، وبيستخبى لما فورم التحميل يبان.
