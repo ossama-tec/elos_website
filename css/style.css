@@ -2982,3 +2982,13 @@ html.fx-on .fade-up { animation: none; }
 .lead-bridge-hint { font-size: 0.78rem !important; color: var(--mute-soft) !important; text-align: center; margin-top: 8px; }
 .lead-bridge-video { margin: 18px auto 0; max-width: 260px; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: #000; border: 1px solid var(--glass-dark-brd); }
 .lead-bridge-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* ── روابط «حلول تانية» بين صفحات الهبوط والمميزات ── */
+.lp-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.lp-related-card { display: block; padding: 18px 18px 16px; border: 1px solid var(--stone); border-radius: var(--radius-sm); background: var(--paper); transition: border-color var(--t), transform var(--t); }
+.lp-related-card:hover { border-color: rgba(45, 212, 191, 0.45); transform: translateY(-2px); }
+.lp-related-card b { display: block; font-family: var(--display); font-size: 1rem; color: var(--ink); margin-bottom: 4px; }
+.lp-related-card span { display: block; font-size: 0.85rem; color: var(--mute); line-height: 1.6; }
+.lp-related .section-header { margin-bottom: 30px; }
+@media (max-width: 900px) { .lp-related-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .lp-related-grid { grid-template-columns: 1fr; } }
