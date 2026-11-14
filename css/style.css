@@ -3167,3 +3167,20 @@ body.dev-ios .download-card--mobile { display: none; }
   .sticky-cta .btn { width: 100%; padding: 12px 18px; }
   body.has-sticky-cta .footer { padding-bottom: 84px; }
 }
+
+/* ── بعد التسجيل من الموبايل: الخطوات الجاية + ابعت اللينك لنفسك + الديمو (main.js addLeadBridge) ── */
+.lead-bridge { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--stone); text-align: right; }
+.lead-bridge h5 { font-family: var(--display); font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 10px; text-align: center; }
+.lead-next { list-style: none; counter-reset: ln; display: grid; gap: 10px; margin-bottom: 16px; }
+.lead-next li { counter-increment: ln; position: relative; padding-inline-start: 38px; font-size: 0.9rem; line-height: 1.7; color: var(--ink-soft); }
+.lead-next li::before {
+  content: counter(ln); position: absolute; inset-inline-start: 0; top: 1px;
+  width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--coral-soft); color: var(--teal-bright); font-weight: 800; font-family: var(--display); font-size: 0.85rem;
+}
+.lead-next b { color: var(--ink); }
+.lead-bridge-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.lead-bridge-actions .btn { flex: 1 1 140px; padding: 11px 14px; font-size: 0.9rem; }
+.lead-bridge-hint { font-size: 0.78rem !important; color: var(--mute-soft) !important; text-align: center; margin-top: 8px; }
+.lead-bridge-video { margin: 18px auto 0; max-width: 260px; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: #000; border: 1px solid var(--glass-dark-brd); }
+.lead-bridge-video iframe { width: 100%; height: 100%; border: 0; display: block; }

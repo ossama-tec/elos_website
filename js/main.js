@@ -448,6 +448,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ── بعد التسجيل من الموبايل: «إيه اللي جاي» + ابعت اللينك لنفسك + فيديو الديمو ──
+  // الزائر سجّل من التليفون وواتساب اتفتح في تاب تاني — لما يرجع للصفحة يلاقي الخطوات الجاية
+  // ولينك صفحة التحميل يبعته لنفسه عشان يفتحه من الكمبيوتر (نفس فكرة download.html).
+  const DL_PAGE_URL = 'https://elos-system.com/download';
+  const DEMO_VIDEO_URL = 'https://www.youtube-nocookie.com/embed/yjLsc4PhEOw?rel=0&modestbranding=1&playsinline=1';
+  function addLeadBridge(successMsg) {
+    if (successMsg.querySelector('.lead-bridge')) return;
+    const box = document.createElement('div');
+    box.className = 'lead-bridge';
+    box.innerHTML =
+      '<h5>إيه اللي جاي؟</h5>' +
+      '<ol class="lead-next">' +
+        '<li><b>هنكلمك على واتساب</b> خلال دقايق ونبعتلك لينك نسخة الكمبيوتر</li>' +
+        '<li><b>افتح اللينك من كمبيوتر المحل</b> (ويندوز 10/11 أو ماك) وثبّت البرنامج — والتركيب معانا مجاناً</li>' +
+        '<li><b>اربط موبايلك بالـ QR</b> وتابع محلك من أي مكان — 7 أيام تجربة بكل المميزات</li>' +
+      '</ol>' +
+      '<div class="lead-bridge-actions">' +
+        '<a class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-bridge="send-self">💬 ابعت اللينك لنفسك</a>' +
+        '<button type="button" class="btn btn-ghost" data-bridge="copy">📋 انسخ اللينك</button>' +
+      '</div>' +
+      '<p class="lead-bridge-hint">ابعت لينك صفحة التحميل لنفسك على واتساب وافتحه من الكمبيوتر</p>' +
+      '<div class="lead-bridge-video"><iframe loading="lazy" title="ELOS Demo — جولة في البرنامج" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>';
+    const send = box.querySelector('[data-bridge="send-self"]');
+    send.href = 'https://wa.me/?text=' + encodeURIComponent('لينك تحميل برنامج ELOS للكمبيوتر: ' + DL_PAGE_URL);
+    send.addEventListener('click', () => trackEvent('lead_bridge_send_self', { device: DEVICE }));
+    const copyBtn = box.querySelector('[data-bridge="copy"]');
+    const copied = () => { copyBtn.textContent = 'اتنسخ اللينك ✓'; setTimeout(() => { copyBtn.textContent = '📋 انسخ اللينك'; }, 2200); };
+    const fallbackCopy = () => {
+      const ta = document.createElement('textarea');
+      ta.value = DL_PAGE_URL; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      let ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) copied(); else copyBtn.textContent = DL_PAGE_URL;
+    };
+    copyBtn.addEventListener('click', () => {
+      trackEvent('lead_bridge_copy', { device: DEVICE });
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(DL_PAGE_URL).then(copied, fallbackCopy);
+      else fallbackCopy();
+    });
+    box.querySelector('iframe').src = DEMO_VIDEO_URL;
+    successMsg.appendChild(box);
+  }
+
   const leadForms = document.querySelectorAll('form[data-lead-form]');
   leadForms.forEach(form => {
     const phoneField = setupPhoneField(form);
@@ -545,8 +589,10 @@ document.addEventListener('DOMContentLoaded', () => {
           title.textContent = 'تمام! سجّلنا بياناتك';
           text.textContent = 'نسخة الكمبيوتر بتتحمّل من جهاز ويندوز أو ماك — هنبعتلك اللينك على واتساب ونساعدك في التركيب.';
         }
+        if (IS_MOBILE) addLeadBridge(successMsg);
         form.querySelector('.lead-fields').style.display = 'none';
         successMsg.style.display = 'block';
+        if (IS_MOBILE) window.scrollTo({ top: successMsg.getBoundingClientRect().top + window.scrollY - (navbar ? navbar.offsetHeight : 0) - 16 });
       }
     });
   });
