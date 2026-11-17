@@ -5,13 +5,13 @@
 //  ⚠️ اللينك ده بيتبعت من تطبيق الموبايل (ELOS 5.0) في واتساب — متغيّرش اسم الصفحة.
 // ═══════════════════════════════════════════════════════════════
 window.ELOS_DOWNLOAD = {
-  version: '4.1.1',
+  version: '4.1.2',
 
   windows: {
-    url: 'https://elos-downloads.ossama3abss.workers.dev/v4.1.1/ELOS-Accounting-V4-4.1.1-Setup.zip',                                   // لينك الـinstaller المباشر ('#' = الزرار مقفول)
-    fileName: 'ELOS-Accounting-V4-4.1.1-Setup.zip',
+    url: 'https://elos-downloads.ossama3abss.workers.dev/v4.1.2/ELOS-Accounting-V4-4.1.2-Setup.zip',                                   // لينك الـinstaller المباشر ('#' = الزرار مقفول)
+    fileName: 'ELOS-Accounting-V4-4.1.2-Setup.zip',
     size: '99 MB',                               // مثال: '128 MB'
-    date: '2026-11-06'                          // تاريخ الإصدار YYYY-MM-DD
+    date: '2026-11-17'                          // تاريخ الإصدار YYYY-MM-DD
   },
 
   // 🍎 نسخة الماك — release-mac.ps1 (في elos-accounting) بيحدّث اللينكين دول مع كل ريليز.

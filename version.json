@@ -1,7 +1,7 @@
 {
-  "latest": "4.1.1",
+  "latest": "4.1.2",
   "minSupported": "3.1.0",
-  "downloadUrl": "https://elos-downloads.ossama3abss.workers.dev/v4.1.1/ELOS-Accounting-V4-4.1.1-Setup.zip",
-  "notes": "تجهيز الكمبيوتر لتطبيق الموبايل 5.0: أرقام الموبايل بقت مطابقة لشاشات الكمبيوتر لكل فرع، وحساب لكل بائع على الموبايل من زرار «تفعيل موبايل للموظف»، والفاتورة المعلّقة (F4 / F5) اللي البائع بيبعتها من الموبايل والكاشير يدفعها، وQR ربط من غير باسورد، والحذف والمرتجعات على الأيام القديمة بقت بتوصل الموبايل.",
-  "sig": "pOCrquiZkUk91/CqZhur/qCOvWXP0Oj2dboXPgcJ9LRA7WGSMpo26uLd76qtlzfKJXsvYGlVRtLU7uBX3uazBQ=="
+  "downloadUrl": "https://elos-downloads.ossama3abss.workers.dev/v4.1.2/ELOS-Accounting-V4-4.1.2-Setup.zip",
+  "notes": "ملاحظة على الفاتورة، عدد دورات الشحن لأجهزة أبل المستعملة، سعر البيع التلقائي بنسبة الربح، تصدير Excel من المخازن، مرتجع من مبيعات قطع الغيار، الراتب الأسبوعي، ضمان الصيانة وسبب عدم الإصلاح في الواتساب، تقرير يومي بتفاصيل الأجهزة والأسماء، فاتورة المشتريات PDF للمورد على الواتساب، والجرد بالباركود وبحث المخازن من تطبيق الموبايل.",
+  "sig": "ftuN7sKSSpSDVfyEyKMeQuLDMZEBYrOPuT22Vxe7W1kvkPuVHx4vey/0uKYj6m90dS44mW7jRbPpvMr4OGyPAA=="
 }
