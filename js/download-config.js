@@ -19,8 +19,8 @@ window.ELOS_DOWNLOAD = {
   //    ⚠️ ممنوع تتسمّى url/version/size/date/fileName — release.ps1 بيستبدل
   //    أي مفتاح بالأسماء دي بلينك الويندوز.
   mac: {
-    arm64: 'https://elos-downloads.ossama3abss.workers.dev/v4.1.1/ELOS-Accounting-V4-4.1.1-arm64.dmg',
-    intel: 'https://elos-downloads.ossama3abss.workers.dev/v4.1.1/ELOS-Accounting-V4-4.1.1-x64.dmg'
+    arm64: 'https://elos-downloads.ossama3abss.workers.dev/v4.1.2/ELOS-Accounting-V4-4.1.2-arm64.dmg',
+    intel: 'https://elos-downloads.ossama3abss.workers.dev/v4.1.2/ELOS-Accounting-V4-4.1.2-x64.dmg'
   },
 
   // تطبيق الموبايل — لو اللينك فاضي ('') الزرار بيختفي
